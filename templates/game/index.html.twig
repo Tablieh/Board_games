@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Gamers!{% endblock %}
+
+{% block body %}
+    <h4>Please Saarch a game</h4>
+    <div class="form-group">
+        <input type="text" class="form-control mb-4" name="search" id="search" placeholder="search...">
+        <select name="games" id="games" class="from-control form-control-lg"></select>
+    </div>
+    <div class="game-info">
+        <img class="img" src="{{ asset("img/image.svg")}}" alt="image">
+        <div class="desc">
+            <h3 class="mt-0 mb-0" id="title"></h3>
+            <div class="infos">
+                <p class="players mb-0" id="players"></p>
+                <p class="minutes mb-0" id="minutes"></p>
+            </div>
+            <p class="text" id="text"></p>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script>
+        window.addEventListener('DomContentLoaded',(event) =>{
+            const search = document.querySelector('#search');
+            const select = document.querySelector('#games');
+            const img = document.querySelector('#gqme-img');
+            const title = document.querySelector('#title');
+            const p = document.querySelector('#text');
+            const players = document.querySelector('#players');
+            const minutes = document.querySelector('#minutes');
+        })
+        // a la sortie de l'input de recherche
+        search.addEventListener('focusout',(e) => {
+            // vider la liste déroulante
+            select.innerText = null;
+            e.preventDefault();
+            //valeur sqisie dans l'input
+            const searchValue = search.value;
+            console.log(searchValue);
+            // URL à fetch (HomeController)
+            const url = '/games';
+            fetch(url,{
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/x-www-form-urlencoded'
+                    'Accept':'*/*'
+                },
+                // parametre de lq route du controller (seqrchValue)
+                body: new URLSearchParams({
+                    'searchValue' : searchValue
+                })
+            })
+            // création des options du select 
+            .then(async (response) => {
+                const rep = await response.json();
+                // boucler sur les résultats de l'API 
+                for(r in rep["games"]){
+                    let option = document.createElement('option');
+                    option.innerText = rep["games"][r]["name"] + " (" + rep["games"][r]["year_published"] + ")";
+                    option.value = rep["games"][r]["id"];
+                    select.append(option);
+                }
+                console.log(rep["games"])
+            })
+        })
+        select.addEventListener('change', (e) => {
+            e.preventDefault();
+            const gameId = select.selectdeOptions[0].value
+            console.log(gameId)
+            const urlGame = '/game';
+            fetch(url,{
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/x-www-form-urlencoded'
+                    'Accept':'*/*'
+                },
+                // parametre de lq route du controller (seqrchValue)
+                body: new URLSearchParams({
+                    'gameId' : gameId
+                })
+            })
+            .then(asnc (response) => {
+                const rep = await response.json();
+                console.log(rep);
+                img.src = rep["games"][0]["images_url"] ? rep["games"][0]["images_url"] : '../img/image.svg';
+                p.innerHTML = rep["games"][0]["description"];
+                title.innerHTML = rep["games"][0]["name"];
+                players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["games"][0]["min_players"]+" to "+ rep["games"][0]["max_players"]+" players";
+                minutes.innerHTML = "<i class='fa-regular fa-clock'></i> "+rep["games"][0]["playtime"]+" min";
+            })
+        })
+{% endblock %}
