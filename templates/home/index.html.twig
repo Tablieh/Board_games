@@ -3,34 +3,85 @@
 {% block title %}Hello Gamers!{% endblock %}
 
 {% block body %}
+
+    <h2 class="mt-5">BoardGame~event API</h2>
+
     <h4>Please Saarch a game</h4>
     <div class="form-group">
-        <input type="text" class="form-control mb-4" name="search" id="search" placeholder="search...">
-        <select name="games" id="games" class="from-control form-control-lg"></select>
+        <input type="text" class="search" name="search" id="search" placeholder="search...">
+        <select name="games" id="games" class="select"></select>
     </div>
+
     <div class="game-info">
-        <img class="img" src="{{ asset("public/img/image.svg")}}" alt="image">
+        <img class="img" id="game-img" src="{{ asset("/img/image.svg") }}" alt="">
         <div class="desc">
-            <h3 class="mt-0 mb-0" id="title"></h3>
+            <h3 class="h3-desc" id="title"></h3>
             <div class="infos">
-                <p class="players mb-0" id="players"></p>
-                <p class="minutes mb-0" id="minutes"></p>
+                <p class="players" id="players"></p>
+                <p class="minutes" id="minutes"></p>
             </div>
             <p class="text" id="text"></p>
         </div>
     </div>
 {% endblock %}
+
 {% block javascript %}
     <script>
-        window.addEventListener('DomContentLoaded',(event) =>{
+        {# console.log(document.querySelector('#search'))
+        console.log(document.querySelector('#games'))
+        console.log(document.querySelector('#game-img'))
+        console.log(document.querySelector('#title'))
+        console.log(document.querySelector('#text'))
+        console.log(document.querySelector('#players'))
+        console.log(document.querySelector('#minutes')) #}
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // zone de recherche et liste déroulante
             const search = document.querySelector('#search');
             const select = document.querySelector('#games');
-            const img = document.querySelector('#gqme-img');
+            const img = document.querySelector('#game-img');
             const title = document.querySelector('#title');
             const p = document.querySelector('#text');
             const players = document.querySelector('#players');
             const minutes = document.querySelector('#minutes');
+            select.addEventListener('change', (e) => {
+                e.preventDefault();
+                const gameId = select.selectedOptions[0].value;
+
+
+                //console.log(gameId)
+
+
+                const urlGame = '/game';
+                fetch(urlGame, {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',                 
+                    'Accept': '*/*' 
+                    },            
+                    // paramètre de la route du controller (gameId)
+                    body: new URLSearchParams({
+                        'gameId' : gameId
+                    }) 
+            })
+            .then(async (response) => {
+                const rep = await response.json();
+
+                //console.log(rep);
+                
+                img.src = rep["games"]["image"] ? rep["games"]["image"] : '../img/image.svg';
+
+
+                //console.log(img.src);
+
+
+                p.innerHTML = rep["games"][0]["description"];
+                title.innerHTML = rep["games"][0]["name"];
+                players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["games"][0]["min_players"]+" to "+ rep["games"][0]["max_players"]+" players";
+                minutes.innerHTML = "<i class='fa-regular fa-clock'></i> "+rep["games"][0]["playtime"]+" min";
+            })
         })
+
         // a la sortie de l'input de recherche
         search.addEventListener('focusout',(e) => {
             // vider la liste déroulante
@@ -38,20 +89,24 @@
             e.preventDefault();
             //valeur sqisie dans l'input
             const searchValue = search.value;
-            console.log(searchValue);
+
+
+            //console.log(searchValue);
+
+
             // URL à fetch (HomeController)
             const url = '/games';
-            fetch(url,{
-                method: 'POST',
-                headers: {
-                    'Content-Type':'application/x-www-form-urlencoded'
-                    'Accept':'*/*'
-                },
-                // parametre de lq route du controller (seqrchValue)
-                body: new URLSearchParams({
-                    'searchValue' : searchValue
+                fetch(url, { 
+                    method: 'POST',
+                    headers: {
+                       'Content-Type': 'application/x-www-form-urlencoded',                 
+                       'Accept': '*/*' 
+                    },            
+                    // paramètre de la route du controller (searchValue)
+                    body: new URLSearchParams({
+                        'searchValue' : searchValue
+                    }) 
                 })
-            })
             // création des options du select 
             .then(async (response) => {
                 const rep = await response.json();
@@ -62,33 +117,13 @@
                     option.value = rep["games"][r]["id"];
                     select.append(option);
                 }
-                console.log(rep["games"])
+
+
+                //console.log(rep["games"])
+
+
             })
         })
-        select.addEventListener('change', (e) => {
-            e.preventDefault();
-            const gameId = select.selectdeOptions[0].value
-            console.log(gameId)
-            const urlGame = '/game';
-            fetch(url,{
-                method: 'POST',
-                headers: {
-                    'Content-Type':'application/x-www-form-urlencoded'
-                    'Accept':'*/*'
-                },
-                // parametre de lq route du controller (seqrchValue)
-                body: new URLSearchParams({
-                    'gameId' : gameId
-                })
-            })
-            .then(asnc (response) => {
-                const rep = await response.json();
-                console.log(rep);
-                img.src = rep["games"][0]["images_url"] ? rep["games"][0]["images_url"] : '../img/image.svg';
-                p.innerHTML = rep["games"][0]["description"];
-                title.innerHTML = rep["games"][0]["name"];
-                players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["games"][0]["min_players"]+" to "+ rep["games"][0]["max_players"]+" players";
-                minutes.innerHTML = "<i class='fa-regular fa-clock'></i> "+rep["games"][0]["playtime"]+" min";
-            })
         })
-{% endblock %}
+   </script>
+{% endblock javascript %}

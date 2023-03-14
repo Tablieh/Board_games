@@ -17,10 +17,14 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    #[Route('/games' , name: 'app_games', methods: ['POST'])]
+    public function displayGames(BGAHttpClient $bga , Request $request){
+        $search = $request->request->get('searchValue');
+        return new Response($bga->getGames($search));
+    }
     #[Route('/game' , name: 'app_game', methods: ['POST'])]
     public function displayGame(BGAHttpClient $bga , Request $request){
         $search = $request->request->get('gameId');
         return new Response($bga->getGame($search));
     }
 }
-?>

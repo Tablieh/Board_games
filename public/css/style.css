@@ -1,0 +1,57 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+}
+
+.img {
+    margin-top: 20px;
+    width: 350px;
+    /* height: 400px; */
+    object-fit: cover;
+    object-position: top;
+}
+
+.desc {
+    margin-top: 20px;
+    width: 50%;
+}
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    background: rgb(66, 66, 66);
+    color: #fff;
+    padding: 20px;
+    margin-top: 50px;
+}
+footer p {
+    margin-bottom: 0;
+}
+
+@media(max-width:750px) {
+    .game-info {
+        flex-direction: column;
+    }
+    .img {
+        width: 100%;
+        height: auto;
+    } 
+    
+    .desc {
+        width: 100%;
+    }
+}
