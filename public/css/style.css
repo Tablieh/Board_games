@@ -6,7 +6,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.h2-hello{
+    font-family: 'Great Vibes';
+}
 main {
     flex: 1 0 auto;
 }
