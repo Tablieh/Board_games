@@ -9,6 +9,9 @@ body {
 .h2-hello{
     font-family: 'Great Vibes';
 }
+.centre-home{
+    margin-left: 250px;
+}
 main {
     flex: 1 0 auto;
 }

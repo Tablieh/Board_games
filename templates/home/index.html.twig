@@ -3,26 +3,27 @@
 {% block title %}Hello Gamers!{% endblock %}
 
 {% block body %}
+    <div class="centre-home">
+        <h2 class="h2-hello">Welcome to BoardGame-events</h2>
+        <h4>Please Saarch a game</h4>
+        <div class="form-group">
+            <input type="text" class="search" name="search" id="search" placeholder="search...">
+            <select name="games" id="games" class="select"></select>
+        </div>
 
-    <h2 class="h2-hello">Welcome to BoardGame API</h2>
-
-    <h4>Please Saarch a game</h4>
-    <div class="form-group">
-        <input type="text" class="search" name="search" id="search" placeholder="search...">
-        <select name="games" id="games" class="select"></select>
-    </div>
-
-    <div class="game-info">
-        <img class="img" id="game-img" src="{{ asset("/img/image.svg") }}" alt="">
-        <div class="desc">
-            <h3 class="h3-desc" id="title"></h3>
-            <div class="infos">
-                <p class="players" id="players"></p>
-                <p class="minutes" id="minutes"></p>
+        <div class="game-info">
+            <img class="img" id="game-img" src="{{ asset("/img/image.svg") }}" alt="">
+            <div class="desc">
+                <h3 class="h3-desc" id="title"></h3>
+                <div class="infos">
+                    <p class="players" id="players"></p>
+                    <p class="minutes" id="minutes"></p>
+                </div>
+                <p class="text" id="text"></p>
             </div>
-            <p class="text" id="text"></p>
         </div>
     </div>
+    
 {% endblock %}
 
 {% block javascript %}
@@ -69,10 +70,10 @@
 
                 //console.log(rep);
                 
-                img.src = rep["games"]["image"] ? rep["games"]["image"] : '../img/image.svg';
+                img.src = rep["games"][0]['image_url'] ?rep["games"][0]['image_url'] : '../img/image.svg';
 
 
-                //console.log(img.src);
+               console.log();
 
 
                 p.innerHTML = rep["games"][0]["description"];
