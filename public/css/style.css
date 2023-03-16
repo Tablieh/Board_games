@@ -6,11 +6,182 @@ body {
   display: flex;
   flex-direction: column;
 }
+.content {
+  margin-top: 90px;
+}
 .h2-hello {
   font-family: "Great Vibes";
 }
 .centre-home {
   margin-left: 250px;
+}
+img.logo {
+  margin-top: 10px;
+  /* opacity: 0.5; */
+  width: 195px;
+  height: 75px;
+  /* border-radius: 75px; */
+}
+.navbar-nav {
+  position: relative;
+}
+.navbar-left {
+  position: absolute;
+  margin: auto;
+  left: 0;
+}
+.navbar-right {
+  position: absolute;
+  margin: auto;
+  right: 0;
+}
+.navbar-blue {
+  background: rgba(124, 69, 129, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(124, 69, 129, 1) 12%,
+    rgba(124, 69, 129, 1) 31%,
+
+    rgba(194, 30, 173, 1) 58%,
+    rgba(169, 30, 199, 1) 80%,
+    rgba(34, 30, 158, 1) 95%
+  );
+}
+.container {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 12vh;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+}
+.navbar .menu-items {
+  display: flex;
+}
+.navbar .nav-container li {
+  list-style: none;
+}
+.navbar .nav-container a {
+  text-decoration: none;
+  color: #d4ebf9;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.navbar .nav-container a:hover {
+  font-weight: bolder;
+}
+
+.nav-container {
+  margin-top: 15px;
+  margin-right: 25px;
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.nav-container .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #eceff1;
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 50px;
+  box-shadow: inset 0 0 2000px #3c2f3d;
+  height: 35vh;
+  width: 180px;
+  transform: translate(+150%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-left: -190px;
+  padding-left: 80px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.navbar .menu-items li {
+  padding: 10px;
+  font-weight: 500;
+}
+
+.logo1 {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: #0e2431;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .logo {
+  display: none;
 }
 main {
   flex: 1 0 auto;

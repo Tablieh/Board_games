@@ -21,8 +21,53 @@
         {% endblock %}
     </head>
     <body>
-        <main class="container">
-            {% block body %}{% endblock %}
+    <nav>
+        <div class="navbar navbar-blue">
+        <div class="navbar-left">
+                <ul class="navbar-nav">
+                    <li >
+                        <img class="logo" src="{{asset("img/logo.png")}}" alt="logo">
+                    </li>
+                </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="container nav-container">
+                <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>  
+                <div class="logo1">
+                </div>
+                <div class="menu-items">
+                        {% if app.user %}
+                            {# si on veux on peut faire que le admin peut aller au activiter pour ajouter le marque etc
+                            {% if is_granted("ROLE_ADMIN") %}
+                            {% endif %}
+                            #}
+                            <li> <a href="{{path('app_home')}}">Acceuil</a></li>
+                            <li> <a href="{{path('app_home')}}">comment</a></li>
+                            <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
+                            
+                            
+                            <li><a href="{{path('app_logout')}}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ path('app_login') }}">Connexion</a></li>	
+                            <li><a href="{{path('app_register')}}">Inscription</a></li>
+                        {% endif %}
+                        </ul>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+        
+        <main class="content">
+            {% block body %}
+                
+            {% endblock %}
             {% block javascript %}{% endblock javascript %}
         </main>
         <footer>
