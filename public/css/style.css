@@ -1,7 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+header {
+  position: relative;
+}
 .content {
-  margin-top: 90px;
+  /* margin-top: 90px; */
 }
 .h2-hello {
+  margin-top: 90px;
   font-family: "Great Vibes";
 }
 .centre-home {
@@ -39,8 +48,9 @@ img.logo {
     rgba(34, 30, 158, 1) 95%
   );
 }
+
 .container {
-  max-width: 1050px;
+  max-width: 1075.2px;
   width: 90%;
   margin: auto;
   position: relative;
@@ -48,12 +58,6 @@ img.logo {
 .navbar {
   width: 100%;
   height: 12vh;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
 }
 .navbar .menu-items {
   display: flex;
@@ -83,10 +87,10 @@ img.logo {
   height: 32px;
   width: 32px;
   top: 20px;
-  left: 20px;
-  z-index: 5;
+  right: 20px;
   opacity: 0;
   cursor: pointer;
+  z-index: 3;
 }
 .nav-container .hamburger-lines {
   display: block;
@@ -94,7 +98,7 @@ img.logo {
   width: 32px;
   position: absolute;
   top: 17px;
-  left: 20px;
+  right: 20px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -120,20 +124,21 @@ img.logo {
   transition: transform 0.4s ease-in-out;
 }
 .navbar .menu-items {
-  padding-top: 50px;
+  position: relative;
+  z-index: 2;
+  padding: 15px;
+  padding-top: 10px;
   box-shadow: inset 0 0 2000px #3c2f3d;
-  height: 35vh;
-  width: 180px;
-  transform: translate(+150%);
+
+  transform: translate(+170%);
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-left: -190px;
-  padding-left: 80px;
+  margin-left: -200px;
   transition: transform 0.5s ease-in-out;
 }
 .navbar .menu-items li {
-  padding: 10px;
+  padding: 17px;
   font-weight: 500;
 }
 .logo1 {
@@ -183,17 +188,72 @@ footer {
   background: rgb(66, 66, 66);
   color: #fff;
   padding: 20px;
+  padding-right: 0;
+  padding-left: 0;
   margin-top: 50px;
 }
 footer p {
   margin-bottom: 0;
 }
 .video {
+  position: relative;
   width: 1520px;
-  height: 720px;
+  height: 520px;
   object-fit: cover;
 }
-
+.video-text {
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  top: 300px;
+  left: 650px;
+  color: #fff;
+}
+.video-text2 {
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  top: 360px;
+  left: 602px;
+  text-decoration: none;
+}
+.video-text2 > a {
+  color: #fff;
+  padding: 5px;
+  border: 1px solid #fff;
+}
+.video-text3,
+.video-text4 {
+  align-items: center;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  top: 390px;
+  left: 460px;
+  text-decoration: none;
+}
+.video-text4 {
+  top: 420px;
+  left: 565px;
+}
+.check {
+  border-bottom: 3px solid #c01eaf;
+  width: 280px;
+  margin-left: 600px;
+  margin-top: 35px;
+}
+.check-p {
+  text-align: center;
+  color: #811575;
+  font-family: "Open Sans";
+  margin: 0;
+  font-size: 23px;
+  font-weight: bolder;
+}
 @media (max-width: 750px) {
   .game-info {
     flex-direction: column;

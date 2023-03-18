@@ -1,9 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello homeController!{% endblock %}
+{% block title %}Acceuil{% endblock %}
 
 {% block body %}
     <video class="video" autoplay muted loop>
-            <source src="{{asset("../../public/vid/Gaming-3.mp4)")}}"type="video/mp4" />
+        <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>
+    <p class="video-text">Game + Events </p>
+    <div class="video-text2">
+    <a href="#">Join event</a>
+    <a href="#">Create event</a>
+    </div>
+    <p class="video-text3">Board game is a world renowned destination for games and adventure </p>
+    <p class="video-text4"> caves open to explore and experience daily.</p>
+    <div class="check">
+        <p class="check-p">CHECK OUT THE LATEST</p>
+    </div>
+    <div class="gallery">
+        <div>
+            <p class="titre-gallery"></p>
+            <img src="" alt="" class="img-gallery">
+            <p class="disc-gallery"></p>
+        </div>
+        <div>
+            <p class="titre-gallery"></p>
+            <img src="" alt="" class="img-gallery">
+            <p class="disc-gallery"></p>
+        </div>
+        <div>
+            <p class="titre-gallery"></p>
+            <img src="" alt="" class="img-gallery">
+            <p class="disc-gallery"></p>
+        </div>
+    </div>
 {% endblock %}

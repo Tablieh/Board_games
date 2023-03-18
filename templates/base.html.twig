@@ -27,9 +27,9 @@
             <div class="navbar navbar-blue">
                 <div class="navbar-left">
                         <ul class="navbar-nav">
-                            <li >
+                            <ol >
                                 <img class="logo" src="{{asset("img/logo.png")}}" alt="logo">
-                            </li>
+                            </ol>
                         </ul>
                 </div>
                 <div class="navbar-right">
@@ -49,8 +49,10 @@
                                 {% endif %}
                                 #}
                                 <li> <a href="{{path('app_home')}}">Acceuil</a></li>
-                                <li> <a href="{{path('app_home')}}">comment</a></li>
+                                <li> <a href="{{path('app_home')}}">Join event</a></li>
+                                <li> <a href="{{path('app_home')}}">Create event</a></li>
                                 <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
+                                <li> <a href="{{path('app_home')}}">Contact</a></li>
                                 <li><a href="{{path('app_logout')}}">Logout</a></li>
                             {% else %}
                                 <li><a href="{{ path('app_login') }}">Connexion</a></li>	
