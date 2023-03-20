@@ -1,0 +1,243 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\EventRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: EventRepository::class)]
+class Event
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date_event = null;
+
+    #[ORM\Column]
+    private ?int $places = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $adresse = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $cp = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $city = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $images = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $id_game = null;
+
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'participant')]
+    private Collection $participant;
+
+    #[ORM\ManyToOne(inversedBy: 'created')]
+    private ?User $created = null;
+
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class)]
+    private Collection $concern;
+
+    public function __construct()
+    {
+        
+        $this->participant = new ArrayCollection();
+        $this->concern = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDateEvent(): ?\DateTimeInterface
+    {
+        return $this->date_event;
+    }
+
+    public function setDateEvent(\DateTimeInterface $date_event): self
+    {
+        $this->date_event = $date_event;
+
+        return $this;
+    }
+
+    public function getPlaces(): ?int
+    {
+        return $this->places;
+    }
+
+    public function setPlaces(int $places): self
+    {
+        $this->places = $places;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+
+    public function setCp(string $cp): self
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(string $images): self
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function getIdGame(): ?string
+    {
+        return $this->id_game;
+    }
+
+    public function setIdGame(string $id_game): self
+    {
+        $this->id_game = $id_game;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getParticipant(): Collection
+    {
+        return $this->participant;
+    }
+
+    public function addParticipant(User $participant): self
+    {
+        if (!$this->participant->contains($participant)) {
+            $this->participant->add($participant);
+            $participant->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(User $participant): self
+    {
+        if ($this->participant->removeElement($participant)) {
+            $participant->removeParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function getCreated(): ?User
+    {
+        return $this->created;
+    }
+
+    public function setCreated(?User $created): self
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getConcern(): Collection
+    {
+        return $this->concern;
+    }
+
+    public function addConcern(Comment $concern): self
+    {
+        if (!$this->concern->contains($concern)) {
+            $this->concern->add($concern);
+            $concern->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConcern(Comment $concern): self
+    {
+        if ($this->concern->removeElement($concern)) {
+            // set the owning side to null (unless already changed)
+            if ($concern->getEvent() === $this) {
+                $concern->setEvent(null);
+            }
+        }
+
+        return $this;
+    }
+}

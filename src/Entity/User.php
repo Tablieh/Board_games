@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 50)]
     private ?string $pseudo = null;
+
+    #[ORM\ManyToMany(targetEntity: Event::class, inversedBy: 'participant')]
+    private Collection $participant;
+
+    #[ORM\OneToMany(mappedBy: 'created', targetEntity: Event::class)]
+    private Collection $created;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
+    private Collection $opinion;
+
+    public function __construct()
+    {
+        $this->participant = new ArrayCollection();
+        $this->created = new ArrayCollection();
+        $this->opinion = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -126,6 +144,90 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getParticipant(): Collection
+    {
+        return $this->participant;
+    }
+
+    public function addParticipant(Event $participant): self
+    {
+        if (!$this->participant->contains($participant)) {
+            $this->participant->add($participant);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipant(Event $participant): self
+    {
+        $this->participant->removeElement($participant);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getCreated(): Collection
+    {
+        return $this->created;
+    }
+
+    public function addCreated(Event $created): self
+    {
+        if (!$this->created->contains($created)) {
+            $this->created->add($created);
+            $created->setCreated($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreated(Event $created): self
+    {
+        if ($this->created->removeElement($created)) {
+            // set the owning side to null (unless already changed)
+            if ($created->getCreated() === $this) {
+                $created->setCreated(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getOpinion(): Collection
+    {
+        return $this->opinion;
+    }
+
+    public function addOpinion(Comment $opinion): self
+    {
+        if (!$this->opinion->contains($opinion)) {
+            $this->opinion->add($opinion);
+            $opinion->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOpinion(Comment $opinion): self
+    {
+        if ($this->opinion->removeElement($opinion)) {
+            // set the owning side to null (unless already changed)
+            if ($opinion->getUser() === $this) {
+                $opinion->setUser(null);
+            }
+        }
 
         return $this;
     }

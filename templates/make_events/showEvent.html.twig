@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<a class="lien_show" href="{{ path('insertion_index') }}" > Retour </a>
+        <div class="uk-container uk-container-small">
+        
+        <table class="uk-table uk-table-hover" >
+            <thead>
+                <tr>
+                    <th>NumeroPiece</th>
+                    <th>dateDeSaisie</th>
+                    <th>objetDeSaisie</th>
+                    <th>credit</th>
+                    <th>debit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ results.NumeroPiece }}</td>
+                    <td>{{ results.dateDeSaisie|date("d/m/Y") }}</td>
+                    <td>{{ results.objetDeSaisie }}</td> 
+                    <td>{{ results.credit|number_format(2, '.', ' ') }}</td>
+                    <td>{{ results.debit|number_format(2, '.', ' ') }}</td> 
+                </tr>
+            </tbody>
+        </table><br><br>
+        
+        </div>
+{% endblock %}

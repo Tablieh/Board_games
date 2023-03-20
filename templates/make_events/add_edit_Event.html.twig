@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="form" >
+        <a class="lien" href="{{ path('app_make_events') }}" > Retour </a>
+
+        {% if editMode %}
+            <h1 class="add">Modification d'un event<h1>
+        {% else %}
+            <h1 class="add">Votre table d'event:</h1>
+        {% endif %}
+                <h4>Please Saarch a game</h4>
+                <div class="form-group">
+                <input type="text" class="search" name="search" id="search" placeholder="search...">
+                <select name="games" id="games" class="select"></select>
+                </div>
+             <div class="form-add">{{ form(EventType) }}</div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            
+            // zone de recherche et liste déroulante
+            const search = document.querySelector('#search');
+            const select = document.querySelector('#games');
+
+            select.addEventListener('change', (e) => {
+                e.preventDefault();
+                const gameId = select.selectedOptions[0].value;
+
+
+                //console.log(gameId)
+
+
+                const urlGame = '/game';
+                fetch(urlGame, {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',                 
+                    'Accept': '*/*' 
+                    },            
+                    // paramètre de la route du controller (gameId)
+                    body: new URLSearchParams({
+                        'gameId' : gameId
+                    }) 
+            })
+            .then(async (response) => {
+                const rep = await response.json();
+            })
+        })
+
+        // a la sortie de l'input de recherche
+        search.addEventListener('focusout',(e) => {
+            // vider la liste déroulante
+            select.innerText = null;
+            e.preventDefault();
+            //valeur sqisie dans l'input
+            const searchValue = search.value;
+
+
+            //console.log(searchValue);
+
+
+            // URL à fetch (HomeController)
+            const url = '/games';
+                fetch(url, { 
+                    method: 'POST',
+                    headers: {
+                       'Content-Type': 'application/x-www-form-urlencoded',                 
+                       'Accept': '*/*' 
+                    },            
+                    // paramètre de la route du controller (searchValue)
+                    body: new URLSearchParams({
+                        'searchValue' : searchValue
+                    }) 
+                })
+            // création des options du select 
+            .then(async (response) => {
+                let option = ""
+                const rep = await response.json();
+                // boucler sur les résultats de l'API 
+                for(r in rep["games"]){
+                    option = document.createElement('option');
+                    option.classList.add("optionGame")
+                    option.innerText = rep["games"][r]["name"] + " (" + rep["games"][r]["year_published"] + ")";
+                    option.value = rep["games"][r]["id"];
+                    select.append(option);
+                    
+                }
+               /*
+                const options = document.querySelectorAll(".optionGame")
+                    //const choice = document.querySelector("#id_game");
+                    select.addEventListener("change", () => {
+                        console.log(select.value)
+                        const choice = select.value
+                    })
+                */
+                select.addEventListener("change", () => {
+                    const choice = select.value;
+                    const idGameField = document.querySelector("#event_id_game");
+                    idGameField.value = choice;
+                });
+
+            })
+        })
+        })
+
+   </script>
+{% endblock javascript %}
