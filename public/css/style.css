@@ -6,9 +6,6 @@
 header {
   position: relative;
 }
-.content {
-  /* margin-top: 90px; */
-}
 .h2-hello {
   margin-top: 90px;
   font-family: "Great Vibes";
@@ -48,7 +45,6 @@ img.logo {
     rgba(34, 30, 158, 1) 95%
   );
 }
-
 .container {
   max-width: 1075.2px;
   width: 90%;
@@ -118,7 +114,6 @@ img.logo {
 .nav-container .hamburger-lines .line2 {
   transition: transform 0.2s ease-in-out;
 }
-
 .nav-container .hamburger-lines .line3 {
   transform-origin: 0% 100%;
   transition: transform 0.4s ease-in-out;
