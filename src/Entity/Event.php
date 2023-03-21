@@ -237,7 +237,6 @@ class Event
                 $concern->setEvent(null);
             }
         }
-
         return $this;
     }
 }

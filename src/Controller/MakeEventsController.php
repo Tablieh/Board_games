@@ -13,17 +13,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MakeEventsController extends AbstractController
 {
-    #[Route('/make/events', name: 'app_make_events')]
+    #[Route('events', name: 'app_join_events')]
     public function index(ManagerRegistry $doctrine): Response
     {
         $events = $doctrine->getManager()
                 ->getRepository(Event::class)
                 ->findAll();
-    
-        return $this->render('make_events/index.html.twig', [
+        $result = $doctrine
+                ->getRepository(Event::class)
+                ->findBy([], ["id" => "ASC"]
+                    );
+        return $this->render('events/index.html.twig', [
             'events' => $events,
+            'results' => $result
         ]);
     }
+
     #[Route('/games' , name: 'app_games', methods: ['POST'])]
     public function displayGames(BGAHttpClient $bga , Request $request){
         $search = $request->request->get('searchValue');
@@ -57,10 +62,10 @@ class MakeEventsController extends AbstractController
             $entityManager->flush();
             //on redirige vers la liste des Event (Marque_list etant le nom de la route)
             $this->addFlash('success', 'the comment is well added !');
-            return $this->redirectToRoute("app_make_events");
+            return $this->redirectToRoute("app_join_events");
 
         }
-        return $this->render('make_events/add_edit_Event.html.twig', [
+        return $this->render('events/add_edit_Event.html.twig', [
             'EventType' => $form->createView(),
             'editMode'=> $Event->getId() !== null
         ]);
@@ -72,12 +77,10 @@ class MakeEventsController extends AbstractController
     {
 
         $entityManager = $doctrine->getManager();
-
-
         $entityManager->remove($event);
         $entityManager->flush();
         $this->addFlash('error', 'the comment is well deleted!');
-        return $this->redirectToRoute('app_make_events');
+        return $this->redirectToRoute('app_join_events');
 
     }
 
@@ -85,9 +88,10 @@ class MakeEventsController extends AbstractController
      * @Route("/event/{id}", name="Event_show", methods="GET")
      */
     
-    public function showEvent(Event $resultat): Response {
-        return $this->render('make_events/showEvent.html.twig', [
-            'resultat' => $resultat
+    public function showEvent(Event $results): Response {
+        //dd($results);
+        return $this->render('events/showEvent.html.twig', [
+            'results' => $results
         ]);
     }
 }

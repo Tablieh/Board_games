@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<a class="lien_show" href="{{ path('app_join_events') }}" > Retour </a>
+        <div class="uk-container uk-container-small">
+        <img src="{{ results.images}}" alt="img">
+        <table class="uk-table uk-table-hover" >
+            <thead>
+                <tr>
+                    <th>name</th>
+                     <th>date_event</th>
+                    <th>places</th>
+                    <th>description</th>
+                    <th>adresse</th>
+                    <th>GameID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ results.name }}</td>
+                    <td>{{ results.dateEvent|date("d/m/Y")}}</td>
+                    <td>{{ results.places }}</td> 
+                    <td>{{ results.description}}</td>
+                    <td>Adresse : {{ results.adresse}} & le CP : {{results.cp}} {{results.city}}</td> 
+                    <td>{{ results.idGame}}</td>
+                </tr>
+            </tbody>
+        </table><br><br>
+        
+        </div>
+{% endblock %}

@@ -3,6 +3,16 @@
   margin: 0;
   padding: 0;
 }
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+}
 header {
   position: relative;
 }
@@ -249,13 +259,103 @@ footer p {
   font-size: 23px;
   font-weight: bolder;
 }
-a.lien {
-  margin-top: 20px;
-}
 .form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+}
+.grip {
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-bottom: 30px;
+}
+i.fa-solid.fa-grip-lines {
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.grip-p {
+  margin: 0;
+  color: #c01eaf;
+}
+
+a.lien {
+}
+a.lien_show {
+}
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.box {
+  margin-left: 25px;
+  padding: 20px;
+  background-color: #d2c9e4;
+  width: 659px;
+}
+.date-box {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.box-up {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+}
+.box-left {
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #110a2b;
+}
+.box-img {
+  width: 200px;
+  height: 100px;
+}
+.adress-p {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  color: #565656;
+  width: 150px;
+}
+i.fa-solid.fa-hand-peace {
+  margin-left: 10px;
+  padding: 10px;
+  height: 40px;
+  width: 175px;
+  border: 3px solid #811575;
+  display: flex;
+  gap: 10px;
+}
+i.fa-solid.fa-hand-peace a {
+  color: #811575;
+  font-size: 16px;
+  font-weight: 700;
+}
+.box-name {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  color: #7a08b3;
+}
+.learn-more {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 3px solid #811575;
+  margin-left: 10px;
+}
+.learn-more a {
+  color: #811575;
 }
 @media (max-width: 750px) {
   .game-info {

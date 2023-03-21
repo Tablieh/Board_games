@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+        <div class="box_container">
+            <div class="grip">
+                <i class="fa-solid fa-grip-lines"> <p class="grip-p">All Event</p></i>
+            </div>
+            <div class="box-container">
+                {% for event in events %}
+                <div class="box">
+                    <div class="box-up">
+                        <div class="box-left">
+                            <div class="date-box">
+                                <p>{{ event.dateEvent|date("M")}}</p>
+                                <p>{{ event.dateEvent|date("d")}}</p>
+                            </div>
+                            <img class="box-img" src="{{ event.images}}" alt="img">
+                        </div>
+                        <div class="box-right">
+                            <div class="date-box">
+                                <p class="adress-p" >{{ event.adresse}}
+                                {{ event.cp}} {{ event.city}}</p>
+                                    <i class="fa-solid fa-hand-peace"><p><a href="#">Book a Place</a></p></i>
+                                    <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-dawn">
+                        {# <p>ID <a href="{{ path("Event_show",{'id':event.id}) }}"> {{ event.id }} </a></p> #}
+                        <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
+                        <p>{{ event.dateEvent|date("l,H:iA")}}</p>
+                    </div>
+                  
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="fa-solid fa-pen-to-square"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
+                        <a class="fa-solid fa-trash-can" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
