@@ -13,6 +13,10 @@ pre,
 ul {
   margin: 0;
 }
+ol,
+ul {
+  padding: 0;
+}
 header {
   position: relative;
 }
@@ -28,6 +32,7 @@ img.logo {
   /* opacity: 0.5; */
   width: 195px;
   height: 75px;
+  padding-left: 20px;
   /* border-radius: 75px; */
 }
 .navbar-nav {
@@ -199,6 +204,10 @@ footer {
 }
 footer p {
   margin-bottom: 0;
+  font-size: 15px;
+}
+.p-footer {
+  font-size: 12px;
 }
 .video {
   position: relative;
@@ -265,35 +274,35 @@ footer p {
   flex-direction: column;
 }
 .grip {
+  padding: 10px;
   margin-top: 20px;
-  margin-left: 25px;
+  margin-left: 50px;
   margin-bottom: 30px;
 }
 i.fa-solid.fa-grip-lines {
-  font-size: medium;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
 .grip-p {
+  font-size: 15px;
   margin: 0;
   color: #c01eaf;
 }
-
-a.lien {
-}
-a.lien_show {
-}
 .box-container {
+  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
 }
 .box {
-  margin-left: 25px;
-  padding: 20px;
+  padding: 12px;
+
   background-color: #d2c9e4;
-  width: 659px;
+  /*
+  box-shadow: inset -2px -2px 73px 21px rgba(165, 121, 165, 0.72); */
+  width: 520px;
+  border-radius: 10px;
 }
 .date-box {
   width: 50px;
@@ -305,11 +314,18 @@ a.lien_show {
   color: #fff;
 }
 .box-up {
+  margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
   height: 100px;
 }
+.box-dawn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .box-left {
+  margin-left: 10px;
   height: 100px;
   display: flex;
   flex-wrap: wrap;
@@ -320,21 +336,37 @@ a.lien_show {
   height: 100px;
 }
 .adress-p {
-  margin-left: 10px;
+  text-align: justify;
+  margin-left: 20px;
   font-size: 14px;
   font-weight: 700;
-  font-family: "Open Sans";
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #565656;
   width: 150px;
 }
+.time {
+  margin-left: 12px;
+}
+.admin {
+  margin-left: 15px;
+}
 i.fa-solid.fa-hand-peace {
-  margin-left: 10px;
+  margin-left: 20px;
   padding: 10px;
   height: 40px;
   width: 175px;
   border: 3px solid #811575;
   display: flex;
   gap: 10px;
+}
+i.fa-solid.fa-hand-peace:hover {
+  border: 3px solid #b729ba;
+}
+i.fa-solid.fa-hand-peace a:hover {
+  color: #b729ba;
+}
+i.fa-solid.fa-hand-peace a:hover {
+  text-decoration: none;
 }
 i.fa-solid.fa-hand-peace a {
   color: #811575;
@@ -347,15 +379,30 @@ i.fa-solid.fa-hand-peace a {
   font-family: "Open Sans";
   color: #7a08b3;
 }
+.box-name:hover {
+  color: #ad08b3;
+  text-decoration: none;
+}
 .learn-more {
   width: 120px;
   font-size: 16px;
   font-weight: 700;
   border: 3px solid #811575;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .learn-more a {
   color: #811575;
+}
+.learn-more:hover {
+  border: 3px solid #b729ba;
+}
+.learn-more a:hover {
+  text-decoration: none;
+  color: #b729ba;
+}
+a.lien {
+}
+a.lien_show {
 }
 @media (max-width: 750px) {
   .game-info {

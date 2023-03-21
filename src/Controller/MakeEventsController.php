@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\User;
 use App\Form\EventType;
 use App\HttpClient\BGAHttpClient;
 use Doctrine\Persistence\ManagerRegistry;
@@ -70,9 +71,8 @@ class MakeEventsController extends AbstractController
             'editMode'=> $Event->getId() !== null
         ]);
     }
-    /**
-     * @Route("/del/{id}", name="Event_del")
-     */
+    
+    #[Route('/del/{id}', name: 'Event_del')]
     public function del_edit(Event $event , ManagerRegistry $doctrine)
     {
 
@@ -84,14 +84,33 @@ class MakeEventsController extends AbstractController
 
     }
 
-    /**
-     * @Route("/event/{id}", name="Event_show", methods="GET")
-     */
-    
+    #[Route('/event/{id}', name: 'Event_show')]
     public function showEvent(Event $results): Response {
         //dd($results);
         return $this->render('events/showEvent.html.twig', [
             'results' => $results
         ]);
     }
+        #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
+    public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine): Response
+    {
+        $eventRepository = $doctrine->getRepository(Event::class);
+        $userRepository = $doctrine->getRepository(User::class);
+
+        $event = $eventRepository->find($id);
+        $user = $userRepository->find($userId);
+
+        if (!$event || !$user) {
+            throw $this->createNotFoundException();
+        }
+
+        $event->addParticipant($user);
+
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($event);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+    }
+
 }
