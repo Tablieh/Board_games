@@ -181,6 +181,7 @@ main {
   gap: 20px;
 }
 .img {
+  margin-left: 20px;
   margin-top: 20px;
   width: 350px;
   /* height: 400px; */
@@ -220,8 +221,8 @@ footer p {
   font-size: 17px;
   font-weight: 600;
   position: absolute;
-  top: 300px;
-  left: 650px;
+  top: 320px;
+  left: 680px;
   color: #fff;
 }
 .video-text2 {
@@ -230,10 +231,11 @@ footer p {
   font-weight: 600;
   position: absolute;
   top: 360px;
-  left: 602px;
+  left: 642px;
   text-decoration: none;
 }
 .video-text2 > a {
+  text-decoration: none;
   color: #fff;
   padding: 5px;
   border: 1px solid #fff;
@@ -246,18 +248,25 @@ footer p {
   font-size: 17px;
   font-weight: 600;
   position: absolute;
-  top: 390px;
-  left: 460px;
+  top: 395px;
+  left: 470px;
   text-decoration: none;
 }
 .video-text4 {
-  top: 420px;
-  left: 565px;
+  top: 415px;
+  left: 575px;
+}
+.lien-check {
+  position: absolute;
+  width: 200px;
+  height: 3px;
+  display: block;
+  margin-left: 660px;
+}
+span.lien-check {
+  background-color: #c01eaf;
 }
 .check {
-  border-bottom: 3px solid #c01eaf;
-  width: 280px;
-  margin-left: 600px;
   margin-top: 35px;
 }
 .check-p {
@@ -288,6 +297,7 @@ footer p {
   vertical-align: middle;
   margin-left: 5px;
 }
+.centre-home h4,
 .h4-form {
   margin-left: 20px;
   width: fit-content;
@@ -406,7 +416,7 @@ i.fa-solid.fa-grip-lines {
 .box {
   padding: 12px;
 
-  background-color: #d2c9e4;
+  background-color: #dfc9e4;
   /*
   box-shadow: inset -2px -2px 73px 21px rgba(165, 121, 165, 0.72); */
   width: 520px;
@@ -456,7 +466,11 @@ i.fa-solid.fa-grip-lines {
   margin-left: 12px;
 }
 .admin {
+  color: #b729ba;
   margin-left: 15px;
+}
+.admin:hover {
+  color: #811683;
 }
 i.fa-solid.fa-hand-peace {
   margin-left: 20px;
@@ -485,10 +499,10 @@ i.fa-solid.fa-hand-peace a {
   font-size: 14px;
   font-weight: 700;
   font-family: "Open Sans";
-  color: #7a08b3;
+  color: #b729ba;
 }
 .box-name:hover {
-  color: #ad08b3;
+  color: #811683;
   text-decoration: none;
 }
 .learn-more {
@@ -515,16 +529,30 @@ i.fa-solid.fa-hand-peace a {
   border-radius: 12px;
 }
 a.lien {
+  position: absolute;
+  top: 100px;
   margin-left: 150px;
   color: #b729ba;
   font-size: medium;
   font-family: "open sans";
+  font-weight: 700;
 }
 a.lien:hover {
   color: #eaa3eb;
   text-decoration: none;
 }
 a.lien_show {
+  position: absolute;
+  top: 100px;
+  margin-left: 150px;
+  color: #b729ba;
+  font-size: medium;
+  font-family: "open sans";
+  font-weight: 700;
+}
+a.lien_show:hover {
+  color: #eaa3eb;
+  text-decoration: none;
 }
 @media (max-width: 750px) {
   .game-info {
