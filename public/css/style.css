@@ -276,7 +276,7 @@ footer p {
 }
 .add {
   width: fit-content;
-  margin-left: 590px;
+  margin-left: 520px;
   font-size: 24px;
 }
 .drow {
@@ -288,7 +288,99 @@ footer p {
   vertical-align: middle;
   margin-left: 5px;
 }
+.h4-form {
+  margin-left: 20px;
+  width: fit-content;
+}
+.form-container,
+.form-content {
+  position: relative;
+  margin-left: 450px;
+}
+.form-content:before,
+.form-content:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 590px;
+  height: 100%;
+  border-right: 3px solid #8a8989;
+}
+.form-content:before {
+  width: 10px;
+}
 
+.form-content:after {
+  width: 20px;
+}
+.form-container:before,
+.form-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 35%;
+  height: 100%;
+  border-right: 3px solid #8a8989;
+}
+
+.form-container:before {
+  width: 10px;
+}
+.form-container:after {
+  width: 15px;
+}
+.form-group,
+.form-add {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  max-width: 500px;
+}
+.form-group {
+  padding: 0;
+}
+label {
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.form-add .line1 {
+  position: absolute;
+  width: 600px;
+  height: 3px;
+  display: block;
+}
+.form-add .line2 {
+  position: absolute;
+  width: 600px;
+  height: 3px;
+  display: block;
+}
+.form-add .line3 {
+  height: 5px;
+  display: block;
+}
+.form-add span.line1 {
+  background-color: #8a8989;
+}
+
+.form-add span.line2 {
+  background-color: #8a8989;
+}
+.form-add span.line1::after {
+  content: "";
+}
+
+.form-add span.line2::after {
+  content: "";
+}
+.select {
+  margin-left: 20px;
+}
+.search {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
 .grip {
   padding: 10px;
   margin-top: 20px;
@@ -416,7 +508,21 @@ i.fa-solid.fa-hand-peace a {
   text-decoration: none;
   color: #b729ba;
 }
+.btn {
+  margin-top: 20px;
+  margin-left: 480px;
+  background-color: #b729ba;
+  border-radius: 12px;
+}
 a.lien {
+  margin-left: 150px;
+  color: #b729ba;
+  font-size: medium;
+  font-family: "open sans";
+}
+a.lien:hover {
+  color: #eaa3eb;
+  text-decoration: none;
 }
 a.lien_show {
 }

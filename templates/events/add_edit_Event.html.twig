@@ -9,13 +9,55 @@
         {% else %}
            <p class="add">Board Game Event Register From<span class="drow"></span></p>
         {% endif %}
-                <h4>Please Saarch a game</h4>
-                <div class="form-group">
-                <input type="text" class="search" name="search" id="search" placeholder="search...">
-                <select name="games" id="games" class="select"></select>
+                <div class="form-container form-content">
+                    
+                    <div class="form-group">
+                    <h4 class="h4-form">Please Search a game</h4>
+                        <input type="text" class="search" name="search" id="search" placeholder="search...">
+                        <select name="games" id="games" class="select"></select>
+                    </div>
+                    <span></span>
+                    <div class="form-add">
+                        {{ form_start(EventType) }}
+                    
+                        {{ form_row(EventType.name, {'attr': {'class': 'input-field '}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.date_event, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.places, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.description, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.adresse, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.cp, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.city, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.images, {'attr': {'class': 'input-field'}}) }}
+                        <span class="line1"> </span>
+                        <span class="line3"> </span>
+                        <span class="line2"> </span>
+                        {{ form_row(EventType.id_game, {'attr': {'class': 'input-field'}}) }}
+                        {{ form_row(EventType.Valider, {'attr': {'class': 'uk-button uk-button-primary uk-button-small btn'}}) }}
+                        {{ form_end(EventType) }}
+                    </div>
                 </div>
-                <span></span>
-             <div class="form-add">{{ form(EventType) }}</div>
+                
     </div>
 {% endblock %}
 
