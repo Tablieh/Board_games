@@ -16,7 +16,11 @@
                                 <p>{{ event.dateEvent|date("M")}}</p>
                                 <p>{{ event.dateEvent|date("d")}}</p>
                             </div>
-                            <img class="box-img" src="{{ event.images}}" alt="img">
+                            {# {% if (event.images is null) %} #}
+                                <img class="box-img" src="{{ vich_uploader_asset(event, 'imageFile') }}">
+                            {# {% else %} #}
+                                {# <img  src="{{ event.images}}" alt="img"> #}
+                            {# {% endif %} #}
                         </div>
                         <div class="box-right">
                             <div class="date-box">

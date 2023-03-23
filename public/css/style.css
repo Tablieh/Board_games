@@ -522,9 +522,9 @@ i.fa-solid.fa-hand-peace a {
   text-decoration: none;
   color: #b729ba;
 }
-.btn {
+.btn-event {
   margin-top: 20px;
-  margin-left: 480px;
+  margin-left: 450px;
   background-color: #b729ba;
   border-radius: 12px;
 }
@@ -550,9 +550,26 @@ a.lien_show {
   font-family: "open sans";
   font-weight: 700;
 }
+h1.h3.mb-3.font-weight-normal.h1-log {
+  font-size: x-large;
+  font-family: "vibes";
+  font-weight: 700;
+  text-align: center;
+}
 a.lien_show:hover {
   color: #eaa3eb;
   text-decoration: none;
+}
+label.label,
+input#inputEmail.input,
+input#inputPassword.input {
+  margin-left: 450px;
+}
+.btn {
+  margin-left: 0px;
+  margin-top: 20px;
+  background-color: #b729ba;
+  border-radius: 12px;
 }
 @media (max-width: 750px) {
   .game-info {

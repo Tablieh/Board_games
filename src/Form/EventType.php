@@ -11,6 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EventType extends AbstractType
 {
@@ -29,7 +32,22 @@ class EventType extends AbstractType
             ->add('adresse', TextareaType::class)
             ->add('cp', TextareaType::class)
             ->add('city', TextareaType::class)
-            ->add('images', TextareaType::class)
+            /* ->add('images', TextareaType::class) */
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Images upload',
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            // add more valid MIME types here if needed
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid Images document',
+                    ])
+                ],
+            ])
             ->add('id_game', HiddenType::class, [
                     'data' => null, // this can be null or a default value
                 ])
