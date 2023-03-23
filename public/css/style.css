@@ -195,17 +195,40 @@ main {
 footer {
   flex-shrink: 0;
   width: 100%;
+  height: 20vh;
   text-align: center;
   background: rgb(66, 66, 66);
   color: #fff;
   padding: 20px;
-  padding-right: 0;
-  padding-left: 0;
   margin-top: 50px;
 }
 footer p {
   margin-bottom: 0;
   font-size: 15px;
+}
+.footer-part {
+  position: relative;
+}
+.footer-mid {
+  position: absolute;
+  top: 20px;
+  right: 45%;
+  display: flex;
+  flex-direction: column;
+}
+.footer-right {
+  position: absolute;
+  top: 20px;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+}
+.footer-left {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
 }
 .p-footer {
   font-size: 12px;
@@ -554,7 +577,7 @@ h1.h3.mb-3.font-weight-normal.h1-log {
   font-size: x-large;
   font-family: "vibes";
   font-weight: 700;
-  text-align: center;
+  margin-left: 450px;
 }
 a.lien_show:hover {
   color: #eaa3eb;
@@ -567,7 +590,31 @@ input#inputPassword.input {
 }
 .btn {
   margin-left: 0px;
-  margin-top: 20px;
+  background-color: #b729ba;
+  border-radius: 12px;
+  padding: 5px;
+}
+h1.h1-reg {
+  margin-left: 680px;
+  font-size: x-large;
+  font-family: "vibes";
+  font-weight: 700;
+}
+.reg-form {
+  margin-left: 550px;
+}
+#registration_form_plainPassword_first,
+#registration_form_plainPassword_second,
+.email-input,
+.pseudo-input {
+  margin-left: 150px;
+}
+#registration_form_agreeTerms {
+  margin-left: 20px;
+}
+.btn-reg {
+  padding: 5px;
+  margin-left: 270px;
   background-color: #b729ba;
   border-radius: 12px;
 }
