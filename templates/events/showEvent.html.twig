@@ -3,7 +3,7 @@
 {% block body %}
 <a class="lien_show" href="{{ path('app_join_events') }}" > Retour </a>
         <div class="uk-container uk-container-small">
-        <img src="{{ results.images}}" alt="img">
+        <img class="box-img2" src="{{ asset('img/' ~ results.imageName) }}" alt="{{ results.imageName }}">
         <table class="uk-table uk-table-hover" >
             <thead>
                 <tr>
