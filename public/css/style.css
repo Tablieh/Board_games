@@ -476,10 +476,7 @@ i.fa-solid.fa-grip-lines {
   width: 200px;
   height: 100px;
 }
-.box-img2 {
-  width: 500px;
-  height: 300px;
-}
+
 .adress-p {
   text-align: justify;
   margin-left: 20px;
@@ -621,6 +618,44 @@ h1.h1-reg {
   margin-left: 270px;
   background-color: #b729ba;
   border-radius: 12px;
+}
+.boxi {
+  margin-top: 100px;
+  margin-left: 10px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #110a2b;
+}
+.box-centre {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+}
+.show-mode {
+  margin-left: 20px;
+}
+.left-right {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: "vibes";
+  display: flex;
+  flex-wrap: wrap;
+  gap: 160px;
+}
+div.dateBox {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+img.boxImg {
+  width: 300px;
+  height: 200px;
 }
 @media (max-width: 750px) {
   .game-info {

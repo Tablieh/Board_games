@@ -2,30 +2,36 @@
 
 {% block body %}
 <a class="lien_show" href="{{ path('app_join_events') }}" > Retour </a>
-        <div class="uk-container uk-container-small">
-        <img class="box-img2" src="{{ asset('img/' ~ results.imageName) }}" alt="{{ results.imageName }}">
-        <table class="uk-table uk-table-hover" >
-            <thead>
-                <tr>
-                    <th>name</th>
-                     <th>date_event</th>
-                    <th>places</th>
-                    <th>description</th>
-                    <th>adresse</th>
-                    <th>GameID</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ results.name }}</td>
-                    <td>{{ results.dateEvent|date("d/m/Y")}}</td>
-                    <td>{{ results.places }}</td> 
-                    <td>{{ results.description}}</td>
-                    <td>Adresse : {{ results.adresse}} & le CP : {{results.cp}} {{results.city}}</td> 
-                    <td>{{ results.idGame}}</td>
-                </tr>
-            </tbody>
-        </table><br><br>
-        
+        <div class="box-centre">
+            <div class="boxi">
+                <div class="dateBox">
+                    <p>{{ results.dateEvent|date("M")}}</p>
+                    <p>{{ results.dateEvent|date("d")}}</p>
+                </div>
+                <img class="boxImg" src="{{ asset('img/' ~ results.imageName) }}" alt="{{ results.imageName }}">
+            </div>
+            <div class="show-mode">
+                <div class="show-up">
+                <div class="left-right">
+                    <p>{{ results.name }}</p>
+                    <p>{{ results.dateEvent|date("l,H:iA")}}</p>
+                </div>
+                    
+                    <p>places</p>
+                    <p>description</p>
+                    <p>adresse</p>
+                    <p>date_event</p>
+                    <p>GameID</p> 
+                </div>
+                <div class="show-down">
+                    
+                    
+                    <p>{{ results.places }}</p>
+                    <p>{{ results.description}}</p>
+                    <p>Adresse : {{ results.adresse}} & le CP : {{results.cp}} {{results.city}}</p>
+                    <p>{{ results.dateEvent|date("d/m/Y")}}</p>
+                    <p>{{ results.idGame}}</p> 
+                </div>
+            </div>
         </div>
 {% endblock %}
