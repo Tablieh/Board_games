@@ -85,10 +85,15 @@ class MakeEventsController extends AbstractController
     }
 
     #[Route('/event/{id}', name: 'Event_show')]
-    public function showEvent(Event $results): Response {
-        //dd($results);
+    public function showEvent(Event $event ,BGAHttpClient $bga): Response {
+        $gameId = $event->getIdGame();
+        // API
+        $resultat = $bga->getGame($gameId);
+        //$gameInfos = $resultat;
+        //dd($gameInfos);
         return $this->render('events/showEvent.html.twig', [
-            'results' => $results
+            'results' => $event,
+            'gameInfos' => json_decode($resultat, false)
         ]);
     }
         #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]

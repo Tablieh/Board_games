@@ -22,16 +22,14 @@
                             <div class="date-box">
                                 <p class="adress-p" >{{ event.adresse}}
                                 {{ event.cp}} {{ event.city}}</p>
-                               
-                                    <i class="fa-solid fa-hand-peace"><p> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></p></i>
-                                    <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</p>
+                                <i class="fa-solid fa-hand-peace"><p> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></p></i>
+                                <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</p>
                             </div>
                         </div>
                     </div>
                     <div class="box-dawn">
                         {# <p>ID <a href="{{ path("Event_show",{'id':event.id}) }}"> {{ event.id }} </a></p> #}
                         <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
-                            
                         {% set places_left = event.places - event.participant|length %}
                         {% if places_left < 0 %}
                         {% set places_left = 0 %}
@@ -39,10 +37,10 @@
                         <p>{{ places_left }} places left</p></p>
                     </div>
                         <p class="time">{{ event.dateEvent|date("l,H:iA")}}</p>
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
-                        <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
-                    {% endif %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
+                            <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                        {% endif %}
                 </div>
                 {% endfor %}
             </div>

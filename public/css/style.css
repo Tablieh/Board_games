@@ -177,17 +177,11 @@ main {
   flex: 1 0 auto;
 }
 .game-info {
+  margin-left: 10px;
   display: flex;
   gap: 20px;
 }
-.img {
-  margin-left: 20px;
-  margin-top: 20px;
-  width: 350px;
-  /* height: 400px; */
-  object-fit: cover;
-  object-position: top;
-}
+
 .desc {
   margin-top: 20px;
   width: 50%;
@@ -327,6 +321,7 @@ span.lien-check {
 }
 .form-container,
 .form-content {
+  padding: 10px;
   position: relative;
   margin-left: 450px;
 }
@@ -431,7 +426,7 @@ i.fa-solid.fa-grip-lines {
   color: #c01eaf;
 }
 .box-container {
-  margin-left: 50px;
+  margin-left: 180px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -568,7 +563,7 @@ a.lien:hover {
 a.lien_show {
   position: absolute;
   top: 100px;
-  margin-left: 150px;
+  margin-left: 190px;
   color: #b729ba;
   font-size: medium;
   font-family: "open sans";
@@ -621,11 +616,11 @@ h1.h1-reg {
 }
 .boxi {
   margin-top: 100px;
-  margin-left: 10px;
-  width: 400px;
+  margin-left: 140px;
+  width: 700px;
   height: 200px;
   display: flex;
-  flex-wrap: wrap;
+
   background-color: #110a2b;
 }
 .box-centre {
@@ -634,15 +629,16 @@ h1.h1-reg {
   margin-left: 200px;
 }
 .show-mode {
-  margin-left: 20px;
+  margin-left: 150px;
 }
 .left-right {
-  font-size: 25px;
+  padding: 10px;
+  font-size: 20px;
   font-weight: 700;
   font-family: "vibes";
   display: flex;
   flex-wrap: wrap;
-  gap: 160px;
+  gap: 135px;
 }
 div.dateBox {
   width: 100px;
@@ -654,8 +650,64 @@ div.dateBox {
   color: #fff;
 }
 img.boxImg {
-  width: 300px;
+  width: 900px;
   height: 200px;
+}
+.img {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 150px;
+  /* height: 400px; */
+  object-fit: cover;
+  object-position: top;
+}
+.img1 {
+  margin-left: -10px;
+  margin-top: 20px;
+  width: 150px;
+  /* height: 400px; */
+  object-fit: cover;
+  object-position: top;
+}
+.join-desc {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "vibes";
+  color: #414040;
+}
+.place-join i {
+  color: #811575;
+}
+.place-join a {
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "vibes";
+  color: #811575;
+  margin-left: 400px;
+  text-decoration: underline;
+}
+.Discripe {
+  width: 550px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "vibes";
+}
+.Postal {
+  padding: 10px;
+  padding-bottom: 0px;
+  width: 550px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "vibes";
+  color: #565656;
+}
+.Postal-line {
+  margin-left: 10px;
+  width: 700px;
+  content: " ";
+  color: #565656;
+  border-bottom: solid 2px #565656;
 }
 @media (max-width: 750px) {
   .game-info {
