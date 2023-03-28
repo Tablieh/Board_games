@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
-    public function index(EntityManagerInterface $em,ManagerRegistry $doctrine,EventRepository $Repo, Request $request , PaginatorInterface $paginator): Response
+    public function index(ManagerRegistry $doctrine,EventRepository $Repo, Request $request , PaginatorInterface $paginator): Response
     {
         /* $events = $doctrine->getManager()
                 ->getRepository(Event::class)

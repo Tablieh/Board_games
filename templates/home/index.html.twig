@@ -18,20 +18,47 @@
         <span class="lien-check"> </span>
     </div>
     <div class="gallery">
-        <div>
-            <p class="titre-gallery"></p>
-            <img src="" alt="" class="img-gallery">
-            <p class="disc-gallery"></p>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                    {% for laste in lastes %}
+                        <div class="swiper-slide">
+                            <div class="box1">
+                                <div class="box-left1">
+                                    <div class="date-box1">
+                                        <div class="date-left">
+                                            <p>{{ laste.dateEvent|date("M")}}</p>
+                                            <p>{{ laste.dateEvent|date("d")}}</p>
+                                        </div>
+                                        <div class="date-right">
+                                            <img class="box-img" src="{{ asset('img/' ~ laste.imageName) }}" alt="{{ laste.imageName }}">
+                                        </div>
+                                    </div>
+                                    <div class="box1-right">
+                                        <div class="adresse-box1">
+                                            <div class="first-adresse" >
+                                                <p><a class="box-name" href="{{ path("Event_show",{'id':laste.id}) }}"> {{laste.name }} </a></p>
+                                                {% set places_left = laste.places - laste.participant|length %}
+                                                {% if places_left < 0 %}
+                                                {% set places_left = 0 %}
+                                                {% endif %}
+                                                <p>{{ places_left }} places left</p>
+                                            </div>
+                                            <p class="adress-p1" >{{ laste.adresse}}
+                                                {{ laste.cp}} {{ laste.city}}</p>
+                                            <p>{{ laste.dateEvent|date("H:iA")}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div>
-            <p class="titre-gallery"></p>
-            <img src="" alt="" class="img-gallery">
-            <p class="disc-gallery"></p>
-        </div>
-        <div>
-            <p class="titre-gallery"></p>
-            <img src="" alt="" class="img-gallery">
-            <p class="disc-gallery"></p>
-        </div>
+    
     </div>
 {% endblock %}
+
