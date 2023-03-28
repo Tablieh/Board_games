@@ -2,28 +2,37 @@
 
 namespace App\Controller;
 
-use App\Entity\Event;
 use App\Entity\User;
+use App\Entity\Event;
 use App\Form\EventType;
 use App\HttpClient\BGAHttpClient;
+use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(EntityManagerInterface $em,ManagerRegistry $doctrine,EventRepository $Repo, Request $request , PaginatorInterface $paginator): Response
     {
-        $events = $doctrine->getManager()
+        /* $events = $doctrine->getManager()
                 ->getRepository(Event::class)
-                ->findAll();
+                ->findAll(); */
         $result = $doctrine
                 ->getRepository(Event::class)
-                ->findBy([], ["id" => "ASC"]
+                ->findBy([], ["id" => "DESC"]
                     );
+        $events = $paginator->paginate(
+            //$Repo->pagintationQuery(),
+            $result,
+            $request->query->getInt('page', 1),10
+
+        );
         return $this->render('events/index.html.twig', [
             'events' => $events,
             'results' => $result
