@@ -48,7 +48,8 @@
                                 <li> <a href="{{path('app_join_events')}}">Join event</a></li>
                                 <li> <a href="{{path('Event_add')}}">Create event</a></li>
                                 <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
-                                <li> <a href="{{path('app_home')}}">Contact</a></li>
+                                {# <li> <a href="{{path('Contact')}}">Contact</a></li> #}
+                                <li><a href="{{ path('app_home') }}#Contact">Contact</a></li>
                                 <li><a href="{{path('app_logout')}}">Logout</a></li>
                             {% else %}
                                 <li><a href="{{ path('app_login') }}">Connexion</a></li>	
