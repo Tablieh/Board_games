@@ -1023,6 +1023,17 @@ div.comment {
 .form-comment {
   margin-bottom: 20px;
 }
+p .notice {
+  margin-bottom: 120px;
+}
+.flash-messages {
+  margin-bottom: 20px;
+  position: fixed;
+  top: 200;
+  left: 65%;
+  right: 0;
+  z-index: 100;
+}
 @media (max-width: 750px) {
   .game-info {
     flex-direction: column;

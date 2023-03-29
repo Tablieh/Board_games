@@ -63,6 +63,14 @@
     </nav>
     {% endif %}
     </header>
+    <div class="flash-messages">
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <p class="notice"><i class="fa-solid fa-triangle-exclamation"></i>{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
         <main class="content">
             {% block body %}
                 

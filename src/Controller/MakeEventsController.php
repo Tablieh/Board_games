@@ -72,7 +72,7 @@ class MakeEventsController extends AbstractController
             $entityManager->persist($Event);
             $entityManager->flush();
             //on redirige vers la liste des Event (Marque_list etant le nom de la route)
-            $this->addFlash('success', 'the comment is well added !');
+            $this->addFlash('success', 'the Event is well added !');
             return $this->redirectToRoute("app_join_events");
 
         }
@@ -89,7 +89,7 @@ class MakeEventsController extends AbstractController
         $entityManager = $doctrine->getManager();
         $entityManager->remove($event);
         $entityManager->flush();
-        $this->addFlash('error', 'the comment is well deleted!');
+        $this->addFlash('error', 'the Event is well deleted!');
         return $this->redirectToRoute('app_join_events');
 
     }
