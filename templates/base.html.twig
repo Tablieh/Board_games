@@ -13,12 +13,12 @@
             <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
             <link rel="stylesheet" href="{{ asset("css/style.css") }}">
         {% endblock %}
-
         
     </head>
     
     <body>
     <header>
+    {% if app.request.attributes.get('_route') != 'app_home' %}
         <nav>
             <div class="navbar navbar-blue">
                 <div class="navbar-left">
@@ -60,6 +60,7 @@
             </div>
         </div>
     </nav>
+    {% endif %}
     </header>
         <main class="content">
             {% block body %}
@@ -67,7 +68,7 @@
             {% endblock %}
             {% block javascript %}{% endblock javascript %}
         </main>
-        <footer>
+        <footer class="footer">
             <div class="footer-part">
 
                 <div class="footer-right">
@@ -98,9 +99,9 @@
         </footer>
         {% block javascripts %}
             <script src="https://kit.fontawesome.com/7d334a9241.js" crossorigin="anonymous"></script>
-              <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
-             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script>
                 var swiper = new Swiper(".mySwiper", {
                 slidesPerView: 1,
@@ -115,6 +116,24 @@
                     prevEl: ".swiper-button-prev",
                 },
                 });
+                // get the current page path
+                var currentPath = window.location.pathname;
+
+                // check if it's the login page
+                if (currentPath === "/login") {
+                // if it is, set the footer position to absolute and bottom 0
+                document.querySelector(".footer").style.marginTop = "330px";
+                document.querySelector(".content").style.marginTop = "50px";
+                }
+                // get the current page path
+                var currentPath = window.location.pathname;
+
+                // check if it's the login page
+                if (currentPath === "/register") {
+                // if it is, set the footer position to absolute and bottom 0
+                document.querySelector(".footer").style.marginTop = "140px";
+                document.querySelector(".content").style.marginTop = "50px";
+                }
             </script>
 
         {% endblock %}

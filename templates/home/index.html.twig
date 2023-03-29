@@ -1,18 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Acceuil{% endblock %}
-
 {% block body %}
+        <nav>
+            <div class="navbar navbar-blue nav-home">
+                <div class="navbar-right">
+                    <div class="container nav-container">
+                        <input class="checkbox" type="checkbox" name="" id="" />
+                        <div class="hamburger-lines">
+                            <span class="line line1"></span>
+                            <span class="line line2"></span>
+                            <span class="line line3"></span>
+                        </div>  
+                        <div class="logo1">
+                        </div>
+                        <div class="menu-items">
+                            {% if app.user %}
+                                {# si on veux on peut faire que le admin peut aller au activiter pour ajouter le marque etc
+                                {% if is_granted("ROLE_ADMIN") %}
+                                {% endif %}
+                                #}
+                                <li> <a href="{{path('app_home')}}">Acceuil</a></li>
+                                <li> <a href="{{path('app_join_events')}}">Join event</a></li>
+                                <li> <a href="{{path('Event_add')}}">Create event</a></li>
+                                <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
+                                <li> <a href="{{path('app_home')}}">Contact</a></li>
+                                <li><a href="{{path('app_logout')}}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{{ path('app_login') }}">Connexion</a></li>	
+                                <li><a href="{{path('app_register')}}">Inscription</a></li>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <video class="video" autoplay muted loop>
         <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>
+    {% if is_granted("ROLE_USER") %}
     <p class="video-text">Game + Events </p>
     <div class="video-text2">
-    <a href="{{path('app_join_events')}}">Join event</a>
-    <a href="{{path('Event_add')}}">Create event</a>
+        <a href="{{path('app_join_events')}}">Join event</a>
+        <a href="{{path('Event_add')}}">Create event</a>
     </div>
+    {% endif %}
+    {% if is_granted('ROLE_USER') == false %}
+        <p class="video-not">PLS Connect To Use Our Site </p>
+        <div class="video-not1">
+            <a class="video-notA" href="{{ path('app_login') }}">Connexion</a>
+        </div>
+    {% endif %}
+    {% if is_granted("ROLE_USER") %}
     <p class="video-text3">Board game is a world renowned destination for games and adventure </p>
     <p class="video-text4"> caves open to explore and experience daily.</p>
+     
+                                
     <div class="check">
         <p class="check-p">CHECK OUT THE LATEST</p>
         <span class="lien-check"> </span>
@@ -22,7 +66,7 @@
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                     {% for laste in lastes %}
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" id="event-{{ laste.id }}">
                             <div class="box1">
                                 <div class="box-left1">
                                     <div class="date-box1">
@@ -58,7 +102,58 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
+    </div>
     
+    <div class="back">
+            <div class="parallax">
+                <div class="demo">
+                    <h3 class="h3-demo">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
+                    <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
+                    <div class="parallax-felx">
+                        <input placeholder="Type Your Email " type="text">
+                        <button type="submit" class="start">JOIN THE UNDERGROUND</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="FEATURED-SHOWS">
+        <div class="FEA">
+        <p class="FEA-titre">FEATURED SHOWS</p>
+        <span class="lien-check FEA-span"> </span>
+            <p class="FEA-p">Check out our lineup and packages and curate your trip to The Events Game.</p>
+            <p class="FEA-p1"> Click on the "View All" button to see our full line-up.</p>
+            <p class="FEA-p2"> Remember any day below ground is a good day.</p>
+        </div>
+        {% if is_granted("ROLE_USER") %}
+        <a class="FEA-a">VIEW ALL </a>
+        {% endif %}
     </div>
 {% endblock %}
+{% block javascript %}
+    <script>
+    // get the current page path
+    var currentPath = window.location.pathname;
+
+    // check if it's the home index page
+    if (currentPath === "/home") {
+    // if it is, set the navbar height to 0
+    document.querySelector(".navbar").style.height = "0";
+    } else {
+    // if it's not, set the navbar height to its default value
+    document.querySelector(".navbar").style.height = "60px"; // replace with your actual navbar height
+    }
+    var slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(function(slide) {
+        var eventId = slide.getAttribute('id').replace('event-', '');
+        slide.addEventListener('click', function() {
+            window.location.href = '{{ path("Event_show", {"id": "EVENT_ID"}) }}'.replace('EVENT_ID', eventId);
+        });
+    });
+</script>
+
+{% endblock %}
+
+
 

@@ -49,7 +49,7 @@ img.logo {
   right: 0;
 }
 .navbar-blue {
-  background: rgba(124, 69, 129, 1);
+  background: rgb(32, 31, 32);
   background: linear-gradient(
     90deg,
     rgba(124, 69, 129, 1) 12%,
@@ -59,6 +59,9 @@ img.logo {
     rgba(169, 30, 199, 1) 80%,
     rgba(34, 30, 158, 1) 95%
   );
+}
+.nav-home {
+  background: none;
 }
 .container {
   max-width: 1075.2px;
@@ -229,7 +232,7 @@ footer p {
 }
 .video {
   position: relative;
-  width: 1520px;
+  width: 1540px;
   height: 520px;
   object-fit: cover;
 }
@@ -241,6 +244,30 @@ footer p {
   top: 320px;
   left: 680px;
   color: #fff;
+}
+.video-not {
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  top: 310px;
+  left: 670px;
+  color: #fff;
+}
+.video-not1 {
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  top: 360px;
+  left: 722px;
+  color: #fff;
+}
+.video-notA {
+  padding: 10px;
+  border: solid 3px #ffffff;
+  text-decoration: none;
+  color: #ffffff;
 }
 .video-text2 {
   font-family: "Open Sans";
@@ -456,6 +483,7 @@ i.fa-solid.fa-grip-lines {
   height: 100px;
 }
 .box-dawn {
+  width: 290px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -633,12 +661,17 @@ h1.h1-reg {
 }
 .left-right {
   padding: 10px;
+  padding-left: 0;
+
   font-size: 20px;
   font-weight: 700;
   font-family: "vibes";
   display: flex;
   flex-wrap: wrap;
   gap: 135px;
+}
+.swiper-slide:hover {
+  cursor: pointer;
 }
 div.dateBox {
   width: 100px;
@@ -799,6 +832,7 @@ body {
 }
 .gallery {
   margin-top: 80px;
+  margin-bottom: 30px;
 }
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
@@ -810,6 +844,102 @@ body {
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
   bottom: var(--swiper-pagination-bottom, 0px);
+}
+.back {
+  background-image: url("/img/Gaming-2.jpg");
+  /* Set a specific height */
+  min-height: 500px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*filter: grayscale(1);*/
+}
+.parallax {
+  margin: 0px;
+  /* The image used */
+  background-color: #000000;
+  opacity: 0.3;
+  min-height: 500px;
+}
+.demo {
+  opacity: 0.9;
+  margin: 0;
+  display: grid;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1000px;
+  text-align: center;
+  margin-left: 240px;
+}
+.demo > *:first-child {
+  align-self: stretch;
+}
+.h3-demo {
+  margin-top: 100px;
+  padding-top: 30px;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.p-demo {
+  padding-bottom: 30px;
+  color: rgb(240, 240, 240);
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+}
+.FEATURED-SHOWS {
+  padding: 10px;
+  color: #811575;
+}
+.FEA-span {
+  color: #811575;
+  margin-left: 655px;
+}
+.FEA-titre {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: "vibes";
+  margin-left: 640px;
+}
+.FEA {
+  padding: 10px;
+}
+.FEA-p {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "vibes";
+  margin-left: 50px;
+}
+.FEA-p1 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "vibes";
+  margin-left: 50px;
+}
+.FEA-p2 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "vibes";
+  margin-left: 50px;
+  margin-bottom: 30px;
+}
+.FEA-a {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "vibes";
+  border: solid 3px #811575;
+  padding: 5px;
+  margin-left: 720px;
+  color: #811575;
 }
 @media (max-width: 750px) {
   .game-info {
