@@ -40,10 +40,31 @@
                     <p class="Postal-line"> </p>
                 </div>
                 </div>
-                
             </div>
+            <div class="comment">
+            <div class="comment-form">
+                <p class="mar-comment">Comments:</p>
+                <form class="form-comment" method="POST" action="{{ path('add_comment', {'id': results.id}) }}">
+                    <input type="hidden" name="eventId" value="{{ results.getId() }}">
+                    <div class="InputContainer-comment">
+                        <input class="comment-input" type="text" name="content">
+                        <button class="comment-button">Add Comment</button>
+                    </div>
+                </form>
+                <div class="boucle">
+                    <p class="Postal-line"> </p>
+                    {% for comment in results.getConcern()%}
+                        <div class="comment-item">
+                            <p class="mar-comment font-comment">*-* : {{ comment.getContent() }}</p>
+                            <p class="postedby"><small class="mar-comment">Posted by {{ comment.getUser().getPseudo() }} on {{ comment.getCreationDate()|date('m/d/Y') }}</small></p>
+                        </div>
+                         <p class="Postal-line"> </p>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
         </div>
-        
+
 {% endblock %}
 {% block javascript %}
     <script>

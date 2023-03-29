@@ -1001,6 +1001,28 @@ body {
 #myBtn:active {
   background: rgb(141, 139, 139);
 }
+div.comment {
+  margin-left: 150px;
+}
+.InputContainer-comment,
+.mar-comment {
+  margin-left: 10px;
+}
+.comment-item {
+  position: relative;
+}
+.postedby {
+  margin-left: 510px;
+}
+.font-comment {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "vibes";
+}
+.form-comment {
+  margin-bottom: 20px;
+}
 @media (max-width: 750px) {
   .game-info {
     flex-direction: column;
@@ -1009,7 +1031,6 @@ body {
     width: 100%;
     height: auto;
   }
-
   .desc {
     width: 100%;
   }

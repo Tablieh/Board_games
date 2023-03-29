@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\User;
 use App\Entity\Event;
 use App\Form\EventType;
@@ -14,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
@@ -92,8 +93,64 @@ class MakeEventsController extends AbstractController
         return $this->redirectToRoute('app_join_events');
 
     }
-
     #[Route('/event/{id}', name: 'Event_show')]
+    public function showEvent(Event $event, BGAHttpClient $bga, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $gameId = $event->getIdGame();
+        // API
+        $resultat = $bga->getGame($gameId);
+        // API fin -------------------------
+
+        // Process the comment form
+        $comment = new Comment();
+        $form = $this->createFormBuilder($comment)
+            ->add('content', TextType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setUser($this->getUser());
+            $comment->setEvent($event);
+            $comment->setCreationDate(new \DateTime());
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'The comment was added successfully!');
+            return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+        }
+
+        return $this->render('events/showEvent.html.twig', [
+            'results' => $event,
+            'gameInfos' => json_decode($resultat, false),
+            'comment_form' => $form->createView(),
+        ]);
+    }
+    #[Route('/event/{id}/add-comment', name: 'add_comment')]
+    public function addComment(Request $request, EntityManagerInterface $entityManager)
+    {
+        $content = $request->request->get('content');
+        $eventId = $request->request->get('eventId');
+        $userId = $this->getUser()->getId();
+        $creationDate = new \DateTime();
+
+        // fetch the Event entity using its ID
+        $event = $entityManager->getRepository(Event::class)->find($eventId);
+
+        $comment = new Comment();
+        $comment->setContent($content);
+        $comment->setEvent($event);
+        $comment->setUser($entityManager->getReference(User::class, $userId));
+        $comment->setCreationDate($creationDate);
+
+        $entityManager->persist($comment);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'The comment was added successfully!');
+        return $this->redirectToRoute('Event_show', ['id' => $eventId]);
+    }
+
+    /* #[Route('/event/{id}', name: 'Event_show')]
     public function showEvent(Event $event ,BGAHttpClient $bga): Response {
         $gameId = $event->getIdGame();
         // API
@@ -104,6 +161,17 @@ class MakeEventsController extends AbstractController
             'results' => $event,
             'gameInfos' => json_decode($resultat, false)
         ]);
+    } */
+    #[Route('/del/{id}', name: 'Comment_del')]
+    public function del_comment(Comment $comment , ManagerRegistry $doctrine)
+    {
+
+        $entityManager = $doctrine->getManager();
+        $entityManager->remove($comment);
+        $entityManager->flush();
+        $this->addFlash('error', 'the comment is well deleted!');
+        return $this->redirectToRoute('app_comment');
+
     }
         #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
     public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine): Response
@@ -126,5 +194,4 @@ class MakeEventsController extends AbstractController
 
         return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
     }
-
 }
