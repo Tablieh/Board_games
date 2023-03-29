@@ -343,8 +343,11 @@ span.lien-check {
 }
 .centre-home h4,
 .h4-form {
+  font-family: "vibes";
+  font-weight: 700;
   margin-left: 20px;
   width: fit-content;
+  width: -moz-fit-content;
 }
 .form-container,
 .form-content {
@@ -395,11 +398,13 @@ span.lien-check {
   padding: 0;
 }
 label {
+  margin-top: 10px;
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
 }
 .form-add .line1 {
+  margin-top: 10px;
   position: absolute;
   width: 600px;
   height: 3px;
@@ -432,7 +437,43 @@ label {
 .select {
   margin-left: 20px;
 }
+input#event_places.input-field {
+  width: 80px;
+}
+textarea#event_name.input-field {
+  max-width: 326px;
+  max-height: 30px;
+  min-width: 164px;
+  min-height: 28px;
+}
+textarea#event_description.input-field {
+  max-width: 405px;
+  max-height: 72px;
+  min-width: 164px;
+  min-height: 28px;
+}
+textarea#event_adresse.input-field {
+  max-width: 414px;
+  max-height: 49px;
+  min-width: 164px;
+  min-height: 28px;
+}
+textarea#event_cp.input-field {
+  max-width: 150px;
+  max-height: 36px;
+  min-width: 150px;
+  min-height: 36px;
+}
+textarea#event_city.input-field {
+  width: 269px;
+  height: 36px;
+  max-width: 269px;
+  max-height: 36px;
+  min-width: 269px;
+  min-height: 36px;
+}
 .search {
+  width: 350px;
   margin-left: 20px;
   margin-bottom: 10px;
 }
@@ -756,6 +797,7 @@ body {
 .swiper {
   width: 100%;
   height: 100%;
+  margin-bottom: 50px;
 }
 
 .swiper-slide {
@@ -765,6 +807,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 60px;
 }
 
 .swiper-slide img {
@@ -859,8 +902,8 @@ body {
 .parallax {
   margin: 0px;
   /* The image used */
-  background-color: #000000;
-  opacity: 0.3;
+  /* background-color: #000000; */
+  opacity: 0.6;
   min-height: 500px;
 }
 .demo {
@@ -940,6 +983,23 @@ body {
   padding: 5px;
   margin-left: 720px;
   color: #811575;
+}
+#myBtn {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border-color: #f2f2f2;
+  background: #555;
+  box-shadow: 0 0 10xp rgb(255, 255, 255);
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+#myBtn:active {
+  background: rgb(141, 139, 139);
 }
 @media (max-width: 750px) {
   .game-info {

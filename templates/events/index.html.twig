@@ -47,3 +47,30 @@
         {{ knp_pagination_render(events)}}
         </div>
 {% endblock %}
+{% block javascript %}
+    <script>
+    // get the current page path
+var currentPath = window.location.pathname;
+
+// check if it's the login page
+if (currentPath === "/events") {
+
+  // get the box-dawn and box-name elements
+  var boxDawn = document.querySelector(".box-dawn");
+  var boxName = document.querySelector(".box-name");
+
+  // check if the boxName element's width is greater than its container's width
+  if (boxName.offsetWidth > boxDawn.offsetWidth) {
+    // if it is, set the gap of boxDawn to 0 and set its display property to flex
+    boxDawn.style.gap = "0";
+    
+    boxDawn.style.display = "flex";
+  } else {
+    // if it's not, set the gap of boxDawn to 10px and set its display property to block
+    boxDawn.style.gap = "10px";
+    boxDawn.style.marginLeft = "10px";
+    boxDawn.style.display = "block";
+  }
+}
+   </script>
+{% endblock javascript %}

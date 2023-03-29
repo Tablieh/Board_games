@@ -134,8 +134,35 @@
                 document.querySelector(".footer").style.marginTop = "140px";
                 document.querySelector(".content").style.marginTop = "50px";
                 }
+                
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                window.onscroll = function() { 
+                    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                    myBtn.style.opacity = "1";
+                    } else {
+                    myBtn.style.opacity = "0";
+                    }}; 
+                }
+                function goup(x){
+
+                const myBtn = document.getElementById("myBtn");
+                myBtn.addEventListener("click", function () {
+                //window.scrollTo(0, 0);
+                window.scrollTo(
+                    {
+                    top: 0,
+                    right: 0,
+                    behavior: "smooth"
+                    }
+                );
+                });
+                }
             </script>
 
         {% endblock %}
+        <!--<i class="fa-solid fa-arrow-up"></i>-->
+    <button onclick="goup(this)" id="myBtn" ><i class="fa-solid fa-arrow-up"></i></button>
     </body>
 </html>
