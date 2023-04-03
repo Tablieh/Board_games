@@ -944,6 +944,7 @@ body {
   margin: 20px;
 }
 .FEATURED-SHOWS {
+  margin-bottom: 20px;
   padding: 10px;
   color: #811575;
 }
@@ -1074,6 +1075,187 @@ p .notice {
   text-decoration: none;
   display: flex;
   justify-content: center;
+}
+.event {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  height: 50vh;
+  background-image: url("/img/game-count.jpg");
+  background-size: cover;
+  background-position-y: center;
+  object-fit: cover;
+}
+.font-event {
+  text-align: center;
+  font-family: "Great Vibes";
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+}
+.font-event1 {
+  text-align: center;
+  font-family: "Great Vibes";
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+}
+.font-event2 {
+  padding-top: 5px;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+}
+.font-event3 {
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.count {
+  color: #f2f2f2;
+  font-family: "Great Vibes";
+  text-align: center;
+  font-size: 52px;
+  margin-top: 0px;
+}
+.count1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  color: #f2f2f2;
+  font-family: "Amatic SC";
+  text-align: center;
+  font-size: 19px;
+  margin-top: 0px;
+}
+.font-event4 {
+  font-family: "Great Vibes";
+  font-size: 35px;
+  font-weight: 300;
+  color: #fff;
+}
+.days-content {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.form-contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.yes,
+.no {
+  border: dashed rgb(175, 175, 175) 3px;
+  color: rgb(3, 3, 3);
+  padding: 15px 100px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 700;
+}
+.email,
+.name {
+  border: solid 2px rgb(175, 175, 175);
+  color: rgb(3, 3, 3);
+  padding: 5px 32px;
+}
+
+.Guest-name {
+  border: solid 2px rgb(175, 175, 175);
+  color: rgb(3, 3, 3);
+  padding: 5px 32px;
+}
+.guest {
+  border: solid rgb(255, 255, 255) 3px;
+  color: rgb(3, 3, 3);
+  padding: 4px 76px;
+  padding-bottom: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Open Sans";
+}
+.h2-invitation {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Open Sans";
+  color: #323131;
+}
+.h2-invitation1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Open Sans";
+  color: #323131;
+}
+.submit {
+  border: solid rgb(0, 0, 0) 3px;
+  text-decoration: none;
+  background-color: rgb(0, 0, 0);
+  color: #f2f2f2;
+  cursor: pointer;
+  font-family: "Open Sans";
+  padding: 4px 50px;
+  margin-top: 30px;
+  margin-left: 150px;
+}
+.contact {
+  height: 100vh;
+  background-color: rgb(236, 234, 234);
+}
+.video-window {
+  border-radius: 5px;
+  width: 580px;
+  margin-top: 100px;
+}
+.contact-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding-top: 30px;
+  width: 1536px;
+}
+.form-contact {
+  border-radius: 5px;
+  width: 580px;
+  background-color: #fcfcfc;
+  padding: 20px 50px 40px;
+  box-shadow: 1px 4px 10px 1px #aaa;
+}
+.text1 {
+  width: 450px;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 13px;
+  margin-left: 550px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.gray {
+  padding-top: 20px;
+  color: #a19e9e;
+  font-family: "Open Sans";
+  text-align: center;
+  font-size: 13px;
+  margin-top: 0px;
+}
+.black {
+  padding-top: 5px;
+  text-align: center;
+  font-family: "Great Vibes";
+  font-size: 35px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
 }
 @media (max-width: 750px) {
   .game-info {

@@ -24,7 +24,7 @@
                                 <li> <a href="{{path('app_join_events')}}">Join event</a></li>
                                 <li> <a href="{{path('Event_add')}}">Create event</a></li>
                                 <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
-                                <li> <a href="{{path('app_home')}}">Contact</a></li>
+                                <li><a href="{{ path('app_home') }}#Contact">Contact</a></li>
                                 <li><a href="{{path('app_logout')}}">Logout</a></li>
                             {% else %}
                                 <li><a href="{{ path('app_login') }}">Connexion</a></li>	
@@ -105,20 +105,76 @@
     </div>
     
     <div class="back" id="Contact">
-            <div class="parallax">
-                <div class="demo">
-                    <h3 class="h3-demo">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
-                    <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
-                    <div class="parallax-felx">
-                        <input placeholder="Type Your Email " type="text">
-                        <button type="submit" class="start">JOIN THE UNDERGROUND</button>
-                    </div>
-                    
+        <div class="parallax">
+            <div class="demo">
+                <h3 class="h3-demo">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
+                <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
+                <div class="parallax-felx">
+                    <input placeholder="Type Your Email " type="text">
+                    <button type="submit" class="start">JOIN THE UNDERGROUND</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+        <div id="CONTACT" class="contact">
+            <p class="gray">HERE WE GO</p>
+            <p class="black">Video Reporting issues</p>
+            <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
+            <div class="contact-flex">
+                <div class="form-contact">
+                    <form>
+                        <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
+                        <div class="form-contact-content">
+                            <input class="yes" type="button" value="Yes" onclick="changeColorButton(this)">
+                            <input class="no" type="button" value="No" onclick="changeColorButton1(this)">
+                            <input class="name" type="text" name="name" placeholder="Your name *"></input>
+                            <input class="email" type="text" name="email" placeholder="Email *"></input>
+                        </div>
+                        <h2 class="h2-invitation1">Do You know the issue ?</h2>
+                        <div class="form-content1">
+                            <input class="Guest-name" type="text" name="Guest name" placeholder="The issues Name"></input>
+                            <input class="guest" type="button" value="+ Add issue">
+                        </div>
+                            <div>
+                                <h2 class="h2-invitation1">Pls write your Issues here.</h2>
+                                <textarea name="text-report" id="" cols="30" rows="10"></textarea>
+                            </div>
+                        <button class="submit" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <video class="video-window" autoplay muted loop>
+                        <source src="{{ asset('vid/report.mp4') }}" type="video/mp4" />
+                    </video>
                 </div>
             </div>
         </div>
     {% endif %}
-    <div class="FEATURED-SHOWS">
+    <div  class="event">
+            <p class="font-event">The Next Event</p>
+            <p class="font-event1"> 17 . january .2023</p>
+            <p class="font-event2">
+                EVENT WILL START IN
+            </p>
+            <p class="font-event3">
+                Thank you so much for visiting our website!
+            </p>
+            <div class="days-content">
+                <p class="font-event4">Just some hours...  </p>
+                <div class="event-days">
+                    <p class="count" id="demo"></p>
+                        <div class="count1"> 
+                            <p class="txt-d">Days</p>
+                            <p>- Hours</p>
+                            <p>-Minutes </p>
+                            <p>-Seconds</p>
+                        </div>
+                </div>
+                <p class="font-event4">  ...until we get to the next event</p>
+            </div> 
+        </div>
+        <div class="FEATURED-SHOWS">
         <div class="FEA">
         <p class="FEA-titre">FEATURED SHOWS</p>
         <span class="lien-check FEA-span"> </span>
@@ -151,6 +207,56 @@
             window.location.href = '{{ path("Event_show", {"id": "EVENT_ID"}) }}'.replace('EVENT_ID', eventId);
         });
     });
+    // Set the date we're counting down to
+var countDownDate = new Date("Mar 01, 2024 12:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "  " + hours + "  "
+  + minutes + "  " + seconds;
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+function changeColorButton()
+   {
+  let no = document.querySelector('.no')
+  let yes = document.querySelector('.yes')
+  yes.style.border ="dashed #88f988 3px";
+    yes.style.background="#ddffdd";
+    yes.style.color="#88f988";
+    no.style.border ="dashed rgb(175, 175, 175) 3px";
+    no.style.color="rgb(3, 3, 3)";
+    no.style.background="none";
+}
+function changeColorButton1()
+   {
+    let no = document.querySelector('.no')
+    let yes = document.querySelector('.yes')
+    no.style.border ="dashed #db3c3c 3px";
+    no.style.background="#ea8484";
+    no.style.color="#db3c3c";
+    yes.style.border ="dashed rgb(175, 175, 175) 3px";
+    yes.style.color="rgb(3, 3, 3)";
+    yes.style.background="none";
+}
 </script>
 
 {% endblock %}
