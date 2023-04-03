@@ -437,10 +437,15 @@ label {
 .select {
   margin-left: 20px;
 }
+
 input#event_places.input-field {
-  width: 80px;
+  margin-left: -100px;
+  max-width: 74px;
+  max-height: 30px;
+  min-width: 74px;
+  min-height: 28px;
 }
-textarea#event_name.input-field {
+input#event_name.input-field {
   max-width: 326px;
   max-height: 30px;
   min-width: 164px;
@@ -452,19 +457,19 @@ textarea#event_description.input-field {
   min-width: 164px;
   min-height: 28px;
 }
-textarea#event_adresse.input-field {
+input#event_adresse.input-field {
   max-width: 414px;
   max-height: 49px;
   min-width: 164px;
   min-height: 28px;
 }
-textarea#event_cp.input-field {
+input#event_cp.input-field {
   max-width: 150px;
   max-height: 36px;
   min-width: 150px;
   min-height: 36px;
 }
-textarea#event_city.input-field {
+input#event_city.input-field {
   width: 269px;
   height: 36px;
   max-width: 269px;
@@ -480,7 +485,7 @@ textarea#event_city.input-field {
 .grip {
   padding: 10px;
   margin-top: 20px;
-  margin-left: 130px;
+  margin-left: 200px;
   margin-bottom: 30px;
 }
 i.fa-solid.fa-grip-lines {
@@ -494,7 +499,7 @@ i.fa-solid.fa-grip-lines {
   color: #c01eaf;
 }
 .box-container {
-  margin-left: 140px;
+  margin-left: 240px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -521,7 +526,7 @@ i.fa-solid.fa-grip-lines {
   margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
-  height: 100px;
+  /* height: 100px; */
 }
 .box-dawn {
   width: 290px;
@@ -531,14 +536,16 @@ i.fa-solid.fa-grip-lines {
 }
 .box-left {
   margin-left: 10px;
-  height: 100px;
+  /*  height: 100px; */
+  object-fit: cover;
   display: flex;
   flex-wrap: wrap;
   background-color: #110a2b;
 }
 .box-img {
   width: 200px;
-  height: 100px;
+  /* height: 100px; */
+  object-fit: cover;
 }
 
 .adress-p {
@@ -687,7 +694,8 @@ h1.h1-reg {
   margin-top: 100px;
   margin-left: 140px;
   width: 700px;
-  height: 200px;
+  /*  height: 200px; */
+  object-fit: cover;
   display: flex;
 
   background-color: #110a2b;
@@ -709,7 +717,7 @@ h1.h1-reg {
   font-family: "vibes";
   display: flex;
   flex-wrap: wrap;
-  gap: 135px;
+  gap: 230px;
 }
 .swiper-slide:hover {
   cursor: pointer;
@@ -725,7 +733,8 @@ div.dateBox {
 }
 img.boxImg {
   width: 900px;
-  height: 200px;
+  /* height: auto; */
+  object-fit: cover;
 }
 .img {
   margin-left: 20px;
@@ -1006,14 +1015,12 @@ div.comment {
 }
 .InputContainer-comment,
 .mar-comment {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .comment-item {
   position: relative;
 }
-.postedby {
-  margin-left: 510px;
-}
+
 .font-comment {
   margin-left: 20px;
   font-size: 20px;
@@ -1026,13 +1033,47 @@ div.comment {
 p .notice {
   margin-bottom: 120px;
 }
-.flash-messages {
+.alert-success {
   margin-bottom: 20px;
-  position: fixed;
+  position: absolute;
   top: 200;
+  z-index: 100;
   left: 65%;
   right: 0;
+  font-size: 20px;
+  font-family: "vibes";
+  color: #2ac847;
+}
+.alert-error {
+  margin-bottom: 20px;
+  position: absolute;
+  top: 200;
   z-index: 100;
+  left: 5%;
+  right: 65%;
+  font-size: 20px;
+  font-family: "vibes";
+  color: #e31010;
+}
+.left-trash {
+  padding-top: 12px;
+  color: #a51717;
+  margin: 0;
+  margin-left: 5px;
+}
+.postedby {
+  margin-left: 410px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.pag {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "vibes";
+  margin-top: 30px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 750px) {
   .game-info {

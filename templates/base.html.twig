@@ -64,11 +64,15 @@
     {% endif %}
     </header>
     <div class="flash-messages">
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
                 <p class="notice"><i class="fa-solid fa-triangle-exclamation"></i>{{ message }}</p>
-                </div>
-            {% endfor %}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-error">
+                <p class="notice"><i class="fa-solid fa-triangle-exclamation"></i>{{ message }}</p>
+            </div>
         {% endfor %}
     </div>
         <main class="content">

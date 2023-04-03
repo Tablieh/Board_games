@@ -15,7 +15,7 @@
                 <div class="show-up">
                     <div class="left-right">
                         <p>{{ results.name }}</p>
-                        <p>{{ results.dateEvent|date("l,H:iA")}}</p>
+                        <p>{{ results.dateEvent|date("l  H:i")  }} le {{ results.dateEvent|date("d/m/Y") }} </p>
                     </div>
                     
                     <div class="show-down">
@@ -28,7 +28,7 @@
                                     <i class='fa-solid fa-users-line'></i>From {{gameInfos.games[0].min_players}} to {{gameInfos.games[0].max_players}} players  <br/>
                                      <i class='fa-regular fa-clock'></i> {{gameInfos.games[0].playtime}} min
                                 </div>
-                                <p class="Discripe">{{ gameInfos.games[0].description }}</p>
+                                <p class="Discripe">{{ gameInfos.games[0].description | raw }}</p>
                                 <p class="join-desc"> Event Maker Description words: </br>{{ results.description}}</p>
                                 <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p>
                             </div>
@@ -53,10 +53,16 @@
                 </form>
                 <div class="boucle">
                     <p class="Postal-line"> </p>
-                    {% for comment in results.getConcern()%}
+                    {% set comments = results.getConcern() %}
+                    {% for comment in comments|reverse %}
                         <div class="comment-item">
                             <p class="mar-comment font-comment">*-* : {{ comment.getContent() }}</p>
-                            <p class="postedby"><small class="mar-comment">Posted by {{ comment.getUser().getPseudo() }} on {{ comment.getCreationDate()|date('m/d/Y') }}</small></p>
+                            <div class="postedby">
+                                <p ><small class="mar-comment">Posted by {{ comment.getUser().getPseudo() }} on {{ comment.getCreationDate()|date('d/m/Y') }} At {{ comment.getCreationDate()|date("H:iA") }} </small> </p>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <a class="fa-solid fa-trash-can fa-sm admin left-trash" href="{{ path('Comment_del', {'id':comment.id}) }}"> </a>
+                                {% endif %}
+                            </div>
                         </div>
                          <p class="Postal-line"> </p>
                     {% endfor %}

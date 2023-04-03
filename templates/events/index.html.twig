@@ -36,7 +36,7 @@
                         {% endif %}
                         <p>{{ places_left }} places left</p></p>
                     </div>
-                        <p class="time">{{ event.dateEvent|date("l,H:iA")}}</p>
+                        <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
                         {% if is_granted("ROLE_ADMIN") %}
                             <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
                             <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
@@ -44,8 +44,11 @@
                 </div>
                 {% endfor %}
             </div>
-        {{ knp_pagination_render(events)}}
+        <div class="pag">
+            {{ knp_pagination_render(events)}}
         </div>
+        </div>
+
 {% endblock %}
 {% block javascript %}
     <script>

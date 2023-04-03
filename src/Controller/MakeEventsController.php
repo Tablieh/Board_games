@@ -15,12 +15,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException as ExceptionAccessDeniedException;
+
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
-    public function index(ManagerRegistry $doctrine,EventRepository $Repo, Request $request , PaginatorInterface $paginator): Response
+    public function index(ManagerRegistry $doctrine,EventRepository $Repo, Request $request , PaginatorInterface $paginator , AuthorizationCheckerInterface $authorizationChecker): Response
     {
+         if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $this->addFlash('error', 'You need to be logged in to see the events!');
+            return $this->redirectToRoute('app_login');
+        }
         /* $events = $doctrine->getManager()
                 ->getRepository(Event::class)
                 ->findAll(); */
@@ -28,12 +36,14 @@ class MakeEventsController extends AbstractController
                 ->getRepository(Event::class)
                 ->findBy([], ["id" => "DESC"]
                     );
-        $events = $paginator->paginate(
-            //$Repo->pagintationQuery(),
-            $result,
-            $request->query->getInt('page', 1),10
 
-        );
+                    $events = $paginator->paginate(
+                        //$Repo->pagintationQuery(),
+                        $result,
+                        $request->query->getInt('page', 1),4
+                        
+                    );
+                    //dd($events);
         return $this->render('events/index.html.twig', [
             'events' => $events,
             'results' => $result
@@ -53,7 +63,11 @@ class MakeEventsController extends AbstractController
 
     #[Route('/addEvent', name: 'Event_add')]
     #[Route('/{id}/editEvent', name: 'Event_edit')]
-    public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine){
+    public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker){
+        if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $this->addFlash('error', 'You need to be logged in to add a event!');
+            return $this->redirectToRoute('app_login');
+        }
         // si le Event n'existe pas, on instancie un nouveau Event(on est dans le cas d'un ajout) 
         if(!$Event){
             $Event = new Event();
@@ -83,19 +97,27 @@ class MakeEventsController extends AbstractController
     }
     
     #[Route('/del/{id}', name: 'Event_del')]
-    public function del_edit(Event $event , ManagerRegistry $doctrine)
+    public function del_edit(Event $event , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker)
     {
-
+        if (!$authorizationChecker->isGranted('ROLE_ADMIN')) {
+            
+            $this->addFlash('error', 'You need to be admin to delete a event!');
+            return $this->redirectToRoute('app_login');
+        }
         $entityManager = $doctrine->getManager();
         $entityManager->remove($event);
         $entityManager->flush();
-        $this->addFlash('error', 'the Event is well deleted!');
+        $this->addFlash('success', 'the Event is well deleted!');
         return $this->redirectToRoute('app_join_events');
 
     }
     #[Route('/event/{id}', name: 'Event_show')]
-    public function showEvent(Event $event, BGAHttpClient $bga, Request $request, EntityManagerInterface $entityManager): Response
+    public function showEvent(Event $event, BGAHttpClient $bga, Request $request, EntityManagerInterface $entityManager , AuthorizationCheckerInterface $authorizationChecker): Response
     {
+         if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $this->addFlash('error', 'You need to be logged in to add a comment!');
+            return $this->redirectToRoute('app_login');
+        }
         $gameId = $event->getIdGame();
         // API
         $resultat = $bga->getGame($gameId);
@@ -119,7 +141,7 @@ class MakeEventsController extends AbstractController
             $this->addFlash('success', 'The comment was added successfully!');
             return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
         }
-
+         
         return $this->render('events/showEvent.html.twig', [
             'results' => $event,
             'gameInfos' => json_decode($resultat, false),
@@ -127,8 +149,13 @@ class MakeEventsController extends AbstractController
         ]);
     }
     #[Route('/event/{id}/add-comment', name: 'add_comment')]
-    public function addComment(Request $request, EntityManagerInterface $entityManager)
+    public function addComment(Request $request, EntityManagerInterface $entityManager , AuthorizationCheckerInterface $authorizationChecker)
     {
+        // Check if user is authenticated
+        if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $this->addFlash('error', 'You need to be logged in to add a comment!');
+            return $this->redirectToRoute('app_login');
+        }
         $content = $request->request->get('content');
         $eventId = $request->request->get('eventId');
         $userId = $this->getUser()->getId();
@@ -162,19 +189,24 @@ class MakeEventsController extends AbstractController
             'gameInfos' => json_decode($resultat, false)
         ]);
     } */
-    #[Route('/del/{id}', name: 'Comment_del')]
-    public function del_comment(Comment $comment , ManagerRegistry $doctrine)
+    #[Route('/delete/{id}', name: 'Comment_del')]
+    public function delComment(Comment $comment, EntityManagerInterface $entityManager , AuthorizationCheckerInterface $authorizationChecker)
     {
+        if (!$authorizationChecker->isGranted('ROLE_ADMIN')) {
+            $this->addFlash('error', 'You need to be admin to delete a comment!');
+            return $this->redirectToRoute('app_login');
+        }
+        $eventId = $comment->getEvent()->getId();
 
-        $entityManager = $doctrine->getManager();
         $entityManager->remove($comment);
         $entityManager->flush();
-        $this->addFlash('error', 'the comment is well deleted!');
-        return $this->redirectToRoute('app_comment');
 
+        $this->addFlash('success', 'The comment was deleted successfully!');
+        return $this->redirectToRoute('Event_show', ['id' => $eventId]);
     }
-        #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
-    public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine): Response
+    
+    #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
+    public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker): Response
     {
         $eventRepository = $doctrine->getRepository(Event::class);
         $userRepository = $doctrine->getRepository(User::class);
@@ -191,7 +223,7 @@ class MakeEventsController extends AbstractController
         $entityManager = $doctrine->getManager();
         $entityManager->persist($event);
         $entityManager->flush();
-
+        $this->addFlash('success', 'The place is successfully reserved!');
         return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
     }
 }
