@@ -137,7 +137,7 @@
                             <input class="guest" type="button" value="+ Add issue">
                         </div>
                             <div>
-                                <h2 class="h2-invitation1">Pls write your Issues here.</h2>
+                                <h2 class="h2-invitation1">Pls write your Issue here.</h2>
                                 <textarea name="text-report" id="" cols="30" rows="10"></textarea>
                             </div>
                         <button class="submit" type="submit">Submit</button>
@@ -183,7 +183,7 @@
             <p class="FEA-p2"> Remember any day below ground is a good day.</p>
         </div>
         {% if is_granted("ROLE_USER") %}
-        <a class="FEA-a">VIEW ALL </a>
+        <a class="FEA-a" href="{{path('app_join_events')}}">VIEW ALL</a>
         {% endif %}
     </div>
 {% endblock %}

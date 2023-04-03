@@ -944,9 +944,10 @@ body {
   margin: 20px;
 }
 .FEATURED-SHOWS {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   padding: 10px;
   color: #811575;
+  /*  background-color: rgb(236, 234, 234); */
 }
 .FEA-span {
   color: #811575;
