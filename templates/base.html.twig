@@ -61,6 +61,55 @@
             </div>
         </div>
     </nav>
+    {% if app.user %}       
+                            <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
+                            <div id="myInfo" class="animate">
+                                <div class="info-user">
+                                    <div class="centre-user">
+                                        <h1>{{ app.user.getPseudo }}'s Profile</h1>
+                                        <h2>Events</h2>
+                                        {% set createdEvents = app.user.created %}
+                                        {% set joinedEvents = app.user.participant %}
+
+                                        {% if createdEvents is empty and joinedEvents is empty %}
+                                            <p>No events found.</p>
+                                        {% else %}
+                                            <ul>
+                                                {% if createdEvents|length > 0 %}
+                                                    <div class="Created-User">
+                                                        <p>Created By USER :</p>
+                                                        {% for event in createdEvents %}
+                                                            <ul>{{ event.name }} - {{ event.participant.count() }} participants</ul>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                                
+                                                {% if joinedEvents|length > 0 %}
+                                                    <div class="Joined-User">
+                                                        <p>joined By USER :</p>
+                                                        {% for event in joinedEvents %}
+                                                            <ul>{{ event.name }} - {{ event.participant.count() }} participants</ul>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                            </ul>
+                                        {% endif %}
+
+
+                                        <h2>Comments</h2>
+                                        {% if app.user.opinion is empty %}
+                                            <p>No comments found.</p>
+                                        {% else %}
+                                            <ul>
+                                                {% for comment in app.user.opinion %}
+                                                    <ul class="Comment-user">{{ comment.content }} - {{ comment.event.name }}</ul>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
     {% endif %}
     </header>
     <div class="flash-messages">
@@ -172,6 +221,27 @@
                 );
                 });
                 }
+                const infoUser = document.querySelector('.info-user');
+                const myButton = document.querySelector('#Profile');
+                const myInfo = document.querySelector('#myInfo');
+                
+                myButton.addEventListener('click', () => {
+                if (myInfo.style.display === 'none') {
+                    myInfo.style.display = 'block';
+                    myInfo.classList.add('.animate.pop');
+                } else {
+                    myInfo.style.display = 'none';
+                }
+                });
+
+                infoUser.addEventListener('click', () => {
+                if(myInfo.style.display == 'block'){
+                    myInfo.style.display = 'none';
+                }else{
+                    myInfo.style.display == 'block';
+                }
+                    
+                });
             </script>
 
         {% endblock %}

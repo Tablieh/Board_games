@@ -57,7 +57,7 @@ class Event
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'participant')]
     private Collection $participant;
 
-    #[ORM\ManyToOne(inversedBy: 'created')]
+    #[ORM\ManyToOne(targetEntity: User::class,inversedBy: 'created')]
     private ?User $created = null;
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class)]

@@ -19,7 +19,7 @@ use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException as ExceptionAccessDeniedException;
-
+use Symfony\Component\Security\Core\Security;
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
@@ -63,7 +63,7 @@ class MakeEventsController extends AbstractController
 
     #[Route('/addEvent', name: 'Event_add')]
     #[Route('/{id}/editEvent', name: 'Event_edit')]
-    public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker){
+    public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker , Security $security){
         if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
             $this->addFlash('error', 'You need to be logged in to add a event!');
             return $this->redirectToRoute('app_login');
@@ -74,11 +74,14 @@ class MakeEventsController extends AbstractController
         }
         //il faut créer un Event au préalable (php bin/console make:form)
         $form = $this->createForm(EventType::class, $Event );
-
         $form->handleRequest($request);
         // si on soumet le formulaire et que le form est validé
         if($form->isSubmitted() && $form->isValid()){
-           /*  $Event->setIdGame($request->request->get('event')['id_game']); */
+           /*  $request->get('name');
+            dd($request); */
+             $Event->setCreated($security->getUser());
+            /*  $Event->setIdGame($request->request->get('event')['id_game']); */
+            /* $form->setCreated(1); */
             //on récuprère les données du formulaire
             $Event = $form->getData();
             //on ajoute le nouveau Event
