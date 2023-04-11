@@ -205,7 +205,7 @@ class MakeEventsController extends AbstractController
         return $this->redirectToRoute('Event_show', ['id' => $eventId]);
     }
     
-    #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
+   /*  #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
     public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker): Response
     {
         $eventRepository = $doctrine->getRepository(Event::class);
@@ -225,5 +225,33 @@ class MakeEventsController extends AbstractController
         $entityManager->flush();
         $this->addFlash('success', 'The place is successfully reserved!');
         return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+    } */
+    #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
+public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker): Response
+{
+    $eventRepository = $doctrine->getRepository(Event::class);
+    $userRepository = $doctrine->getRepository(User::class);
+
+    $event = $eventRepository->find($id);
+    $user = $userRepository->find($userId);
+
+    if (!$event || !$user) {
+        throw $this->createNotFoundException();
     }
+
+    // Check if the maximum number of participants has been reached
+    if (count($event->getParticipant()) >= $event->getPlaces()) {
+        $this->addFlash('success', 'Sorry, the event is already full and you cannot join!');
+        return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+    }
+
+    $event->addParticipant($user);
+
+    $entityManager = $doctrine->getManager();
+    $entityManager->persist($event);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'The place is successfully reserved!');
+    return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+}
 }

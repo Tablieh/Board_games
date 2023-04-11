@@ -107,7 +107,7 @@
     <div class="back" id="Contact">
         <div class="parallax">
             <div class="demo">
-                <h3 class="h3-demo">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
+                <h3 class="h3-demo" id="BeInTouch">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
                 <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
                 <div class="parallax-felx">
                     <input placeholder="Type Your Email " type="text">
@@ -121,7 +121,7 @@
             <p class="gray">HERE WE GO</p>
             <p class="black">Video Reporting issues</p>
             <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
-            <div class="contact-flex">
+            <div class="contact-flex" >
                 <div class="form-contact">
                     <form>
                         <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
@@ -151,7 +151,8 @@
             </div>
         </div>
     {% endif %}
-    <div  class="event">
+        {% if is_granted("ROLE_USER") %}
+        <div  class="event">
             <p class="font-event">The Next Event</p>
             <p class="font-event1"> 17 . january .2023</p>
             <p class="font-event2">
@@ -174,6 +175,7 @@
                 <p class="font-event4">  ...until we get to the next event</p>
             </div> 
         </div>
+        {% endif %}
         <div class="FEATURED-SHOWS">
         <div class="FEA">
         <p class="FEA-titre">FEATURED SHOWS</p>
