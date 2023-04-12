@@ -61,7 +61,7 @@
             </div>
         </div>
     </nav>
-    {% if app.user %}       
+                        {% if app.user %}       
                             <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
                             <div id="myInfo" class="animate">
                                 <div class="info-user">
@@ -79,7 +79,12 @@
                                                     <div class="Created-User">
                                                         <p>Created By USER :</p>
                                                         {% for event in createdEvents %}
-                                                            <ul>{{ event.name }} - {{ event.participant.count() }} participants</ul>
+                                                            {% set participantCount = event.participant.count() %}
+                                                            {% if participantCount == 1 %}
+                                                            <ul>{{ event.name }} : 1 participant</ul>
+                                                            {% else %}
+                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
+                                                            {% endif %}
                                                         {% endfor %}
                                                     </div>
                                                 {% endif %}
@@ -88,7 +93,12 @@
                                                     <div class="Joined-User">
                                                         <p>joined By USER :</p>
                                                         {% for event in joinedEvents %}
-                                                            <ul>{{ event.name }} - {{ event.participant.count() }} participants</ul>
+                                                            {% set participantCount = event.participant.count() %}
+                                                            {% if participantCount == 1 %}
+                                                            <ul>{{ event.name }} : 1 participant</ul>
+                                                            {% else %}
+                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
+                                                            {% endif %}
                                                         {% endfor %}
                                                     </div>
                                                 {% endif %}
@@ -198,14 +208,18 @@
                 }
                 
                 window.onscroll = function() {scrollFunction()};
-
                 function scrollFunction() {
                 window.onscroll = function() { 
                     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
                     myBtn.style.opacity = "1";
                     } else {
                     myBtn.style.opacity = "0";
-                    }}; 
+                    }
+                    if (document.body.scrollTop > 15 || document.documentElement.scrollTop > 15) {
+                    myButton.style.opacity = "1";
+                    } else {
+                    myButton.style.opacity = "0";
+                    }};
                 }
                 function goup(x){
 
@@ -242,6 +256,22 @@
                 }
                     
                 });
+                const lienCheck = document.querySelector('.lien-check');
+                
+            if (currentPath === "/home") {
+                myButton.style.removeProperty('right'); 
+                myButton.classList.add("profileHome");
+                myButton.style.left = "10px ";
+                myButton.style.removeProperty('top');
+                myButton.style.top = "135px";
+                infoUser.style.zIndex= "2";
+                infoUser.style.height= "110vh";
+                myButton.style.zIndex= "3";
+                lienCheck.style.marginLeft= "630px";
+                }
+                else {
+                    myButton.style.right = "10px ";
+                }
             </script>
 
         {% endblock %}

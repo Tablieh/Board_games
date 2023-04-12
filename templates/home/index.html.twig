@@ -36,6 +36,65 @@
             </div>
         </div>
     </nav>
+    {% if app.user %}       
+                            <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
+                            <div id="myInfo" class="animate">
+                                <div class="info-user">
+                                    <div class="centre-user">
+                                        <h1>{{ app.user.getPseudo }}'s Profile</h1>
+                                        <h2>Events</h2>
+                                        {% set createdEvents = app.user.created %}
+                                        {% set joinedEvents = app.user.participant %}
+
+                                        {% if createdEvents is empty and joinedEvents is empty %}
+                                            <p>No events found.</p>
+                                        {% else %}
+                                            <ul>
+                                                {% if createdEvents|length > 0 %}
+                                                    <div class="Created-User">
+                                                        <p>Created By USER :</p>
+                                                        {% for event in createdEvents %}
+                                                            {% set participantCount = event.participant.count() %}
+                                                            {% if participantCount == 1 %}
+                                                            <ul>{{ event.name }} : 1 participant</ul>
+                                                            {% else %}
+                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                                
+                                                {% if joinedEvents|length > 0 %}
+                                                    <div class="Joined-User">
+                                                        <p>joined By USER :</p>
+                                                        {% for event in joinedEvents %}
+                                                            {% set participantCount = event.participant.count() %}
+                                                            {% if participantCount == 1 %}
+                                                            <ul>{{ event.name }} : 1 participant</ul>
+                                                            {% else %}
+                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                            </ul>
+                                        {% endif %}
+
+
+                                        <h2>Comments</h2>
+                                        {% if app.user.opinion is empty %}
+                                            <p>No comments found.</p>
+                                        {% else %}
+                                            <ul>
+                                                {% for comment in app.user.opinion %}
+                                                    <ul class="Comment-user">{{ comment.content }} - {{ comment.event.name }}</ul>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
     <video class="video" autoplay muted loop>
         <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>
@@ -259,6 +318,7 @@ function changeColorButton1()
     yes.style.color="rgb(3, 3, 3)";
     yes.style.background="none";
 }
+
 </script>
 
 {% endblock %}

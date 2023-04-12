@@ -999,13 +999,13 @@ body {
   position: fixed;
   left: 10px;
   bottom: 10px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border-color: #f2f2f2;
-  background: #555;
-  box-shadow: 0 0 10xp rgb(255, 255, 255);
-  color: #ffffff;
+
+  background: #ffffff;
+  box-shadow: 0 0 10px #4888c8;
+  color: #135496;
   outline: none;
   cursor: pointer;
 }
@@ -1262,21 +1262,27 @@ p .notice {
   display: none;
 }
 #Profile {
+  opacity: 0;
   padding: 5px;
-  background-color: #8cc6ef;
+  background-color: #c1c1cce8;
   /* background-color: #8cc6ef; */
-  border-radius: 5px;
-  top: 150px !important;
-  left: 10px !important;
+  border-radius: 10px;
   position: fixed;
   z-index: 2;
+  top: 100px;
+}
+
+.profileHome {
+  left: 10px !important;
+  top: 305px !important;
 }
 .centre-user {
-  width: 50%;
+  width: 35%;
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.942);
-  margin-left: 350px;
-  margin-top: -145px;
+  margin-left: 490px;
+  /* margin-top: -145px; */
+  border-radius: 10px;
 }
 
 .info-user {
@@ -1294,17 +1300,25 @@ p .notice {
   justify-content: center;
   text-align: center;
 }
-.info-user ul,
-h1,
-h2,
-ul {
-  color: rgb(186, 10, 101);
+.info-user p {
+  color: #430d46;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.info-user h1 {
+  color: #271039;
   font-family: "Open Sans";
   font-size: 20px;
   font-weight: 600;
 }
-ul.Comment-user {
-  color: rgb(39, 10, 186);
+.info-user h2 {
+  color: #391030;
+  font-family: "Great Vibes";
+  font-size: 30px;
+  font-weight: 600;
 }
 .animate {
   margin-top: -90px;
