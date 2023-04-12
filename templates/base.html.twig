@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22></text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -273,6 +274,26 @@
                 else {
                     myButton.style.right = "10px ";
                 }
+            let mobile =(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+            if (currentPath != "/home" && mobile) {
+                myButton.style.opacity="1";
+                myButton.style.top="120px";
+                myButton.style.left="10px";
+                 myButton.style.removeProperty('right');
+            }
+            {# const chicked = document.querySelector('.nav-container .checkbox');
+            const body = document.body;
+            chicked.addEventListener('click', () => {
+                if(mobile){
+                   body.classList.add("fixed-position");
+                }else{
+                    body.classList.remove("fixed-position");
+                }
+                setTimeout(() => {
+                    body.classList.remove("fixed-position");
+                }, "600");
+            }) #}
             </script>
 
         {% endblock %}

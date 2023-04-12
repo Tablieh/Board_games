@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 address,
 dl,
@@ -1003,9 +1004,9 @@ body {
   height: 40px;
   border-radius: 50%;
 
-  background: #ffffff;
-  box-shadow: 0 0 10px #4888c8;
-  color: #135496;
+  background: #272627e8;
+  box-shadow: 0 0 10px #d7ebff;
+  color: #f2f2f2;
   outline: none;
   cursor: pointer;
 }
@@ -1264,12 +1265,13 @@ p .notice {
 #Profile {
   opacity: 0;
   padding: 5px;
-  background-color: #c1c1cce8;
+  background-color: #272627e8;
   /* background-color: #8cc6ef; */
   border-radius: 10px;
   position: fixed;
   z-index: 2;
   top: 100px;
+  color: #f2f2f2;
 }
 
 .profileHome {
@@ -1364,7 +1366,12 @@ p .notice {
   margin-left: 400px;
   text-align: justify;
 }
-@media (max-width: 750px) {
+.fixed-position {
+  position: fixed;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
   .game-info {
     flex-direction: column;
   }
@@ -1374,5 +1381,213 @@ p .notice {
   }
   .desc {
     width: 100%;
+  }
+  .container {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+  }
+  .video {
+    display: none;
+  }
+  .nav-home {
+    height: 10vh !important;
+    background: linear-gradient(
+      90deg,
+      rgba(124, 69, 129, 1) 12%,
+      rgba(124, 69, 129, 1) 31%,
+      rgba(194, 30, 173, 1) 58%,
+      rgba(169, 30, 199, 1) 80%,
+      rgba(34, 30, 158, 1) 95%
+    );
+  }
+  .navbar .menu-items {
+    padding: 120px;
+    padding-bottom: 160px;
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 2000px #f2f2f2;
+  }
+  .navbar .nav-container a {
+    color: #c357c5;
+  }
+  span.lien-check {
+    margin-left: 85px !important;
+  }
+  .swiper-wrapper {
+    width: 80%;
+  }
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after {
+    margin-top: -40px;
+    margin-left: -30px;
+  }
+  .swiper-button-prev:after,
+  .swiper-rtl .swiper-button-next:after {
+    margin-top: -40px;
+    margin-right: -30px;
+  }
+  .adresse-box1 {
+    flex-direction: row;
+    font-size: 10px;
+    font-weight: bolder;
+    width: fit-content;
+    margin-left: 0;
+    gap: 2;
+  }
+  .adresse-box1 p {
+    width: auto;
+  }
+  .swiper {
+    margin: 50px auto;
+    padding-bottom: 50px;
+  }
+  .back {
+    width: 400px;
+    background-attachment: unset;
+    object-fit: cover;
+  }
+  .demo {
+    width: 280px;
+    margin-left: 55px;
+  }
+  .contact {
+    height: 190vh;
+    width: 400px;
+  }
+  .contact-flex {
+    flex-direction: column-reverse;
+    gap: 2px;
+    width: 400px;
+  }
+  .form-contact,
+  .video-window {
+    width: 400px;
+  }
+  .event {
+    width: 400px;
+    height: 80vh;
+  }
+  .font-event4 {
+    margin-left: 50px;
+  }
+  .count1 {
+    margin-left: 70px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .event-days {
+    display: flex;
+    flex-direction: column;
+  }
+  .days-content {
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  .FEA-titre {
+    margin-left: 70px;
+  }
+  .FEA-a {
+    margin-left: 160px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 50vh;
+    text-align: unset;
+  }
+  .footer-mid {
+    top: 150px;
+  }
+  .footer-right {
+    right: 2%;
+  }
+  .footer-left {
+    right: 8%;
+  }
+  #myBtn {
+    bottom: 10px;
+  }
+  /*   #Profile {
+    opacity: 1;
+    top: 30px;
+    left: 30px;
+  } */
+  #myInfo {
+    width: 400px;
+  }
+  .centre-user {
+    margin-top: 145px;
+    margin-left: 0;
+    width: 340px;
+    height: fit-content;
+  }
+  a.lien {
+    margin-left: 20px;
+  }
+  .grip,
+  .form-container,
+  .form-content {
+    margin-left: 0;
+  }
+  .form-add .line2,
+  .form-add .line1 {
+    width: 320px;
+  }
+  .search,
+  .select {
+    width: 280px;
+  }
+  .btn-event {
+    margin-left: 120px;
+  }
+  .form-container:before,
+  .form-container:after {
+    left: 85%;
+  }
+  .form {
+    margin-top: -120px;
+  }
+  input#event_imageFile_file.input-field {
+    width: 88%;
+  }
+  .box-container {
+    margin-left: 10px;
+  }
+  .box {
+    width: 350px;
+  }
+  .box-up {
+    width: 280px;
+  }
+  .box-left {
+    flex-wrap: unset;
+  }
+  a.lien_show,
+  .game-info,
+  .show-mode,
+  div.comment {
+    margin-left: 20px;
+  }
+  .boxi,
+  .Postal {
+    margin-left: 10px;
+    width: 350px;
+  }
+  .box-centre {
+    margin-left: 0;
+    width: 400px;
+  }
+  .left-right {
+    gap: 0;
+  }
+  .place-join a {
+    margin-left: 170px;
+  }
+  .Postal-line {
+    width: 300px;
+  }
+  img.logo {
+    margin-top: 2px;
   }
 }
