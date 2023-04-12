@@ -21,4 +21,10 @@ class HomeController extends AbstractController
             'lastes' => $lastes
         ]);
     }
+    #[Route('/montion', name: 'app_montion')]
+    public function montion()
+    {
+        return $this->render('home/mention.html.twig');
+
+    }
 }

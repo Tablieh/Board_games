@@ -951,13 +951,13 @@ body {
 }
 .FEA-span {
   color: #811575;
-  margin-left: 655px;
+  margin-left: 625px;
 }
 .FEA-titre {
   font-size: 25px;
   font-weight: 700;
   font-family: "vibes";
-  margin-left: 640px;
+  margin-left: 610px;
 }
 .FEA {
   padding: 10px;
@@ -992,7 +992,7 @@ body {
   font-family: "vibes";
   border: solid 3px #811575;
   padding: 5px;
-  margin-left: 720px;
+  margin-left: 700px;
   color: #811575;
 }
 #myBtn {
@@ -1357,7 +1357,13 @@ p .notice {
   color: rgb(0, 0, 0);
   font-weight: 600;
 }
-
+.centre-mention {
+  font-family: "Open Sans";
+  font-weight: 600;
+  width: 550px;
+  margin-left: 400px;
+  text-align: justify;
+}
 @media (max-width: 750px) {
   .game-info {
     flex-direction: column;

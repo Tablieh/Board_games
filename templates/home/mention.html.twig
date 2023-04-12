@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}mention{% endblock %}
+{% block body %}
+        <div class="centre-mention">
+            <h1>Bonjour {{ app.user.getPseudo }}</h1>
+            <h2>Quelles sont les mentions légales ?</h2>
+            <p>Les mentions légales sont les informations qui permettent à l'internaute de vous identifier. Les mentions légales sont obligatoires sur tout site internet professionnel et doivent être facilement accessibles. Elles peuvent être insérées dans vos conditions générales de vente (CGV) ou dans une page dédiée.</p>
+            <h3>Quelles sont les mentions obligatoires sur le site internet d'un professionnel ?</h3>
+            <p>Vérifié le 01 janvier 2023 - Direction de l'information légale et administrative (Première ministre)
+                Tous les sites internet professionnels doivent afficher des mentions obligatoires pour l'information du public.
+                Les mentions exigées varient selon votre statut : entreprise individuelle ou société.
+                L'absence de ces informations sur le site est sanctionnée.</p>
+            <h4>Qui doit rédiger les mentions légales ?</h4>
+            <p>Qui doit rédiger les mentions légales ? Tout responsable de site internet doit impérativement rédiger des mentions légales et les faire apparaître sur son site. Peu importe l'activité de votre site (e-commerce, blog personnel, etc.)</p>
+            <h4>Quelles sont les donnes prise en charge au notre base des donnes</h4>
+                    <ul>
+                        <li>Les donnes des games traiter par l'api https://www.boardgameatlas.com/</li>
+                        <li>les donnes engistré par les clients </li>
+                        <li>Données de contact	Adresse postale, email, numéro de téléphone</li>
+                        <li>Données de localisation	Géolocalisation de la personne ou d'un équipement associé à une personne</li>
+                        <li>Données de contenu	Son, image, vidéo, noms des dossiers stockés et arborescence</li>
+                        <li>Profil : Profil et commentair de client</li>
+                    </ul>
+
+            <h2>Informations légales</h2>
+            <h4>Éditeur</h4>
+            <p>WALID TABLIEH
+               Alternanc/Etudiant Website
+            </p>
+            <h4>Siège social</h4>
+            <p>Ma Frormation domiciliée : 14, rue du rhône 67100 Strasbourg</p>
+            <p>Télephone centre-formation : +33 3 88 30 78 30</p>
+            <p>Ma Télephone : +33 7 69 34 40 70</p>
+        </div>
+        
+{% endblock %}
+
+
+
