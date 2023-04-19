@@ -1333,6 +1333,10 @@ p .notice {
 .animate.pop {
   animation-name: animate-pop;
 }
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+}
 @keyframes animate-pop {
   0% {
     opacity: 0;

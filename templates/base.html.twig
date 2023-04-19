@@ -21,47 +21,40 @@
     <header>
     {% if app.request.attributes.get('_route') != 'app_home' %}
         <nav>
-            <div class="navbar navbar-blue">
-                <div class="navbar-left">
-                        <ul class="navbar-nav">
-                            <ol >
-                                <img class="logo" src="{{asset("img/logo.png")}}" alt="logo">
-                            </ol>
-                        </ul>
-                </div>
-                <div class="navbar-right">
-                    <div class="container nav-container">
-                        <input class="checkbox" type="checkbox" name="" id="" />
-                        <div class="hamburger-lines">
-                            <span class="line line1"></span>
-                            <span class="line line2"></span>
-                            <span class="line line3"></span>
-                        </div>  
-                        <div class="logo1">
-                        </div>
-                        <div class="menu-items">
-                            {% if app.user %}
-                                {# si on veux on peut faire que le admin peut aller au activiter pour ajouter le marque etc
-                                {% if is_granted("ROLE_ADMIN") %}
-                                {% endif %}
-                                #}
-                                <li> <a href="{{path('app_home')}}">Acceuil</a></li>
-                                <li> <a href="{{path('app_join_events')}}">Join event</a></li>
-                                <li> <a href="{{path('Event_add')}}">Create event</a></li>
-                                <li> <a href="{{path('app_board_game')}}">BoardGames</a></li>
-                                {# <li> <a href="{{path('Contact')}}">Contact</a></li> #}
-                                <li><a href="{{ path('app_home') }}#BeInTouch">Contact</a></li>
-                                <li><a href="{{path('app_logout')}}">Logout</a></li>
-                            {% else %}
-                                <li><a href="{{ path('app_login') }}">Connexion</a></li>	
-                                <li><a href="{{path('app_register')}}">Inscription</a></li>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="navbar navbar-blue">
+    <div class="navbar-left">
+      <ul class="navbar-nav">
+        <li>
+          <img class="logo" src="{{ asset('img/logo.png') }}" alt="logo">
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-right">
+      <div class="container nav-container">
+        <input class="checkbox" type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
         </div>
-    </nav>
+        <div class="logo1"></div>
+        <div class="menu-items">
+          {% if app.user %}
+          <li><a href="{{ path('app_home') }}">Acceuil</a></li>
+          <li><a href="{{ path('app_join_events') }}">Join event</a></li>
+          <li><a href="{{ path('Event_add') }}">Create event</a></li>
+          <li><a href="{{ path('app_board_game') }}">BoardGames</a></li>
+          <li><a href="{{ path('app_home') }}#BeInTouch">Contact</a></li>
+          <li><a href="{{ path('app_logout') }}">Logout</a></li>
+          {% else %}
+          <li><a href="{{ path('app_login') }}">Connexion</a></li>
+          <li><a href="{{ path('app_register') }}">Inscription</a></li>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
                         {% if app.user %}       
                             <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
                             <div id="myInfo" class="animate">
@@ -282,20 +275,21 @@
                 myButton.style.left="10px";
                  myButton.style.removeProperty('right');
             }
-            {# const chicked = document.querySelector('.nav-container .checkbox');
-            const body = document.body;
-            chicked.addEventListener('click', () => {
-                if(mobile){
-                   body.classList.add("fixed-position");
-                }else{
-                    body.classList.remove("fixed-position");
-                }
-                setTimeout(() => {
-                    body.classList.remove("fixed-position");
-                }, "600");
-            }) 
-            
-            #}
+const checkbox = document.querySelector('.checkbox');
+  const body = document.querySelector('body');
+
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      body.classList.add('menu-open');
+    } else {
+      body.classList.remove('menu-open');
+    }
+  });
+  const menu = document.querySelector('.menu-items');
+
+menu.addEventListener('touchmove', function(e) {
+  e.preventDefault();
+}, { passive: false });
             </script>
 
         {% endblock %}
