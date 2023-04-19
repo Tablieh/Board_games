@@ -275,21 +275,21 @@
                 myButton.style.left="10px";
                  myButton.style.removeProperty('right');
             }
-const checkbox = document.querySelector('.checkbox');
-  const body = document.querySelector('body');
+            const checkbox = document.querySelector('.checkbox');
+            const body = document.querySelector('body');
 
-  checkbox.addEventListener('change', function() {
-    if (this.checked) {
-      body.classList.add('menu-open');
-    } else {
-      body.classList.remove('menu-open');
-    }
-  });
-  const menu = document.querySelector('.menu-items');
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                body.classList.add('menu-open');
+                } else {
+                body.classList.remove('menu-open');
+                }
+            });
+            const menu = document.querySelector('.menu-items');
 
-menu.addEventListener('touchmove', function(e) {
-  e.preventDefault();
-}, { passive: false });
+            menu.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            }, { passive: false });
             </script>
 
         {% endblock %}
