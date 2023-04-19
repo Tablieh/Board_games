@@ -204,18 +204,31 @@
                 
                 window.onscroll = function() {scrollFunction()};
                 function scrollFunction() {
-                window.onscroll = function() { 
-                    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-                    myBtn.style.opacity = "1";
-                    } else {
-                    myBtn.style.opacity = "0";
+                window.onscroll = function() {
+                        if (mobile) {
+                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            myButton.style.opacity = "1";
+                        } else {
+                            myButton.style.opacity = "0";
+                        }
+
+                        if (currentPath !== "/home") {
+                            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            myButton.style.opacity = "1";
+                            } else {
+                            myButton.style.opacity = "0";
+                            }
+
+                            if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                            myBtn.style.opacity = "1";
+                            } else {
+                            myBtn.style.opacity = "0";
+                            }
+                        }
+                        }
                     }
-                    if (document.body.scrollTop > 15 || document.documentElement.scrollTop > 15) {
-                    myButton.style.opacity = "1";
-                    } else {
-                    myButton.style.opacity = "0";
-                    }};
                 }
+
                 function goup(x){
 
                 const myBtn = document.getElementById("myBtn");
@@ -271,9 +284,11 @@
 
             if (currentPath != "/home" && mobile) {
                 myButton.style.opacity="1";
-                myButton.style.top="120px";
+                myButton.style.top="150px";
                 myButton.style.left="10px";
-                 myButton.style.removeProperty('right');
+                myButton.style.zIndex="1";
+                myButton.style.removeProperty('right');
+                myButton.classList.add("profileHome");
             }
             const checkbox = document.querySelector('.checkbox');
             const body = document.querySelector('body');
@@ -290,7 +305,7 @@
             menu.addEventListener('touchmove', function(e) {
             e.preventDefault();
             }, { passive: false });
-            </script>
+        </script>
 
         {% endblock %}
         <!--<i class="fa-solid fa-arrow-up"></i>-->
