@@ -176,39 +176,69 @@
             </div>
         </div>
     </div>
-        <div id="CONTACT" class="contact">
-            <p class="gray">HERE WE GO</p>
-            <p class="black">Video Reporting issues</p>
-            <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
-            <div class="contact-flex" >
-                <div class="form-contact">
-                    <form>
-                        <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
-                        <div class="form-contact-content">
-                            <input class="yes" type="button" value="Yes" onclick="changeColorButton(this)">
-                            <input class="no" type="button" value="No" onclick="changeColorButton1(this)">
-                            <input class="name" type="text" name="name" placeholder="Your name *"></input>
-                            <input class="email" type="text" name="email" placeholder="Email *"></input>
-                        </div>
-                        <h2 class="h2-invitation1">Do You know the issue ?</h2>
-                        <div class="form-content1">
-                            <input class="Guest-name" type="text" name="Guest name" placeholder="The issues Name"></input>
-                            <input class="guest" type="button" value="+ Add issue">
-                        </div>
-                            <div>
-                                <h2 class="h2-invitation1">Pls write your Issue here.</h2>
-                                <textarea name="text-report" id="" cols="30" rows="10"></textarea>
-                            </div>
-                        <button class="submit" type="submit">Submit</button>
-                    </form>
+
+    <div id="CONTACT" class="contact">
+        <p class="gray">HERE WE GO</p>
+        <p class="black">Video Reporting issues</p>
+        <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
+        <div class="contact-flex">
+           {#  <div class="form-contact">
+                {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
+                    <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
+                    <div class="form-group">
+                    <div class="form-contact-content">
+                            {{ form_widget(ReportType.yes, {'attr': {'onclick': 'changeColorButton(this)'}}) }}
+                            {{ form_widget(ReportType.no, {'attr': {'onclick': 'changeColorButton1(this)'}}) }}
+                        {{ form_widget(ReportType.name ,{'attr': {'value':  app.user.getPseudo}}) }}
+                        {{ form_widget(ReportType.email,{'attr': {'value':  app.user.email}}) }}
+                    </div>
+                    <h2 class="h2-invitation1">Do You know the issue ?</h2>
+                    <div class="form-content1">
+                        {{ form_widget(ReportType.issueName) }}
+                        <input class="guest" type="button" value="+ Add issue">
+                    </div>
+                    <div>
+                        <h2 class="h2-invitation1">Pls write your Issue here.</h2>
+                        {{ form_widget(ReportType.issueDescription) }}
+                    </div>
+                    {{ form_widget(ReportType.submit) }}
+                {{ form_end(ReportType) }}
+            </div> #}
+            <div class="form-contact">
+                {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
+                <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
+                <div class="form-group">
+                    <div class="form-contact-content">
+                        <button class="yes" onclick="changeColorButton(event)">{{ form_widget(ReportType.yes, {'attr': {'style': 'display:none', 'id': 'yes-button', 'type': 'button'}}) }}Yes</button>
+                        <button class="no" onclick="changeColorButton1(event)">{{ form_widget(ReportType.no, {'attr': {'style': 'display:none', 'id': 'no-button', 'type': 'button'}}) }}No</button>
+                        {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo}}) }}
+                        {{ form_widget(ReportType.email, {'attr': {'value': app.user.email}}) }}
+                    </div>
                 </div>
-                <div>
-                    <video class="video-window" autoplay muted loop>
-                        <source src="{{ asset('vid/report.mp4') }}" type="video/mp4" />
-                    </video>
+                <h2 class="h2-invitation1">Do You know the issue ?</h2>
+                <div class="form-content1">
+                    {{ form_widget(ReportType.issueName) }}
+                    <input class="guest" type="button" value="+ Add issue" onclick="addIssue()">
                 </div>
+                <div id="issue-container">
+                    <div class="issue-block">
+                        <h2 class="h2-invitation1">Pls write your Issue here.</h2>
+                        {{ form_widget(ReportType.issueDescription) }}
+                    </div>
+                </div>
+                {{ form_widget(ReportType.submit) }}
+                {{ form_end(ReportType) }}
+            </div>
+
+            <div>
+                <video class="video-window" autoplay muted loop>
+                    <source src="{{ asset('vid/report.mp4') }}" type="video/mp4" />
+                </video>
             </div>
         </div>
+    </div>
+
+
     {% endif %}
         {% if is_granted("ROLE_USER") %}
         <div  class="event">
@@ -298,6 +328,7 @@ var x = setInterval(function() {
 }, 1000);
 function changeColorButton()
    {
+     event.preventDefault(); 
   let no = document.querySelector('.no')
   let yes = document.querySelector('.yes')
   yes.style.border ="dashed #88f988 3px";
@@ -309,6 +340,7 @@ function changeColorButton()
 }
 function changeColorButton1()
    {
+     event.preventDefault(); 
     let no = document.querySelector('.no')
     let yes = document.querySelector('.yes')
     no.style.border ="dashed #db3c3c 3px";
@@ -319,6 +351,16 @@ function changeColorButton1()
     yes.style.background="none";
 }
 
+function addIssue() {
+  var issueContainer = document.getElementById('issue-container');
+  var issueBlocks = issueContainer.querySelectorAll('.issue-block');
+  
+  if (issueBlocks.length < 3) {
+    var issueBlock = document.querySelector('.issue-block');
+    var clone = issueBlock.cloneNode(true);
+    issueContainer.appendChild(clone);
+  }
+}
 </script>
 
 {% endblock %}
