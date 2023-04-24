@@ -48,7 +48,7 @@ class MakeEventsController extends AbstractController
                     //dd($events);
         return $this->render('events/index.html.twig', [
             'events' => $events,
-            'results' => $result
+            'results' => $result,
         ]);
     }
 

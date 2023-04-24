@@ -41,6 +41,7 @@
                 </div>
                 </div>
             </div>
+            <div class="map" id="mapid" style="height: 850px; width: 150px;"></div>
             <div class="comment">
             <div class="comment-form">
                 <p class="mar-comment">Comments:</p>
@@ -73,8 +74,18 @@
 
 {% endblock %}
 {% block javascript %}
-    <script>
-        
-
-    </script>
+    {{ parent() }}
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('mapid').setView([{{ results.lat }}, {{ results.lon }}], 13);
+    
+    // Add the tile layer (replace the URL with your own tile provider)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Add a marker to the map
+    L.marker([{{ results.lat }}, {{ results.lon }}]).addTo(map);
+  </script>
 {% endblock javascript %}
