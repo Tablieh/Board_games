@@ -1404,8 +1404,8 @@ body.menu-open {
 }
 .map {
   position: absolute;
-  top: 190px;
-  right: 230px;
+  top: 55%;
+  right: 190px;
 }
 .box {
   transition: 0.5s;
