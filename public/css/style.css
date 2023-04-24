@@ -1408,6 +1408,11 @@ body.menu-open {
   right: 230px;
 }
 @media screen and (max-width: 700px) {
+  .map,
+  #mapid,
+  .leaflet-marker-icon {
+    display: none;
+  }
   .game-info {
     flex-direction: column;
   }
