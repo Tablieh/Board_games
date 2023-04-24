@@ -1407,6 +1407,13 @@ body.menu-open {
   top: 190px;
   right: 230px;
 }
+.box {
+  transition: 0.5s;
+}
+.box:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
 @media screen and (max-width: 700px) {
   .map,
   #mapid,

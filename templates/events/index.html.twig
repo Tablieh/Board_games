@@ -9,7 +9,7 @@
             </div>
             <div class="box-container">
                 {% for event in events %}
-                <div class="box">
+                <div class="box" data-link="{{ path("Event_show",{'id':event.id}) }}">
                     <div class="box-up">
                         <div class="box-left">
                             <div class="date-box">
@@ -76,4 +76,20 @@ if (currentPath === "/events") {
   }
 }
    </script>
+   <script>
+        // Get all the box cards
+        const boxCards = document.querySelectorAll('.box');
+
+        // Loop through each box card
+        boxCards.forEach(boxCard => {
+        // Add a click event listener to each box card
+        boxCard.addEventListener('click', () => {
+            // Get the link from the data-link attribute
+            const link = boxCard.getAttribute('data-link');
+            
+            // Redirect the user to the link
+            window.location.href = link;
+        });
+        });
+    </script>
 {% endblock javascript %}
