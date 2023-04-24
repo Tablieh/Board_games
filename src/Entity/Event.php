@@ -63,6 +63,12 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class)]
     private Collection $concern;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $lat = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $lon = null;
+
     public function __construct()
     {
         
@@ -287,5 +293,29 @@ class Event
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    public function setLat(?float $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLon(): ?float
+    {
+        return $this->lon;
+    }
+
+    public function setLon(?float $lon): self
+    {
+        $this->lon = $lon;
+
+        return $this;
     }
 }

@@ -20,6 +20,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException as ExceptionAccessDeniedException;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
 class MakeEventsController extends AbstractController
 {
     #[Route('events', name: 'app_join_events')]
@@ -63,7 +65,69 @@ class MakeEventsController extends AbstractController
 
     #[Route('/addEvent', name: 'Event_add')]
     #[Route('/{id}/editEvent', name: 'Event_edit')]
-    public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker , Security $security){
+    public function add_edit_Event(Event $Event = null, Request $request, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker, Security $security, HttpClientInterface $httpClient)
+{
+    if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+        $this->addFlash('error', 'You need to be logged in to add a event!');
+        return $this->redirectToRoute('app_login');
+    }
+
+    // si le Event n'existe pas, on instancie un nouveau Event(on est dans le cas d'un ajout) 
+    if(!$Event){
+        $Event = new Event();
+    }
+
+    //il faut créer un Event au préalable (php bin/console make:form)
+    $form = $this->createForm(EventType::class, $Event );
+    $form->handleRequest($request);
+
+    // si on soumet le formulaire et que le form est validé
+    if($form->isSubmitted() && $form->isValid()){
+        //on récupère l'adresse entrée dans le formulaire
+        $address = $Event->getAdresse();
+
+        //on envoie une requête à l'API OpenStreetMap pour récupérer les coordonnées de l'adresse
+        $response = $httpClient->request('GET', 'https://nominatim.openstreetmap.org/search', [
+            'query' => [
+                'format' => 'json',
+                'q' => $address,
+                'limit' => 1,
+            ],
+        ]);
+
+        //on récupère la réponse de l'API et on extrait les coordonnées
+        $data = json_decode($response->getContent(), true);
+        if (isset($data[0]['lat']) && isset($data[0]['lon'])) {
+            $latitude = $data[0]['lat'];
+            $longitude = $data[0]['lon'];
+
+            //on enregistre les coordonnées dans l'objet Event
+            $Event->setLat($latitude);
+            $Event->setLon($longitude);
+        }
+
+        $Event->setCreated($security->getUser());
+
+        //on récuprère les données du formulaire
+        $Event = $form->getData();
+
+        //on ajoute le nouveau Event
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($Event);
+        $entityManager->flush();
+
+        //on redirige vers la liste des Event (Marque_list etant le nom de la route)
+        $this->addFlash('success', 'the Event is well added !');
+        return $this->redirectToRoute("app_join_events");
+    }
+
+    return $this->render('events/add_edit_Event.html.twig', [
+        'EventType' => $form->createView(),
+        'editMode'=> $Event->getId() !== null
+    ]);
+}
+
+    /* public function add_edit_Event(Event $Event = null, Request $request , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker , Security $security){
         if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
             $this->addFlash('error', 'You need to be logged in to add a event!');
             return $this->redirectToRoute('app_login');
@@ -77,11 +141,7 @@ class MakeEventsController extends AbstractController
         $form->handleRequest($request);
         // si on soumet le formulaire et que le form est validé
         if($form->isSubmitted() && $form->isValid()){
-           /*  $request->get('name');
-            dd($request); */
              $Event->setCreated($security->getUser());
-            /*  $Event->setIdGame($request->request->get('event')['id_game']); */
-            /* $form->setCreated(1); */
             //on récuprère les données du formulaire
             $Event = $form->getData();
             //on ajoute le nouveau Event
@@ -97,7 +157,7 @@ class MakeEventsController extends AbstractController
             'EventType' => $form->createView(),
             'editMode'=> $Event->getId() !== null
         ]);
-    }
+    } */
     
     #[Route('/del/{id}', name: 'Event_del')]
     public function del_edit(Event $event , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker)

@@ -18,7 +18,7 @@
                     </div>
                     <span></span>
                     <div class="form-add">
-                        {{ form_start(EventType) }}
+                        {{ form_start(EventType, {'attr': {'id': 'event_type'}}) }}
                     
                         {{ form_row(EventType.name, {'attr': {'class': 'input-field '}}) }}
                         <span class="line1"> </span>
@@ -154,4 +154,5 @@
         })
         })
    </script>
+
 {% endblock javascript %}

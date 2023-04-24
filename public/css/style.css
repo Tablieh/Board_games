@@ -1149,7 +1149,7 @@ p .notice {
 .form-contact-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 20px;
 }
 .yes,
 .no {

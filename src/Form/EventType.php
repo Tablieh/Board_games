@@ -56,7 +56,12 @@ class EventType extends AbstractType
             ->add('id_game', HiddenType::class, [
                     'data' => null, // this can be null or a default value
                 ])
-
+            ->add('lat', HiddenType::class, [
+                        'label' => 'lat',
+            ])
+            ->add('lon', HiddenType::class, [
+                        'label' => 'lon',
+            ])
             ->add('Valider', SubmitType::class, [
                 'attr' => [
                     "class" => "uk-button uk-button-primary uk-button-small",
