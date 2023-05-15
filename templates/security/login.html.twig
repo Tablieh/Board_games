@@ -13,11 +13,10 @@
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-
     <h1 class="h3 mb-3 font-weight-normal h1-log">Please sign in</h1>
-    <label class="label" for="inputEmail">Email</label>
+    <label class="label user-label" for="inputEmail"><i class="fa-solid fa-user"></i> Email</label>
     <input class="input" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label class="label" for="inputPassword">Password</label>
+    <label class="label pass-label" for="inputPassword"><i class="fa-solid fa-lock"></i> Password</label>
     <input class="input" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"

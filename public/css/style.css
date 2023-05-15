@@ -661,11 +661,34 @@ input#inputEmail.input,
 input#inputPassword.input {
   margin-left: 450px;
 }
+.border-email {
+  border: rgb(55, 55, 55) solid 1px;
+}
 .btn {
-  margin-left: 0px;
-  background-color: #b729ba;
-  border-radius: 12px;
-  padding: 5px;
+  margin-left: 10px;
+  /* background-color: #b729ba; */
+  background: linear-gradient(315deg, #e91e63, #5d02ff);
+  position: relative;
+  height: 30px;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  /* border-radius: 12px;
+  padding: 5px; */
+}
+.user-label {
+  margin-right: 945px;
+}
+.pass-label {
+  margin-right: 915px;
+}
+.lock {
+  margin-left: 500px;
+  width: 50px;
 }
 h1.h1-reg {
   margin-left: 680px;
@@ -1465,10 +1488,13 @@ p .notice {
   }
   .navbar .menu-items {
     padding: 130px;
-    padding-bottom: 160px;
+    padding-bottom: 2970px;
     backdrop-filter: blur(4px);
     box-shadow: inset 0 0 2000px #f2f2f2;
     justify-content: center;
+  }
+  .lock {
+    margin-left: 10px;
   }
   .navbar .nav-container a {
     color: #c357c5;
@@ -1673,5 +1699,8 @@ p .notice {
   input#inputEmail.input,
   input#inputPassword.input {
     margin-left: 20px;
+  }
+  .label {
+    gap: 3px;
   }
 }
