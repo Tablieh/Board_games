@@ -9,7 +9,7 @@
         {% else %}
            <p class="add">Board Game Event Register From<span class="drow"></span></p>
         {% endif %}
-                <div class="form-container form-content">
+                <div class="form-container form-content cover">
                     
                     <div class="form-group">
                     <h4 class="h4-form">Please Search a game</h4>
@@ -21,47 +21,46 @@
                         {{ form_start(EventType, {'attr': {'id': 'event_type'}}) }}
                     
                         {{ form_row(EventType.name, {'attr': {'class': 'input-field '}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.date_event, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.places, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.description, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                       {#  <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.adresse, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.cp, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.city, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {# {{ form_row(EventType.images, {'attr': {'class': 'input-field'}}) }}
                         <span class="line1"> </span>
                         <span class="line3"> </span>
                         <span class="line2"> </span> #}
                         {{ form_row(EventType.imageFile, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
+                        {# <span class="line1"> </span>
                         <span class="line3"> </span>
-                        <span class="line2"> </span>
+                        <span class="line2"> </span> #}
                         {{ form_row(EventType.id_game, {'attr': {'class': 'input-field'}}) }}
                         {{ form_row(EventType.Valider, {'attr': {'class': 'uk-button uk-button-primary uk-button-small btn-event'}}) }}
                         {{ form_end(EventType) }}
                     </div>
-                </div>
-                
+                </div> 
     </div>
 {% endblock %}
 
@@ -154,5 +153,17 @@
         })
         })
    </script>
+    {# <script>
+         // get the current page path
+                var currentPath = window.location.pathname;
 
+                if (currentPath === "/addEvent") {
+                const element = document.body;
+
+                const gradient = 'linear-gradient(115deg, rgba(58, 58, 158, 0.8), rgba(136, 136, 206, 0.7))';
+                const imageUrl = 'https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg';
+
+                element.style.backgroundImage = `${gradient}, url(${imageUrl})`;
+                }
+    </script> #}
 {% endblock javascript %}

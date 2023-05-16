@@ -36,6 +36,9 @@ img.logo {
   padding-left: 20px;
   /* border-radius: 75px; */
 }
+img.logo:hover {
+  cursor: pointer;
+}
 .navbar-nav {
   position: relative;
 }
@@ -356,7 +359,7 @@ span.lien-check {
   position: relative;
   margin-left: 450px;
 }
-.form-content:before,
+/* .form-content:before,
 .form-content:after {
   content: "";
   position: absolute;
@@ -387,6 +390,44 @@ span.lien-check {
 }
 .form-container:after {
   width: 15px;
+} */
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+.cover {
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(../img/Gaming-5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-container {
+  width: 60%;
+  margin: 30px auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 4px 10px 19px black;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--color-darkblue-alpha);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 .form-group,
 .form-add {
@@ -403,6 +444,22 @@ label {
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
+
+  text-transform: capitalize;
+}
+.form-add label {
+  padding: 15px;
+  font-size: 20px;
+  color: var(--color-white);
+}
+.h4-form {
+  padding: 15px;
+  font-size: 20px;
+  color: var(--color-white);
+  text-transform: capitalize;
+}
+input#event_imageFile_file.input-field {
+  color: var(--color-white);
 }
 .form-add .line1 {
   margin-top: 10px;
@@ -438,7 +495,13 @@ label {
 .select {
   margin-left: 20px;
 }
-
+/* .input-field {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+} */
 input#event_places.input-field {
   margin-left: -100px;
   max-width: 74px;
@@ -1620,6 +1683,7 @@ p .notice {
   .form-container,
   .form-content {
     margin-left: 0;
+    width: auto;
   }
   .form-add .line2,
   .form-add .line1 {
