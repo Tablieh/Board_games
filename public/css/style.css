@@ -443,6 +443,10 @@ form#event_type > * {
 .discription-border {
   background-color: rgba(122, 122, 184, 0.7);
 }
+input#event_date_event.input-field,
+input#event_imageFile_file.input-field {
+  width: 760px;
+}
 input#event_places.input-field {
   margin: 5px;
   margin-top: 0px;
@@ -1155,13 +1159,13 @@ p .notice {
   color: #f2f2f2;
   font-family: "Great Vibes";
   text-align: center;
-  font-size: 52px;
+  font-size: 62px;
   margin-top: 0px;
 }
 .count1 {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 18px;
   color: #f2f2f2;
   font-family: "Amatic SC";
   text-align: center;
@@ -1712,7 +1716,9 @@ p .notice {
   textarea#event_description.input-field,
   input#event_adresse.input-field,
   input#event_cp.input-field,
-  input#event_city.input-field {
+  input#event_city.input-field,
+  input#event_date_event.input-field,
+  input#event_imageFile_file.input-field {
     width: 250px;
   }
 }
