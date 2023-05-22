@@ -72,6 +72,11 @@ class MakeEventsController extends AbstractController
         return $this->redirectToRoute('app_login');
     }
 
+     // If the user is not an admin and trying to edit an event they didn't create, deny access
+    if (!$authorizationChecker->isGranted('ROLE_ADMIN') && $Event && $Event->getCreated() !== $security->getUser()) {
+        throw $this->createAccessDeniedException();
+        return $this->redirectToRoute('app_logout');
+    }
     // si le Event n'existe pas, on instancie un nouveau Event(on est dans le cas d'un ajout) 
     if(!$Event){
         $Event = new Event();
