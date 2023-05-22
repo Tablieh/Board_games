@@ -107,7 +107,7 @@
                     {% else %}
                         <ol>
                             {% for comment in app.user.opinion %}
-                                <dl class="Comment-user">{{ comment.content }} - {{ comment.event.name }}</dl>
+                                <dl class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </dl>
                             {% endfor %}
                         </ol>
                     {% endif %}

@@ -33,7 +33,9 @@
                                 {% endif %}
                             </div>
                                 <p class="Discripe">{{ gameInfos.games[0].description | raw }}</p>
-                                <p class="join-desc"> Event Maker Description words: </br>{{ results.description}}</p>
+                                     <p class="join-desc"> Event Maker Description words: </p>
+                                     <p class="desc-color">-{{ results.description}}</p>
+                               
                                 <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p>
                             </div>
                         </div>

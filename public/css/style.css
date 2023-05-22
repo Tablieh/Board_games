@@ -407,7 +407,7 @@ span.lien-check {
 .form-group {
   padding: 0;
 }
-label {
+.form-add label {
   /* margin-top: 10px;
   margin-left: 20px; */
   display: flex;
@@ -661,18 +661,41 @@ a.lien_show {
   font-weight: 700;
 }
 h1.h3.mb-3.font-weight-normal.h1-log {
-  font-size: x-large;
+  font-size: 23px;
   font-family: "vibes";
   font-weight: 700;
-  margin-left: 450px;
+  margin-left: 550px;
+  color: #666;
 }
 a.lien_show:hover {
   color: #eaa3eb;
   text-decoration: none;
 }
-label.label,
-input#inputEmail.input,
-input#inputPassword.input {
+.user-top {
+  margin-top: 130px;
+}
+.user-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-left: 100px;
+}
+.user-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 30%;
+  justify-content: center;
+}
+.user-input > input {
+  margin-left: 100px;
+  width: 40%;
+}
+.user-input > button {
+  margin-left: 100px;
+  width: 40%;
+}
+.user-center {
   margin-left: 450px;
 }
 .border-email {
@@ -694,12 +717,7 @@ input#inputPassword.input {
   /* border-radius: 12px;
   padding: 5px; */
 }
-.user-label {
-  margin-right: 945px;
-}
-.pass-label {
-  margin-right: 915px;
-}
+
 .lock {
   margin-left: 500px;
   width: 50px;
@@ -794,6 +812,11 @@ img.boxImg {
   font-size: 15px;
   font-weight: 700;
   font-family: "vibes";
+  color: #5d00febf;
+}
+.desc-color {
+  margin-left: 10px;
+  font-size: 13px;
   color: #414040;
 }
 .place-join i {
@@ -1091,6 +1114,17 @@ p .notice {
   z-index: 100;
   left: 5%;
   right: 65%;
+  font-size: 20px;
+  font-family: "vibes";
+  color: #e31010;
+}
+.error-msg {
+  top: 12%;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 100;
+  left: 65%;
+  right: 5%;
   font-size: 20px;
   font-family: "vibes";
   color: #e31010;
@@ -1724,5 +1758,11 @@ p .notice {
   input#event_date_event.input-field,
   input#event_imageFile_file.input-field {
     width: 250px;
+  }
+  .user-center {
+    margin-left: 0;
+  }
+  .user-input {
+    width: auto;
   }
 }
