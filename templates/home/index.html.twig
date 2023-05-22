@@ -37,64 +37,64 @@
         </div>
     </nav>
     {% if app.user %}       
-                            <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
-                            <div id="myInfo" class="animate">
-                                <div class="info-user">
-                                    <div class="centre-user">
-                                        <h1>{{ app.user.getPseudo }}'s Profile</h1>
-                                        <h2>Events</h2>
-                                        {% set createdEvents = app.user.created %}
-                                        {% set joinedEvents = app.user.participant %}
-
-                                        {% if createdEvents is empty and joinedEvents is empty %}
-                                            <p>No events found.</p>
-                                        {% else %}
-                                            <ul>
-                                                {% if createdEvents|length > 0 %}
-                                                    <div class="Created-User">
-                                                        <p>Created By USER :</p>
-                                                        {% for event in createdEvents %}
-                                                            {% set participantCount = event.participant.count() %}
-                                                            {% if participantCount == 1 %}
-                                                            <ul>{{ event.name }} : 1 participant</ul>
-                                                            {% else %}
-                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
-                                                            {% endif %}
-                                                        {% endfor %}
-                                                    </div>
-                                                {% endif %}
-                                                
-                                                {% if joinedEvents|length > 0 %}
-                                                    <div class="Joined-User">
-                                                        <p>joined By USER :</p>
-                                                        {% for event in joinedEvents %}
-                                                            {% set participantCount = event.participant.count() %}
-                                                            {% if participantCount == 1 %}
-                                                            <ul>{{ event.name }} : 1 participant</ul>
-                                                            {% else %}
-                                                            <ul>{{ event.name }} : {{ participantCount }} participants</ul>
-                                                            {% endif %}
-                                                        {% endfor %}
-                                                    </div>
-                                                {% endif %}
-                                            </ul>
-                                        {% endif %}
-
-
-                                        <h2>Comments</h2>
-                                        {% if app.user.opinion is empty %}
-                                            <p>No comments found.</p>
-                                        {% else %}
-                                            <ul>
-                                                {% for comment in app.user.opinion %}
-                                                    <ul class="Comment-user">{{ comment.content }} - {{ comment.event.name }}</ul>
-                                                {% endfor %}
-                                            </ul>
-                                        {% endif %}
-                                    </div>
+                <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
+                <div id="myInfo" class="animate">
+                <div class="info-user">
+                <div class="centre-user">
+                    <h1>{{ app.user.getPseudo }}'s Profile</h1>
+                    <h2>Events</h2>
+                    {% set joinedEvents = app.user.participant %}
+                    {% set createdEvents = app.user.created %}
+                    {% if createdEvents is empty and joinedEvents is empty %}
+                        <p>No events found.</p>
+                    {% else %}
+                            {% if app.user.created |length > 0 %}
+                                <div class="Created-User">
+                                    <p>Created By USER :</p>
+                                    <ol>
+                                        {% for event in app.user.created %}
+                                            {% set participantCount = event.participant.count() %}
+                                            {% if participantCount == 1 %}
+                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                            {% else %}
+                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ol>
                                 </div>
-                            </div>
-                        {% endif %}
+                            {% endif %}
+
+                            {% if joinedEvents|length > 0 %}
+                                <div class="Joined-User">
+                                    <p>Joined By USER :</p>
+                                    <ol>
+                                    {% for event in joinedEvents %}
+                                        {% set participantCount = event.participant.count() %}
+                                        {% if participantCount == 1 %}
+                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                        {% else %}
+                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </dl>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </dl>
+                                </div>
+                            {% endif %}
+                    {% endif %}
+
+                    <h2>Comments</h2>
+                    {% if app.user.opinion is empty %}
+                        <p>No comments found.</p>
+                    {% else %}
+                        <ol>
+                            {% for comment in app.user.opinion %}
+                                <dl class="Comment-user">{{ comment.content }} - {{ comment.event.name }}</dl>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+                </div>
+                </div>
+                </div>
+    {% endif %}
     <video class="video" autoplay muted loop>
         <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>

@@ -1453,6 +1453,10 @@ p .notice {
   transform: translateY(-10px);
   cursor: pointer;
 }
+.Joined-User > * {
+  color: #000000;
+  font-weight: bold;
+}
 @media screen and (max-width: 700px) {
   .alert-success {
     font-size: 13px;
