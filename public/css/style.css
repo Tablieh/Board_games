@@ -359,38 +359,6 @@ span.lien-check {
   position: relative;
   margin-left: 450px;
 }
-/* .form-content:before,
-.form-content:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 590px;
-  height: 100%;
-  border-right: 3px solid #8a8989;
-}
-.form-content:before {
-  width: 10px;
-}
-
-.form-content:after {
-  width: 20px;
-}
-.form-container:before,
-.form-container:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 35%;
-  height: 100%;
-  border-right: 3px solid #8a8989;
-}
-
-.form-container:before {
-  width: 10px;
-}
-.form-container:after {
-  width: 15px;
-} */
 :root {
   --color-white: #f3f3f3;
   --color-darkblue: #1b1b32;
@@ -429,8 +397,8 @@ span.lien-check {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
-.form-group,
-.form-add {
+
+.form-group {
   display: flex;
   flex-direction: column;
   padding: 22px;
@@ -440,15 +408,15 @@ span.lien-check {
   padding: 0;
 }
 label {
-  margin-top: 10px;
-  margin-left: 20px;
+  /* margin-top: 10px;
+  margin-left: 20px; */
   display: flex;
   justify-content: space-between;
 
   text-transform: capitalize;
 }
 .form-add label {
-  padding: 15px;
+  padding: 5px;
   font-size: 20px;
   color: var(--color-white);
 }
@@ -461,84 +429,63 @@ label {
 input#event_imageFile_file.input-field {
   color: var(--color-white);
 }
-.form-add .line1 {
-  margin-top: 10px;
-  position: absolute;
-  width: 600px;
-  height: 3px;
-  display: block;
-}
-.form-add .line2 {
-  position: absolute;
-  width: 600px;
-  height: 3px;
-  display: block;
-}
-.form-add .line3 {
-  height: 5px;
-  display: block;
-}
-.form-add span.line1 {
-  background-color: #8a8989;
-}
-
-.form-add span.line2 {
-  background-color: #8a8989;
-}
-.form-add span.line1::after {
-  content: "";
-}
-
-.form-add span.line2::after {
-  content: "";
-}
 .select {
   margin-left: 20px;
 }
-/* .input-field {
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-} */
+.form-container .form-add {
+  padding: 15px;
+  margin-left: 15px;
+}
+form#event_type > * {
+  padding: 5px;
+  margin: 25px;
+}
+.discription-border {
+  background-color: rgba(122, 122, 184, 0.7);
+}
 input#event_places.input-field {
-  margin-left: -100px;
-  max-width: 74px;
+  margin: 5px;
+  margin-top: 0px;
+  width: 760px;
   max-height: 30px;
-  min-width: 74px;
   min-height: 28px;
 }
 input#event_name.input-field {
-  max-width: 326px;
+  margin: 5px;
+  margin-top: 0px;
   max-height: 30px;
-  min-width: 164px;
   min-height: 28px;
+  width: 760px;
 }
+
 textarea#event_description.input-field {
-  max-width: 405px;
+  margin: 5px;
+  margin-top: 0px;
   max-height: 72px;
-  min-width: 164px;
   min-height: 28px;
+  height: 174px;
+  width: 760px;
+  max-width: 760px;
 }
 input#event_adresse.input-field {
-  max-width: 414px;
+  margin: 5px;
+  margin-top: 0px;
   max-height: 49px;
-  min-width: 164px;
   min-height: 28px;
+  width: 760px;
 }
 input#event_cp.input-field {
-  max-width: 150px;
+  margin: 5px;
+  margin-top: 0px;
   max-height: 36px;
-  min-width: 150px;
   min-height: 36px;
+  width: 760px;
 }
 input#event_city.input-field {
-  width: 269px;
-  height: 36px;
-  max-width: 269px;
+  margin: 5px;
+  margin-top: 0px;
+  width: 760px;
   max-height: 36px;
-  min-width: 269px;
   min-height: 36px;
 }
 .search {
@@ -683,7 +630,7 @@ i.fa-solid.fa-hand-peace a {
 }
 .btn-event {
   margin-top: 20px;
-  margin-left: 450px;
+  margin-left: 610px;
   background-color: #b729ba;
   border-radius: 12px;
 }
@@ -1750,21 +1697,22 @@ p .notice {
   .centre-home,
   .reg-form,
   h1.h3.mb-3.font-weight-normal.h1-log,
-  label.label,
-  input#inputEmail.input,
-  input#inputPassword.input,
-  label.label,
-  input#inputEmail.input,
-  input#inputPassword.input,
-  label.label,
-  input#inputEmail.input,
-  input#inputPassword.input,
-  label.label,
-  input#inputEmail.input,
-  input#inputPassword.input {
+  label.label {
     margin-left: 20px;
   }
   .label {
     gap: 3px;
+  }
+  .form-container {
+    width: 90%;
+    margin-left: 10px;
+  }
+  input#event_name.input-field,
+  input#event_places.input-field,
+  textarea#event_description.input-field,
+  input#event_adresse.input-field,
+  input#event_cp.input-field,
+  input#event_city.input-field {
+    width: 250px;
   }
 }

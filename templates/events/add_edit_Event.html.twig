@@ -16,46 +16,27 @@
                         <input type="text" class="search" name="search" id="search" placeholder="search...">
                         <select name="games" id="games" class="select"></select>
                     </div>
-                    <span></span>
+                    
                     <div class="form-add">
                         {{ form_start(EventType, {'attr': {'id': 'event_type'}}) }}
                     
                         {{ form_row(EventType.name, {'attr': {'class': 'input-field '}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.date_event, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.places, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+                        <div class="discription-border">
                         {{ form_row(EventType.description, {'attr': {'class': 'input-field'}}) }}
-                       {#  <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+                        </div>
+
                         {{ form_row(EventType.adresse, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.cp, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.city, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
-                        {# {{ form_row(EventType.images, {'attr': {'class': 'input-field'}}) }}
-                        <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.imageFile, {'attr': {'class': 'input-field'}}) }}
-                        {# <span class="line1"> </span>
-                        <span class="line3"> </span>
-                        <span class="line2"> </span> #}
+
                         {{ form_row(EventType.id_game, {'attr': {'class': 'input-field'}}) }}
                         {{ form_row(EventType.Valider, {'attr': {'class': 'uk-button uk-button-primary uk-button-small btn-event'}}) }}
                         {{ form_end(EventType) }}

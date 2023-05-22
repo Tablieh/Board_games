@@ -32,7 +32,7 @@ class EventType extends AbstractType
                     'widget' => 'single_text'
                 ])
                 
-            ->add('places', NumberType::class)
+            ->add('places', IntegerType::class)
             ->add('description', TextareaType::class)
             ->add('adresse', TextType::class)
             ->add('cp', TextType::class)
