@@ -9,8 +9,8 @@
     {% endif %}
     
     {% if app.user %}
-        <div class="mb-3 error-msg">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="mb-3 error-msg1">
+            You are connected as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
     <div class="user-top">

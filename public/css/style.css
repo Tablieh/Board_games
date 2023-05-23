@@ -1129,6 +1129,17 @@ p .notice {
   font-family: "vibes";
   color: #e31010;
 }
+.error-msg1 {
+  top: 15%;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 100;
+  left: 65%;
+  right: 5%;
+  font-size: 20px;
+  font-family: "vibes";
+  color: #e31010;
+}
 .left-trash {
   padding-top: 12px;
   color: #a51717;

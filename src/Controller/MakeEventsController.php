@@ -68,14 +68,13 @@ class MakeEventsController extends AbstractController
     public function add_edit_Event(Event $Event = null, Request $request, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker, Security $security, HttpClientInterface $httpClient)
 {
     if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
-        $this->addFlash('error', 'You need to be logged in to add a event!');
+        $this->addFlash('error', 'You need to be connected to add a event!');
         return $this->redirectToRoute('app_login');
     }
 
      // If the user is not an admin and trying to edit an event they didn't create, deny access
     if (!$authorizationChecker->isGranted('ROLE_ADMIN') && $Event && $Event->getCreated() !== $security->getUser()) {
         throw $this->createAccessDeniedException();
-        return $this->redirectToRoute('app_logout');
     }
     // si le Event n'existe pas, on instancie un nouveau Event(on est dans le cas d'un ajout) 
     if(!$Event){
@@ -183,7 +182,7 @@ class MakeEventsController extends AbstractController
     public function showEvent(Event $event, BGAHttpClient $bga, Request $request, EntityManagerInterface $entityManager , AuthorizationCheckerInterface $authorizationChecker): Response
     {
          if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $this->addFlash('error', 'You need to be logged in to add a comment!');
+            $this->addFlash('error', 'You need to be connected to add a comment!');
             return $this->redirectToRoute('app_login');
         }
         $gameId = $event->getIdGame();
@@ -221,7 +220,7 @@ class MakeEventsController extends AbstractController
     {
         // Check if user is authenticated
         if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $this->addFlash('error', 'You need to be logged in to add a comment!');
+            $this->addFlash('error', 'You need to be connected to add a comment!');
             return $this->redirectToRoute('app_login');
         }
         $content = $request->request->get('content');
@@ -295,14 +294,23 @@ class MakeEventsController extends AbstractController
         return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
     } */
     #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
-public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker): Response
+public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker ,Security $security): Response
 {
+
     $eventRepository = $doctrine->getRepository(Event::class);
     $userRepository = $doctrine->getRepository(User::class);
 
     $event = $eventRepository->find($id);
     $user = $userRepository->find($userId);
 
+    if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+        $this->addFlash('error', 'Connected as same user required or register required !');
+        return $this->redirectToRoute('app_login');
+    }
+    if ($security->getUser() != $user){
+        $this->addFlash('error', 'Acess Denied !');
+        return $this->redirectToRoute('app_login');
+    }
     if (!$event || !$user) {
         throw $this->createNotFoundException();
     }
