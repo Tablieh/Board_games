@@ -246,7 +246,7 @@ class MakeEventsController extends AbstractController
     }
     
 
-    #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
+   /*  #[Route('/event/{id}/add-participant/{userId}', name: 'add_participant')]
 public function addParticipant(string $id, string $userId, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker ,Security $security): Response
 {
 
@@ -285,5 +285,49 @@ public function addParticipant(string $id, string $userId, ManagerRegistry $doct
 
     $this->addFlash('success', 'The place is successfully reserved!');
     return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+} */
+
+#[Route('/event/{id}/add-participant', name: 'add_participant')]
+public function addParticipant(string $id, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker, Security $security): Response
+{
+    $eventRepository = $doctrine->getRepository(Event::class);
+
+    $event = $eventRepository->find($id);
+    $user = $security->getUser();
+
+    // Verify if the user is logged in and redirect to the login page if not
+    if (!$authorizationChecker->isGranted('IS_AUTHENTICATED_FULLY')) {
+        $this->addFlash('error', 'Connected as same user required or register required!');
+        return $this->redirectToRoute('app_login');
+    }
+
+    // Verify if the user is the same before proceeding to add the participant to the event
+    // Otherwise, display an "Access Denied" error message and redirect to the login page
+    if ($event->getParticipant()->contains($user)) {
+        $this->addFlash('error', 'Access Denied!');
+        return $this->redirectToRoute('app_login');
+    }
+
+    // Verify if the event or the user does not exist
+    if (!$event || !$user) {
+        throw $this->createNotFoundException();
+    }
+
+    // Check if the maximum number of participants has been reached
+    if (count($event->getParticipant()) >= $event->getPlaces()) {
+        $this->addFlash('success', 'Sorry, the event is already full and you cannot join!');
+        return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
+    }
+
+    // Add the participant to the event and persist the changes
+    $event->addParticipant($user);
+
+    $entityManager = $doctrine->getManager();
+    $entityManager->persist($event);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'The place is successfully reserved!');
+    return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
 }
+
 }

@@ -3,7 +3,10 @@
 {% block title %}Hello Gamers!{% endblock %}
 
 {% block body %}
-<a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Retour de Page </a>
+{% if is_granted("ROLE_USER") %}
+        <a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Retour de Page </a>
+{% endif %}
+
     <div class="centre-home">
         <h2 class="h2-hello">Welcome to BoardGame-events</h2>
         <h4>Please Saarch a game</h4>
