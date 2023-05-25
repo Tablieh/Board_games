@@ -723,19 +723,34 @@ a.lien_show:hover {
   width: 50px;
 }
 h1.h1-reg {
-  margin-left: 680px;
+  margin-left: 580px;
   font-size: x-large;
   font-family: "vibes";
   font-weight: 700;
 }
 .reg-form {
-  margin-left: 550px;
+  margin-left: 580px;
 }
-#registration_form_plainPassword_first,
-#registration_form_plainPassword_second,
-.email-input,
-.pseudo-input {
-  margin-left: 150px;
+.reg-form2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.reg-form2 > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.reg-form li {
+  font-size: 20px;
+  font-family: "vibes";
+  color: #e31010;
+}
+.reg-form2 > .password-div {
+  display: inline;
+}
+.password-div label.required {
+  margin-right: 10px;
 }
 #registration_form_agreeTerms {
   margin-left: 20px;

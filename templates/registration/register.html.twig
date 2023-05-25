@@ -8,15 +8,22 @@
     {% endfor %}
 
     <h1 class="h1-reg">Register</h1>
-
+    
+    
+    
     {{ form_start(registrationForm, {'attr': {'class': 'reg-form'}}) }}
+        <div class="reg-form2">
         {{ form_row(registrationForm.email, {'attr': {'class': 'email-input'}}) }}
         {{ form_row(registrationForm.pseudo, {'attr': {'class': 'pseudo-input'}}) }}
-        {{ form_row(registrationForm.plainPassword, {
+        <div class="password-div">
+            {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }, {'attr': {'class': 'pass-input'}}) }}
+        </div>
+        
         {{ form_row(registrationForm.agreeTerms) }}
-
+        </div>
         <button type="submit" class="btn-reg btn">Register</button>
     {{ form_end(registrationForm) }}
+    
 {% endblock %}
