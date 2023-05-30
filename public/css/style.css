@@ -1072,6 +1072,7 @@ body {
   color: #811575;
 }
 #myBtn {
+  z-index: 2;
   position: fixed;
   left: 10px;
   bottom: 10px;
