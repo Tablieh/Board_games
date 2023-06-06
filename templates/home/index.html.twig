@@ -232,6 +232,37 @@
                 <p class="flex2-p">Web Developer</p>
             </div>
         </div>
+        <div class="tout-acc">
+            <p class="acc-p check-p">OUR SERVICES</p>
+            <div class="acc-flex">
+                <div class="acc-flex1">
+                    <div id="menu-acc">
+                        <button class="accordion"> <i class="fa-solid fa-equals"></i> Organize Events </button>
+                        <div class="panel">
+                        <p class="menu"> Events list & Present Members.</p>
+                        <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                        </div>
+
+                        <button class="accordion"> <i class="fa-solid fa-equals"></i> Events Planning</button>
+                        <div class="panel">
+                            <p class="menu"> Food & Drinks.</p>
+                            <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                        </div>
+
+                        <button class="accordion"><i class="fa-solid fa-equals"></i> Travel</button>
+                        <div class="panel">
+                            <p class="menu"> Transport Method.</p>
+                            <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="acc-flex2">
+                    <img class="acc-img" src="/img/Gaming-1.jpg" alt="service">
+                </div>
+            </div>
+            
+            </div>
+        </div>
     <div class="back" id="Contact">
         <div class="parallax">
             <div class="demo">
@@ -409,7 +440,22 @@ function addIssue() {
   }
 }
 </script>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 {% endblock %}
 
 
