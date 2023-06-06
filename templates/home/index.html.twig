@@ -162,7 +162,76 @@
             <div class="swiper-pagination"></div>
         </div>
     </div>
-    
+    <div id="info" class="info">
+            <h3 class="h3-out">We'er dynamic team of talented people of events planner & marketing expert</h3>
+            <p class="p-out">To achieve this, it would be necessary to have uniform grammar pronunciation and more common words. If several languages of the resulting language.</p>
+        </div>
+        <div class="flex">
+            <div class="flex-box">
+                <h3 class="flex-h3">1499+</h3>
+                <p class="flex-p">Complete Events</p>
+                <figcaption class="card">
+                    <figure class="card-header">
+                        <img class="img" src="/img/member1.png" alt="Anna G. Wilhite">
+                        <div class="sc">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                        </div>
+                    </figure>
+                </figcaption>
+                <h3 class="flex2-h3">Anna G. Wilhite</h3>
+                <p class="flex2-p">CEO/Founder</p>
+            </div>
+            <div class="flex-box">
+                <h3 class="flex-h3">1080k</h3>
+                <p class="flex-p">Satisfied Clients</p>
+                <figcaption class="card">
+                    <figure class="card-header">
+                        <img class="img" src="/img/member2.png" alt="William S. Baly">
+                        <div class="sc">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                        </div>
+                    </figure>
+                </figcaption>
+                <h3 class="flex2-h3">William S. Baly</h3>
+                <p class="flex2-p">CTO/Co-Founder</p>
+            </div>
+            <div class="flex-box">
+                <h3 class="flex-h3">608</h3>
+                <p class="flex-p">Online Team Members</p>
+                <figcaption class="card">
+                    <figure class="card-header">
+                        <img class="img" src="/img/member3.png" alt="Maria B. Morales">
+                        <div class="sc">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                        </div>
+                    </figure>
+                </figcaption>
+                <h3 class="flex2-h3">Maria B. Morales</h3>
+                <p class="flex2-p">Events Planner</p>
+            </div>
+            <div class="flex-box">
+                <h3 class="flex-h3">50</h3>
+                <p class="flex-p">Employee</p>
+                <figcaption class="card">
+                    <figure class="card-header">
+                        <img class="img" src="/img/member4.png" alt="Luke L. Johnston">
+                        <div class="sc">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                        </div>
+                    </figure>
+                </figcaption>
+                <h3 class="flex2-h3">Luke L. Johnston</h3>
+                <p class="flex2-p">Web Developer</p>
+            </div>
+        </div>
     <div class="back" id="Contact">
         <div class="parallax">
             <div class="demo">
@@ -182,28 +251,6 @@
         <p class="black">Video Reporting issues</p>
         <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
         <div class="contact-flex">
-           {#  <div class="form-contact">
-                {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
-                    <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
-                    <div class="form-group">
-                    <div class="form-contact-content">
-                            {{ form_widget(ReportType.yes, {'attr': {'onclick': 'changeColorButton(this)'}}) }}
-                            {{ form_widget(ReportType.no, {'attr': {'onclick': 'changeColorButton1(this)'}}) }}
-                        {{ form_widget(ReportType.name ,{'attr': {'value':  app.user.getPseudo}}) }}
-                        {{ form_widget(ReportType.email,{'attr': {'value':  app.user.email}}) }}
-                    </div>
-                    <h2 class="h2-invitation1">Do You know the issue ?</h2>
-                    <div class="form-content1">
-                        {{ form_widget(ReportType.issueName) }}
-                        <input class="guest" type="button" value="+ Add issue">
-                    </div>
-                    <div>
-                        <h2 class="h2-invitation1">Pls write your Issue here.</h2>
-                        {{ form_widget(ReportType.issueDescription) }}
-                    </div>
-                    {{ form_widget(ReportType.submit) }}
-                {{ form_end(ReportType) }}
-            </div> #}
             <div class="form-contact">
                 {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
                 <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
