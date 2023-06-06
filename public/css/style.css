@@ -317,13 +317,24 @@ span.lien-check {
 .check {
   margin-top: 35px;
 }
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
+
 .check-p {
-  text-align: center;
+  /*  text-align: center;
   color: #811575;
   font-family: "Open Sans";
   margin: 0;
   font-size: 23px;
-  font-weight: bolder;
+  font-weight: bolder; */
+  padding-top: 5px;
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
 }
 .form {
   text-align: center;
@@ -509,9 +520,11 @@ i.fa-solid.fa-grip-lines {
   gap: 5px;
 }
 .grip-p {
-  font-size: 15px;
   margin: 0;
   color: #c01eaf;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Open Sans";
 }
 .box-container {
   margin-left: 240px;
@@ -657,8 +670,9 @@ a.lien_show {
   margin-left: 190px;
   color: #b729ba;
   font-size: medium;
-  font-family: "open sans";
+  font-size: 14px;
   font-weight: 700;
+  font-family: "Open Sans";
 }
 h1.h3.mb-3.font-weight-normal.h1-log {
   font-size: 23px;
@@ -959,7 +973,7 @@ body {
   color: black;
 }
 .gallery {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
@@ -1007,69 +1021,102 @@ body {
 .h3-demo {
   margin-top: 100px;
   padding-top: 30px;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255);
   font-size: 28px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; */
+  padding-top: 5px;
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(225, 225, 225);
 }
 .p-demo {
   padding-bottom: 30px;
   color: rgb(240, 240, 240);
-  font-size: 18px;
+  /* font-size: 18px;
+  text-align: center; */
+  margin: 10px;
+  /*  font-family: "open sans"; */
   text-align: center;
-  margin: 20px;
+  font-family: "Open Sans";
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: 500;
+  /* margin-bottom: 15px; */
 }
 .FEATURED-SHOWS {
   /* margin-bottom: 20px; */
   padding: 10px;
-  color: #811575;
+  color: #555;
   /*  background-color: rgb(236, 234, 234); */
 }
 .FEA-span {
-  color: #811575;
+  color: #555;
   margin-left: 625px;
 }
 .FEA-titre {
-  font-size: 25px;
+  /* font-size: 25px;
   font-weight: 700;
   font-family: "vibes";
-  margin-left: 610px;
+  margin-left: 610px; */
+  padding-top: 5px;
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
 }
 .FEA {
   padding: 10px;
+  padding-top: 20px;
 }
 .FEA-p {
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 300;
   margin-top: 20px;
   text-align: center;
-  font-size: 15px;
+  /*   font-size: 14px;
   font-weight: 500;
-  font-family: "vibes";
+  font-family: "vibes"; */
   /* margin-left: 50px; */
 }
 .FEA-p1 {
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 300;
   text-align: center;
-  font-size: 15px;
+  /* font-size: 14px;
   font-weight: 500;
-  font-family: "vibes";
+  font-family: "vibes"; */
   /* margin-left: 50px; */
 }
 .FEA-p2 {
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 300;
   text-align: center;
-  font-size: 15px;
+  /* font-size: 14px;
   font-weight: 500;
-  font-family: "vibes";
+  font-family: "vibes"; */
   /* margin-left: 50px; */
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 .FEA-a {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
-  font-family: "vibes";
-  border: solid 3px #811575;
+  /* font-family: "vibes"; */
+  font-family: "Playfair Display", serif;
+  border: solid 3px #555;
   padding: 5px;
-  margin-left: 700px;
-  color: #811575;
+  margin-left: 710px;
+  color: #555;
 }
 #myBtn {
   z-index: 2;
@@ -1128,8 +1175,8 @@ p .notice {
   position: absolute;
   top: 200;
   z-index: 100;
-  left: 5%;
-  right: 65%;
+  left: 65%;
+  right: 0;
   font-size: 20px;
   font-family: "vibes";
   color: #e31010;
@@ -1180,47 +1227,52 @@ p .notice {
   padding-top: 30px;
   padding-bottom: 30px;
   position: relative;
-  height: 50vh;
+  height: 65vh;
   background-image: url("/img/game-count.jpg");
   background-size: cover;
   background-position-y: center;
   object-fit: cover;
 }
 .font-event {
+  padding-top: 50px;
   text-align: center;
-  font-family: "Great Vibes";
-  font-size: 40px;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
   font-weight: 700;
   color: #fff;
 }
 .font-event1 {
   text-align: center;
-  font-family: "Great Vibes";
-  font-size: 40px;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
   font-weight: 700;
   color: #fff;
 }
 .font-event2 {
   padding-top: 5px;
   text-align: center;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 300;
-  color: #fff;
-}
-.font-event3 {
-  text-align: center;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
+  font-family: "Playfair Display", serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
 }
+/* .font-event3 {
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 300;
+  color: #fff;
+} */
 
 .count {
   color: #f2f2f2;
-  font-family: "Great Vibes";
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
   text-align: center;
-  font-size: 62px;
+  font-size: 42px;
   margin-top: 0px;
 }
 .count1 {
@@ -1234,12 +1286,14 @@ p .notice {
   margin-top: 0px;
 }
 .font-event4 {
-  font-family: "Great Vibes";
-  font-size: 35px;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
   font-weight: 300;
   color: #fff;
 }
 .days-content {
+  margin-left: 150px;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -1336,6 +1390,7 @@ p .notice {
   width: 450px;
   text-align: center;
   font-family: "Open Sans";
+  font-weight: 500;
   font-size: 13px;
   margin-left: 550px;
   margin-top: 10px;
@@ -1346,14 +1401,15 @@ p .notice {
   color: #a19e9e;
   font-family: "Open Sans";
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 0px;
 }
 .black {
   padding-top: 5px;
   text-align: center;
-  font-family: "Great Vibes";
-  font-size: 35px;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
 }
@@ -1523,6 +1579,7 @@ p .notice {
   color: #811575;
 }
 .info {
+  height: 65vh;
   padding-top: 0px;
   padding: 30px;
   background-color: #f8f5f5;
@@ -1532,28 +1589,33 @@ p .notice {
   margin-right: -20px;
 }
 .h3-out {
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
   padding-top: 30px;
-  color: rgb(10, 10, 10);
-  font-size: 28px;
   margin-top: 35px;
   margin-right: 25px;
   margin-bottom: 25px;
-  text-align: center;
   width: 600px;
-  margin-left: 500px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 450px;
 }
 .p-out {
   padding-bottom: 10px;
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 600;
   color: #555;
-  font-size: 18px;
+  /* font-size: 18px; */
   margin-top: 25px;
   margin-right: 25px;
   margin-bottom: 45px;
   text-align: center;
   width: 490px;
   margin: 25px;
-  margin-left: 560px;
+  margin-left: 520px;
 }
 .flex {
   height: 75vh;
@@ -1719,6 +1781,13 @@ p .notice {
   background-color: #f8f5f5;
 }
 .tout-acc > .acc-p {
+  padding-top: 5px;
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
   padding-top: 40px;
   padding-bottom: 60px;
 }
@@ -1863,9 +1932,9 @@ p .notice {
     margin-top: 20px;
     flex-direction: column;
   }
-  .FEA-titre {
+  /* .FEA-titre {
     margin-left: 70px;
-  }
+  } */
   .FEA-a {
     margin-left: 130px;
   }
@@ -2008,5 +2077,8 @@ p .notice {
   }
   .user-input {
     width: auto;
+  }
+  .days-content {
+    margin-left: 0;
   }
 }

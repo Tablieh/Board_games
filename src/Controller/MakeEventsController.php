@@ -304,8 +304,8 @@ public function addParticipant(string $id, ManagerRegistry $doctrine, Authorizat
     // Verify if the user is the same before proceeding to add the participant to the event
     // Otherwise, display an "Access Denied" error message and redirect to the login page
     if ($event->getParticipant()->contains($user)) {
-        $this->addFlash('error', 'Access Denied!');
-        return $this->redirectToRoute('app_login');
+        $this->addFlash('error', 'This User Is Already participent!');
+        return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
     }
 
     // Verify if the event or the user does not exist

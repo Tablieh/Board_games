@@ -4,6 +4,13 @@
 {% block body %}
         <nav>
             <div class="navbar navbar-blue nav-home">
+            {# <div class="navbar-left">
+                <ul class="navbar-nav">
+                    <li>
+                    <img id="redirectimg" class="logo" src="{{ asset('img/logo.png') }}" alt="logo">
+                    </li>
+                </ul>
+            </div> #}
                 <div class="navbar-right">
                     <div class="container nav-container">
                         <input class="checkbox" type="checkbox" name="" id="" />
@@ -13,6 +20,7 @@
                             <span class="line line3"></span>
                         </div>  
                         <div class="logo1">
+                        
                         </div>
                         <div class="menu-items">
                             {% if app.user %}
@@ -117,8 +125,8 @@
      
                                 
     <div class="check">
-        <p class="check-p">CHECK OUT THE LATEST</p>
-        <span class="lien-check"> </span>
+        <p class="check-p">Check Out The Latest</p>
+        {# <span class="lien-check"> </span> #}
     </div>
     <div class="gallery">
         <!-- Swiper -->
@@ -163,7 +171,7 @@
         </div>
     </div>
     <div id="info" class="info">
-            <h3 class="h3-out">We'er dynamic team of talented people of events planner & marketing expert</h3>
+            <h3 class="h3-out">We'er Dynamic Team Of Talented People Of Events Planner & Marketing Expert</h3>
             <p class="p-out">To achieve this, it would be necessary to have uniform grammar pronunciation and more common words. If several languages of the resulting language.</p>
         </div>
         <div class="flex">
@@ -233,7 +241,7 @@
             </div>
         </div>
         <div class="tout-acc">
-            <p class="acc-p check-p">OUR SERVICES</p>
+            <p class="acc-p check-p">Our Services</p>
             <div class="acc-flex">
                 <div class="acc-flex1">
                     <div id="menu-acc">
@@ -266,7 +274,7 @@
     <div class="back" id="Contact">
         <div class="parallax">
             <div class="demo">
-                <h3 class="h3-demo" id="BeInTouch">SIGN UP FOR OUR EMAIL NEWSLETTER</h3>
+                <h3 class="h3-demo" id="BeInTouch">Sign Up For Our Email Newsletter</h3>
                 <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
                 <div class="parallax-felx">
                     <input placeholder="Type Your Email " type="text">
@@ -280,7 +288,7 @@
     <div id="CONTACT" class="contact">
         <p class="gray">HERE WE GO</p>
         <p class="black">Video Reporting issues</p>
-        <p class="text1">We Are the Admins and we are happy to fix your Problem.</p>
+        <p class="text1">We Are happy to fix your Problem.</p>
         <div class="contact-flex">
             <div class="form-contact">
                 {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
@@ -325,9 +333,7 @@
             <p class="font-event2">
                 EVENT WILL START IN
             </p>
-            <p class="font-event3">
-                Thank you so much for visiting our website!
-            </p>
+           
             <div class="days-content">
                 <p class="font-event4">Just some hours...  </p>
                 <div class="event-days">
@@ -340,13 +346,16 @@
                         </div>
                 </div>
                 <p class="font-event4">  ...until we get to the next event</p>
-            </div> 
+            </div>
+             {# <p class="font-event3">
+                Thank you so much for visiting our website!
+            </p>  #}
         </div>
         {% endif %}
         <div class="FEATURED-SHOWS">
         <div class="FEA">
-        <p class="FEA-titre">FEATURED SHOWS</p>
-        <span class="lien-check FEA-span"> </span>
+        <p class="FEA-titre">Featured Shows{# EATURED SHOWS #}</p>
+        {# <span class="lien-check FEA-span"> </span> #}
             <p class="FEA-p">Check out our lineup and packages and curate your trip to The Events Game.</p>
             <p class="FEA-p1"> Click on the "View All" button to see our full line-up.</p>
             <p class="FEA-p2"> Remember any day below ground is a good day.</p>
