@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Retour de Page </a>
+<a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
         <div class="box-centre">
             <div class="boxi">
                 <div class="dateBox">
@@ -12,11 +12,13 @@
                 <img class="boxImg" src="{{ asset('img/' ~ results.imageName) }}" alt="{{ results.imageName }}">
             </div>
             <div class="show-mode">
-                <div class="show-up">
-                    <div class="left-right">
+            <div class="left-right">
                         <p>{{ results.name }}</p>
                         <p>{{ results.dateEvent|date("l  H:i")  }} le {{ results.dateEvent|date("d/m/Y") }} </p>
+                        <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p>
                     </div>
+                <div class="show-up">
+                    
                     
                     <div class="show-down">
                     <div class="display" id="games">
@@ -24,23 +26,28 @@
                             <img class="img1" src="{{ gameInfos.games[0].image_url }}" alt="noImg">
                             <div class="desc">
                                 {{ gameInfos.games[0].name }}
-                            <div class="infos gray-text">
-                                {% if gameInfos.games[0].min_players is defined and gameInfos.games[0].max_players is defined %}
-                                    <i class='fa-solid fa-users-line'></i> From {{ gameInfos.games[0].min_players }} to {{ gameInfos.games[0].max_players }} players <br/>
-                                {% endif %}
-                                {% if gameInfos.games[0].playtime is defined %}
-                                    <i class='fa-regular fa-clock'></i> {{ gameInfos.games[0].playtime }} min
-                                {% endif %}
-                            </div>
+                                <div class="infos gray-text">
+                                    {% if gameInfos.games[0].min_players is defined and gameInfos.games[0].max_players is defined %}
+                                        <i class='fa-solid fa-users-line'></i> From {{ gameInfos.games[0].min_players }} to {{ gameInfos.games[0].max_players }} players <br/>
+                                    {% endif %}
+                                    {% if gameInfos.games[0].playtime is defined %}
+                                        <i class='fa-regular fa-clock'></i> {{ gameInfos.games[0].playtime }} min
+                                    {% endif %}
+                                </div>
                                 <p class="Discripe">{{ gameInfos.games[0].description | raw }}</p>
-                                     <p class="join-desc"> Event Maker Description words: </p>
+                                <p class="join-desc"> Event Maker Description words: </p>
                                      <p class="desc-color">-{{ results.description}}</p>
-                               
-                                <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p>
+                                     
                             </div>
+                        
+                        </div>
+                        <div class="map">
+                                <p class="Location">Locaited In :</p>
+                                <div  id="mapid"></div>
                         </div>
                         
                     </div>
+                     
                     
                     <p class="Postal"> {{ results.adresse}} {{results.cp}} {{results.city}}</p>
                     <p class="Postal-line"> </p>
@@ -77,10 +84,7 @@
             </div>
     </div>
         </div>
-        <div class="map">
-        <p>Locaited In :</p>
-        <div  id="mapid" style="height: 250px; width: 150px;"></div>
-        </div>
+        
     
 {% endblock %}
 {% block javascript %}

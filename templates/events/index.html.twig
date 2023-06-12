@@ -3,50 +3,51 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-        <div class="box_container">
+    <div class="box_container">
             <div class="grip">
              <i class="fa-solid fa-grip-lines fa-xl" style="color: #6b3d67;"><p class="grip-p">All Event</p></i>   
             </div>
             <div class="box-container">
-                {% for event in events %}
-                <div class="box" data-link="{{ path("Event_show",{'id':event.id}) }}">
-                    <div class="box-up">
-                        <div class="box-left">
-                            <div class="date-box">
-                                <p>{{ event.dateEvent|date("M")}}</p>
-                                <p>{{ event.dateEvent|date("d")}}</p>
+                    {% for event in events %}
+                    <div class="box" data-link="{{ path("Event_show",{'id':event.id}) }}">
+                        <div class="box-up">
+                            <div class="box-left">
+                                <div class="date-box">
+                                    <p>{{ event.dateEvent|date("M")}}</p>
+                                    <p>{{ event.dateEvent|date("d")}}</p>
+                                </div>
+                                <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.imageName }}">
                             </div>
-                            <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.imageName }}">
                         </div>
-                        <div class="box-right">
-                            <div class="date-box">
-                                <p class="adress-p" >{{ event.adresse}}
-                                {{ event.cp}} {{ event.city}}</p>
-                                <i class="fa-solid fa-hand-peace"><p> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></p></i>
-                                <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</p>
+                        <div class="flex-sl">
+                            <div class="sl-1">
+                                    <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
+                                    {% set places_left = event.places - event.participant|length %}
+                                    {% if places_left < 0 %}
+                                    {% set places_left = 0 %}
+                                    {% endif %}
+                                    <p>{{ places_left }} places left</p>
+                                <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
+                                    <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                                {% endif %}
+                            </div>
+                            <div class="box-right">
+                                <div class="date-box">
+                                    <p class="adress-p" >{{ event.adresse}}
+                                    {{ event.cp}} {{ event.city}}</p>
+                                    <i class="fa-solid fa-hand-peace"><p> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></p></i>
+                                    <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="box-dawn">
-                        {# <p>ID <a href="{{ path("Event_show",{'id':event.id}) }}"> {{ event.id }} </a></p> #}
-                        <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
-                        {% set places_left = event.places - event.participant|length %}
-                        {% if places_left < 0 %}
-                        {% set places_left = 0 %}
-                        {% endif %}
-                        <p>{{ places_left }} places left</p></p>
-                    </div>
-                        <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
-                            <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
-                        {% endif %}
-                </div>
-                {% endfor %}
+                    {% endfor %}
             </div>
+    </div>
         <div class="pag">
             {{ knp_pagination_render(events)}}
-        </div>
         </div>
 
 {% endblock %}
@@ -59,7 +60,7 @@ var currentPath = window.location.pathname;
 if (currentPath === "/events") {
 
   // get the box-dawn and box-name elements
-  var boxDawn = document.querySelector(".box-dawn");
+  var boxDawn = document.querySelector(".sl-1");
   var boxName = document.querySelector(".box-name");
 
   // check if the boxName element's width is greater than its container's width
@@ -71,7 +72,7 @@ if (currentPath === "/events") {
   } else {
     // if it's not, set the gap of boxDawn to 10px and set its display property to block
     boxDawn.style.gap = "10px";
-    boxDawn.style.marginLeft = "10px";
+    //boxDawn.style.marginLeft = "20px";
     boxDawn.style.display = "block";
   }
 }
