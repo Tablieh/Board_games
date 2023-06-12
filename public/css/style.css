@@ -358,6 +358,10 @@ span.lien-check {
   margin-left: 560px;
   font-size: 24px;
 }
+button.start {
+  cursor: pointer;
+  padding: 3px;
+}
 .drow {
   margin-top: -40px;
   display: inline-block;
