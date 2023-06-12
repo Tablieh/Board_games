@@ -2203,4 +2203,14 @@ p .notice {
   .learn-more {
     margin-left: 20px;
   }
+  .desc > p {
+    width: 200px;
+    overflow: hidden;
+  }
+  .left-right {
+    flex-direction: column;
+  }
+  .img1 {
+    display: none;
+  }
 }
