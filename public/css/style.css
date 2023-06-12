@@ -355,7 +355,7 @@ span.lien-check {
 }
 .add {
   width: fit-content;
-  margin-left: 520px;
+  margin-left: 560px;
   font-size: 24px;
 }
 .drow {
@@ -406,7 +406,10 @@ span.lien-check {
   padding-bottom: 50px;
   border: none;
   border-radius: 15px;
-  box-shadow: 4px 10px 19px black;
+  /* box-shadow: 4px 10px 19px black; */
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
