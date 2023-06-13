@@ -15,7 +15,8 @@
             <div class="left-right">
                         <p>{{ results.name }}</p>
                         <p>{{ results.dateEvent|date("l  H:i")  }} le {{ results.dateEvent|date("d/m/Y") }} </p>
-                        <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p>
+                        {# <p class="place-join"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a><i class="fa-solid fa-angle-right"></i></p> #}
+                        <p class="button"><i class="fa-solid fa-map-pin color-hand"> <a href="{{ path('add_participant', {'id': results.id, 'userId': app.user.id}) }}">Book a Place</a></i></p>
                     </div>
                 <div class="show-up">
                     

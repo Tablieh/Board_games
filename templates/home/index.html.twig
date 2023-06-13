@@ -354,9 +354,12 @@
             <p class="FEA-p1"> Click on the "View All" button to see our full line-up.</p>
             <p class="FEA-p2"> Remember any day below ground is a good day.</p>
         </div>
-        {% if is_granted("ROLE_USER") %}
-        <a class="FEA-a" href="{{path('app_join_events')}}">VIEW ALL</a>
-        {% endif %}
+        <div class="centre-a">
+            {% if is_granted("ROLE_USER") %}
+                <a class="FEA-a" href="{{path('app_join_events')}}">VIEW ALL</a>
+            {% endif %}
+        </div>
+       
     </div>
 {% endblock %}
 {% block javascript %}
