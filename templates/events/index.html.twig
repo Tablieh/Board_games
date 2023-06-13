@@ -29,8 +29,8 @@
                                     <p>{{ places_left }} places left</p>
                                 <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
                                 {% if is_granted("ROLE_ADMIN") %}
-                                    <a class="fa-solid fa-pen-to-square admin"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
-                                    <a class="fa-solid fa-trash-can admin" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                                    <a class="fa-solid fa-pen-to-square admin fa-lg"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
+                                    <a class="fa-solid fa-trash-can admin fa-lg" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
                                 {% endif %}
                             </div>
                             <div class="box-right">
@@ -57,25 +57,7 @@
 var currentPath = window.location.pathname;
 
 // check if it's the login page
-if (currentPath === "/events") {
 
-  // get the box-dawn and box-name elements
-  var boxDawn = document.querySelector(".sl-1");
-  var boxName = document.querySelector(".box-name");
-
-  // check if the boxName element's width is greater than its container's width
-  if (boxName.offsetWidth > boxDawn.offsetWidth) {
-    // if it is, set the gap of boxDawn to 0 and set its display property to flex
-    boxDawn.style.gap = "0";
-    
-    boxDawn.style.display = "flex";
-  } else {
-    // if it's not, set the gap of boxDawn to 10px and set its display property to block
-    boxDawn.style.gap = "10px";
-    //boxDawn.style.marginLeft = "20px";
-    boxDawn.style.display = "block";
-  }
-}
    </script>
    <script>
         // Get all the box cards

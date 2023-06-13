@@ -355,9 +355,6 @@ span.lien-check {
 .check {
   margin-top: 35px;
 }
-/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"); */
-
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
 
 .check-p {
   /*  text-align: center;
@@ -571,7 +568,7 @@ input#event_city.input-field {
 .grip {
   padding: 10px;
   margin-top: 20px;
-  margin-left: 200px;
+  margin-left: 250px;
   margin-bottom: 30px;
 }
 i.fa-solid.fa-grip-lines {
@@ -587,20 +584,12 @@ i.fa-solid.fa-grip-lines {
   font-family: "Playfair Display", serif;
 }
 .box-container {
-  margin-left: 240px;
+  margin-left: 290px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
 }
-.box {
-  padding: 12px;
 
-  background-color: #dfc9e4;
-  /*
-  box-shadow: inset -2px -2px 73px 21px rgba(165, 121, 165, 0.72); */
-  width: 520px;
-  border-radius: 10px;
-}
 .date-box {
   width: 50px;
   display: flex;
@@ -621,39 +610,128 @@ i.fa-solid.fa-grip-lines {
   display: flex;
   flex-wrap: wrap;
 }
-.box-right {
-  padding: 25px;
-  padding-left: 30px;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair:wght@300&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
+
+.box-name {
+  margin-right: 17px;
+  font-size: 20px;
+  font-weight: 600;
+  /*  font-family: "Roboto Slab", serif; */
+  font-family: "Yatra One", cursive;
+  color: #b729ba;
 }
-.sl-1 {
-  padding: 25px;
-  padding-top: 15px;
-  width: 190px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  padding-left: 5px;
+.adress-p {
+  text-align: justify;
+  margin-left: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  /*  font-family: "Roboto Slab", serif; */
+  font-family: "Yatra One", cursive;
+  color: #565656;
+  width: 150px;
 }
 .sl-1 > p {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  font-weight: 600;
+  /* font-family: "Roboto Slab", serif; */
+  font-family: "Yatra One", cursive;
   color: #323232;
   padding: 10px;
   padding-bottom: 0;
   padding-top: 0;
 }
+.sl-1 {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 55px;
+  padding-left: 20px;
+  /* margin: 10px;
+  padding-left: 5px;
+  padding-top: 15px; */
+}
+.box-right {
+  padding: 55px;
+  /* padding-left: 30px; */
+}
+/* .box {
+  padding: 12px;
+  background-color: #dfc9e4;
+  width: 520px;
+  border-radius: 10px;
+} */
+.box {
+  padding: 12px;
+  width: 520px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+}
+i.fa-solid.fa-hand-peace {
+  padding: 7px;
+  display: flex;
+  gap: 10px;
+  height: 40px;
+  width: 175px;
+  color: white;
+  border: 3px solid #811575;
+  background-color: #811575;
+  border-radius: 10px;
+}
+i.fa-solid.fa-hand-peace a {
+  cursor: cell;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  /* font-family: "Roboto Slab", serif; */
+  font-family: "Yatra One", cursive;
+  color: white;
+}
+
+i.fa-solid.fa-hand-peace a:hover {
+  color: #c61fc6;
+}
+i.fa-solid.fa-hand-peace a:hover {
+  text-decoration: none;
+}
+.learn-more {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 3px solid #811575;
+  background-color: #811575;
+  border-radius: 10px;
+
+  margin-left: 20px;
+}
+.learn-more a {
+  /* font-family: "Roboto Slab", serif; */
+  font-family: "Yatra One", cursive;
+  color: white;
+}
+.learn-more a:hover {
+  text-decoration: none;
+  color: #c61fc6;
+}
 .sl-1 > a.fa-solid.fa-pen-to-square.admin::before,
 .sl-1 > a.fa-solid.fa-trash-can.admin::before {
   padding: 10px;
-  margin: 15px;
+  padding-top: 35px;
+  margin: 25px;
   margin-left: 0;
   margin-right: 0;
   padding-right: 0;
 }
 .box-left {
   margin-left: 10px;
-  height: 200px;
+  height: 230px;
   object-fit: cover;
   display: flex;
   flex-wrap: wrap;
@@ -662,19 +740,10 @@ i.fa-solid.fa-grip-lines {
 }
 .box-img {
   width: 425px;
-  height: 200px;
+  height: 230px;
   object-fit: cover;
 }
 
-.adress-p {
-  text-align: justify;
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
-  color: #565656;
-  width: 150px;
-}
 .admin {
   color: #b729ba;
   margin-right: 15px;
@@ -682,15 +751,40 @@ i.fa-solid.fa-grip-lines {
 .admin:hover {
   color: #811683;
 }
-.color-hand {
-  color: #7c7c7c;
+div.gray-text {
+  font-size: 19px;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
 }
+.desc {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Patrick Hand", cursive;
+  color: #565656;
+}
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
-.fa-solid.fa-map-pin.color-hand a:hover {
-  color: #811683;
+.left-right > p {
+  /* font-family: "Playfair Display", serif; */
+  font-family: "Patrick Hand", cursive;
+  font-size: 19px;
+  font-weight: 700;
+  /* color: rgb(66, 66, 66); */
+  color: #811575;
 }
-.fa-solid.fa-map-pin.color-hand:hover {
-  color: #811683;
+.fa-solid.fa-map-pin.color-hand a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Yatra One", cursive;
+  font-size: 17px;
+  padding: 3px;
+}
+.fa-solid.fa-map-pin.color-hand a:hover {
+  text-decoration: none;
+  color: #c61fc6;
+}
+.color-hand {
+  color: #ffffff;
 }
 .comment-button {
   color: #811683;
@@ -700,64 +794,18 @@ i.fa-solid.fa-grip-lines {
   padding: 3px;
   color: #565656;
 }
-.fa-solid.fa-map-pin.color-hand a {
-  color: #148eb7;
-}
 .button {
   padding: 5px;
-  border: 2px solid #565656;
-}
-i.fa-solid.fa-hand-peace {
-  margin-left: 20px;
-  padding: 10px;
-  height: 40px;
-  width: 175px;
   border: 3px solid #811575;
-  display: flex;
-  gap: 10px;
-}
-i.fa-solid.fa-hand-peace:hover {
-  border: 3px solid #b729ba;
-}
-i.fa-solid.fa-hand-peace a:hover {
-  color: #b729ba;
-}
-i.fa-solid.fa-hand-peace a:hover {
-  text-decoration: none;
-}
-i.fa-solid.fa-hand-peace a {
-  color: #811575;
-  font-size: 16px;
-  font-weight: 700;
-}
-.box-name {
-  margin-right: 18px;
-  font-size: 22px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
-  color: #b729ba;
+  background-color: #811575;
+  border-radius: 10px;
+  color: white;
 }
 .box-name:hover {
   color: #811683;
   text-decoration: none;
 }
-.learn-more {
-  width: 120px;
-  font-size: 16px;
-  font-weight: 700;
-  border: 3px solid #811575;
-  margin-left: 20px;
-}
-.learn-more a {
-  color: #811575;
-}
-.learn-more:hover {
-  border: 3px solid #b729ba;
-}
-.learn-more a:hover {
-  text-decoration: none;
-  color: #b729ba;
-}
+
 .btn-event {
   margin-top: 20px;
   margin-left: 660px;
@@ -964,7 +1012,7 @@ i.fa-solid.fa-list-check {
 .box-centre {
   display: flex;
   flex-direction: column;
-  margin-left: 200px;
+  margin-left: 250px;
 }
 .show-mode {
   margin-left: 150px;
@@ -986,12 +1034,7 @@ p .button {
   font-weight: 700;
   font-family: "Playfair Display", serif;
 }
-.left-right > p {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: rgb(66, 66, 66);
-}
+
 .swiper-slide:hover {
   cursor: pointer;
 }
@@ -1070,13 +1113,7 @@ img.boxImg {
   color: #565656;
   border-bottom: solid 2px #565656;
 }
-div.gray-text,
-.desc {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "vibes";
-  color: #565656;
-}
+
 body {
   position: relative;
 }
@@ -2364,5 +2401,28 @@ p .notice {
   }
   .centre-a1 {
     margin-left: 0;
+  }
+  .sl-1 > a.fa-solid.fa-pen-to-square.admin::before,
+  .sl-1 > a.fa-solid.fa-trash-can.admin::before,
+  .box-name,
+  .sl-1 > p {
+    margin: 0;
+    padding: 0;
+  }
+  .flex-sl {
+    margin-top: 30px;
+  }
+  .sl-1 {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .flex-sl,
+  .sl-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 }
