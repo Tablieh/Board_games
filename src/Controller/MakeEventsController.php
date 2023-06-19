@@ -132,8 +132,38 @@ class MakeEventsController extends AbstractController
         'editMode'=> $Event->getId() !== null
     ]);
 }
-    
     #[Route('/del/{id}', name: 'Event_del')]
+public function del_edit(Event $event, ManagerRegistry $doctrine, AuthorizationCheckerInterface $authorizationChecker)
+{
+    // Verify if the user is an ADMIN, if not, redirect to the login page
+    if (!$authorizationChecker->isGranted('ROLE_ADMIN')) {
+        $this->addFlash('error', 'You need to be an admin to delete an event!');
+        return $this->redirectToRoute('app_login');
+    }
+
+    $entityManager = $doctrine->getManager();
+
+    // Get the comments associated with the event
+    $comments = $event->getConcern();
+
+    // Delete each comment
+    foreach ($comments as $comment) {
+        $entityManager->remove($comment);
+    }
+
+    // Flush changes to the database
+    $entityManager->flush();
+
+    // Remove the event
+    $entityManager->remove($event);
+    $entityManager->flush();
+
+    // Success message for the user
+    $this->addFlash('success', 'The event and its comments have been successfully deleted!');
+    return $this->redirectToRoute('app_join_events');
+}
+
+/*  #[Route('/del/{id}', name: 'Event_del')]
     public function del_edit(Event $event , ManagerRegistry $doctrine , AuthorizationCheckerInterface $authorizationChecker)
     {
         // verfie si la utlisateur est bien ADMIN et si non redirge sur la page de login
@@ -149,7 +179,7 @@ class MakeEventsController extends AbstractController
         $this->addFlash('success', 'the Event is well deleted!');
         return $this->redirectToRoute('app_join_events');
 
-    }
+    }  */
     #[Route('/event/{id}', name: 'Event_show')]
     public function showEvent(Event $event, BGAHttpClient $bga, Request $request, EntityManagerInterface $entityManager , AuthorizationCheckerInterface $authorizationChecker): Response
     {

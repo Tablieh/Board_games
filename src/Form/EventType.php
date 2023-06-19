@@ -43,7 +43,7 @@ class EventType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '5200k',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
