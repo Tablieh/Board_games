@@ -14,6 +14,7 @@
             <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
             <link rel="stylesheet" href="{{ asset("css/style.css") }}">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+            <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css" />
         {% endblock %}
         
     </head>
@@ -58,61 +59,66 @@
 </nav>
 {% if app.user %}
                 <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
-                <div id="myInfo" class="animate">
-                <div class="info-user">
-                <div class="centre-user">
-                    <h1>{{ app.user.getPseudo }}'s Profile</h1>
-                    <h2>Events</h2>
-                    {% set joinedEvents = app.user.participant %}
-                    {% set createdEvents = app.user.created %}
-                    {% if createdEvents is empty and joinedEvents is empty %}
-                        <p>No events found.</p>
-                    {% else %}
-                            {% if app.user.created |length > 0 %}
-                                <div class="Created-User">
-                                    <p>Created By USER :</p>
+                <div class="scroll-container">
+                    <div id="myInfo" class="animate scroll-content">
+                        <div class="info-user">
+                            <div class="centre-user">
+                                <h1>{{ app.user.getPseudo }}'s Profile</h1>
+                                <h2>Events</h2>
+                                {% set joinedEvents = app.user.participant %}
+                                {% set createdEvents = app.user.created %}
+                                {% if createdEvents is empty and joinedEvents is empty %}
+                                    <p>No events found.</p>
+                                {% else %}
+                                        {% if app.user.created |length > 0 %}
+                                            <div class="Created-User">
+                                                <p>Created By USER :</p>
+                                                <ol>
+                                                    {% for event in app.user.created %}
+                                                        {% set participantCount = event.participant.count() %}
+                                                        {% if participantCount == 1 %}
+                                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                        {% else %}
+                                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ol>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if joinedEvents|length > 0 %}
+                                            <div class="Joined-User">
+                                                <p>Joined By USER :</p>
+                                                <ol>
+                                                {% for event in joinedEvents %}
+                                                    {% set participantCount = event.participant.count() %}
+                                                    {% if participantCount == 1 %}
+                                                        <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                    {% else %}
+                                                        <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </dl>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </dl>
+                                            </div>
+                                        {% endif %}
+                                {% endif %}
+
+                                <h2>Comments</h2>
+                                {% if app.user.opinion is empty %}
+                                    <p>No comments found.</p>
+                                {% else %}
                                     <ol>
-                                        {% for event in app.user.created %}
-                                            {% set participantCount = event.participant.count() %}
-                                            {% if participantCount == 1 %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
-                                            {% else %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
-                                            {% endif %}
+                                        {% for comment in app.user.opinion %}
+                                            <dl class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </dl>
                                         {% endfor %}
                                     </ol>
-                                </div>
-                            {% endif %}
-
-                            {% if joinedEvents|length > 0 %}
-                                <div class="Joined-User">
-                                    <p>Joined By USER :</p>
-                                    <ol>
-                                    {% for event in joinedEvents %}
-                                        {% set participantCount = event.participant.count() %}
-                                        {% if participantCount == 1 %}
-                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
-                                        {% else %}
-                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </dl>
-                                        {% endif %}
-                                    {% endfor %}
-                                    </dl>
-                                </div>
-                            {% endif %}
-                    {% endif %}
-
-                    <h2>Comments</h2>
-                    {% if app.user.opinion is empty %}
-                        <p>No comments found.</p>
-                    {% else %}
-                        <ol>
-                            {% for comment in app.user.opinion %}
-                                <dl class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </dl>
-                            {% endfor %}
-                        </ol>
-                    {% endif %}
-                </div>
-                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {# <div class="scrollbar">
+                        <div class="thumb"></div>
+                    </div> #}
                 </div>
     {% endif %}
 
@@ -249,26 +255,32 @@
                 });
                 }
                 const infoUser = document.querySelector('.info-user');
-                const myButton = document.querySelector('#Profile');
-                const myInfo = document.querySelector('#myInfo');
-                
-                myButton.addEventListener('click', () => {
-                if (myInfo.style.display === 'none') {
-                    myInfo.style.display = 'block';
-                    myInfo.classList.add('.animate.pop');
-                } else {
-                    myInfo.style.display = 'none';
-                }
-                });
+const myButton = document.querySelector('#Profile');
+const myInfo = document.querySelector('#myInfo');
 
-                infoUser.addEventListener('click', () => {
-                if(myInfo.style.display == 'block'){
-                    myInfo.style.display = 'none';
-                }else{
-                    myInfo.style.display == 'block';
-                }
-                    
-                });
+myButton.addEventListener('click', () => {
+  if (myInfo.style.display === 'none') {
+    myInfo.style.display = 'block';
+    myInfo.classList.add('animate', 'pop');
+    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
+  } else {
+    myInfo.style.display = 'none';
+    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
+  }
+});
+
+infoUser.addEventListener('click', () => {
+  if (myInfo.style.display === 'block') {
+    myInfo.style.display = 'none';
+    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
+  } else {
+    myInfo.style.display = 'block';
+    myInfo.classList.add('animate', 'pop');
+    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
+  }
+});
+
+                
                 {# const lienCheck = document.querySelector('.lien-check'); #}
                 
             if (currentPath === "/home") {
@@ -319,6 +331,31 @@
         };
         </script>
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        {# <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scrollContainer = document.querySelector('.scroll-container');
+            const thumb = document.querySelector('.thumb');
+
+            thumb.addEventListener('mousedown', startDrag);
+            window.addEventListener('mouseup', stopDrag);
+
+            function startDrag(e) {
+            e.preventDefault();
+            window.addEventListener('mousemove', drag);
+            }
+
+            function stopDrag() {
+            window.removeEventListener('mousemove', drag);
+            }
+
+            function drag(e) {
+            const scrollPercentage = e.clientY / scrollContainer.offsetHeight;
+            scrollContainer.scrollTop = scrollPercentage * (scrollContainer.scrollHeight - scrollContainer.offsetHeight);
+            }
+        });
+        </script> #}
+
         {% endblock %}
         <!--<i class="fa-solid fa-arrow-up"></i>-->
     <button onclick="goup(this)" id="myBtn" ><i class="fa-solid fa-arrow-up"></i></button>
