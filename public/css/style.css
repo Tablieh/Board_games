@@ -801,6 +801,8 @@ div.gray-text {
   color: #565656;
   min-width: 700px;
   width: fit-content;
+  resize: vertical;
+  max-height: 300px;
 }
 .button {
   padding: 5px;
@@ -2189,6 +2191,14 @@ Form#event_type {
     height: 50vh;
     text-align: unset;
   }
+  .footer-part {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 10px;
+    height: 30vh;
+    text-align: unset;
+  }
   body {
     display: flex;
     flex-direction: column;
@@ -2198,7 +2208,7 @@ Form#event_type {
     top: 150px;
   }
   .footer-right {
-    right: 2%;
+    right: 0.5%;
   }
   .footer-left {
     right: 8%;

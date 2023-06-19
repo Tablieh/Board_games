@@ -62,7 +62,7 @@
                 <form class="form-comment" method="POST" action="{{ path('add_comment', {'id': results.id}) }}">
                     <input type="hidden" name="eventId" value="{{ results.getId() }}">
                     <div class="InputContainer-comment">
-                        <input class="comment-input" type="text" name="content">
+                        <textarea row=7 class="comment-input" type="text" name="content"></textarea> 
                         <button class="comment-button">Add Comment</button>
                     </div>
                 </form>
