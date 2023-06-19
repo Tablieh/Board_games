@@ -804,6 +804,10 @@ div.gray-text {
   resize: vertical;
   max-height: 300px;
 }
+#report_issueDescription {
+  resize: vertical;
+  max-height: 50px;
+}
 .button {
   padding: 5px;
   border: 3px solid #811575;
@@ -1572,7 +1576,8 @@ p .notice {
   border: solid rgb(255, 255, 255) 3px;
   color: rgb(3, 3, 3);
   padding: 4px 6px;
-  padding-bottom: 8px;
+  padding-bottom: 6px;
+  border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
   font-family: "Open Sans";
