@@ -2077,6 +2077,7 @@ Form#event_type {
   }
   .desc {
     width: 90%;
+    margin-bottom: 20px;
   }
   .container {
     max-width: 700px;
@@ -2288,6 +2289,7 @@ Form#event_type {
   }
   .boxi,
   .Postal {
+    font-size: medium;
     padding: 5px;
     padding-top: 0;
     padding-bottom: 0;
@@ -2412,6 +2414,7 @@ Form#event_type {
   }
   .left-right {
     flex-direction: column;
+    gap: 5px;
   }
   .img1 {
     display: none;
@@ -2450,5 +2453,9 @@ Form#event_type {
     display: flex;
     flex-direction: column;
     gap: 30px;
+  }
+  .comment-input {
+    margin-left: 5px;
+    min-width: 280px;
   }
 }
