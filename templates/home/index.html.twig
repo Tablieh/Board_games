@@ -439,7 +439,9 @@ function addIssue() {
   var issueContainer = document.getElementById('issue-container');
   var issueBlocks = issueContainer.querySelectorAll('.issue-block');
   
-  if (issueBlocks.length < 3) {
+  if (issueBlocks.length < 2) {
+    let contact = document.querySelector('.contact')
+    contact.style.height="110vh";
     var issueBlock = document.querySelector('.issue-block');
     var clone = issueBlock.cloneNode(true);
     issueContainer.appendChild(clone);

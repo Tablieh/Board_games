@@ -809,10 +809,7 @@ div.gray-text {
   resize: vertical;
   max-height: 300px;
 }
-#report_issueDescription {
-  resize: vertical;
-  max-height: 50px;
-}
+
 .button {
   padding: 5px;
   border: 3px solid #811575;
@@ -1594,14 +1591,6 @@ p .notice {
   font-family: "Open Sans";
   color: #323131;
 }
-.h2-invitation1 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: "Open Sans";
-  color: #323131;
-}
 .submit {
   border: solid rgb(0, 0, 0) 3px;
   text-decoration: none;
@@ -2049,7 +2038,50 @@ p .notice {
 Form#event_type {
   color: white;
 }
+#report_name,
+#report_email {
+  border-radius: 5px;
+  border: rgb(126, 126, 126) solid 2px;
+  color: rgb(86, 86, 86);
+  font-family: "Playfair Display", serif;
+  font-size: medium;
+  font-weight: 700;
+  padding: 10px 4px;
+}
+.h2-invitation1 {
+  font-family: "Playfair Display", serif;
+  font-size: medium;
+  font-weight: 700;
+  color: rgb(86, 86, 86);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#report_issueName {
+  padding: 10px 4px;
+  border: rgb(126, 126, 126) solid 2px;
+  color: rgb(86, 86, 86);
+  font-family: "Playfair Display", serif;
+}
+#report_submit {
+  border-radius: 2px;
+  padding: 10px 4px;
+  border: rgb(126, 126, 126) solid 2px;
+  color: rgb(86, 86, 86);
+  font-family: "Playfair Display", serif;
+}
+#report_issueDescription {
+  padding: 10px 4px;
+  border: rgb(126, 126, 126) solid 2px;
+  color: rgb(86, 86, 86);
+  font-family: "Playfair Display", serif;
+  resize: vertical;
+  max-height: 100px;
+}
+
 @media screen and (max-width: 700px) {
+  #report_issueDescription {
+    max-height: 50px;
+  }
   .flex,
   .info,
   .acc-p,
