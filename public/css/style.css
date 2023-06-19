@@ -787,12 +787,20 @@ div.gray-text {
   color: #ffffff;
 }
 .comment-button {
-  color: #811683;
-  padding: 3px;
+  background-color: #811683;
+  color: #ffffff;
+  border-radius: 20px;
+  border: #ffffff solid 3px;
+  padding: 10px;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  cursor: pointer;
 }
 .comment-input {
-  padding: 3px;
+  padding: 6px;
   color: #565656;
+  min-width: 700px;
+  width: fit-content;
 }
 .button {
   padding: 5px;
