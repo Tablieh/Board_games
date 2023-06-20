@@ -1679,10 +1679,10 @@ p .notice {
   /* margin-top: -145px; */
   border-radius: 10px;
   overflow-y: scroll;
+  overflow: auto;
   padding: 2em;
   border-radius: 1rem;
 }
-
 .info-user {
   top: 0;
   /* top: 89px; */
@@ -1708,6 +1708,37 @@ p .notice {
   padding: 2em;
   overflow: auto; /* Added this line */
   overscroll-behavior: none;
+}
+.events-list {
+  height: 100px;
+  overflow: scroll;
+  color: #454146;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+.events-list a {
+  font-size: 18px;
+  color: #670b7e;
+}
+/*
+.simplebar-track.simplebar-vertical {
+  border-radius: 10px;
+  background-color: rgba(210, 210, 210, 0.651);
+} */
+.simplebar-track.simplebar-vertical {
+  cursor: grab;
+}
+/* Custom scrollbar style */
+.simplebar-scrollbar:hover {
+  background-color: #811683; /* rgb(0, 149, 255); */ /* Blue color */
+  border-radius: 10px;
+}
+
+.simplebar-dragging .simplebar-scrollbar:before {
+  margin-left: -30px;
+  background-color: #811683; /* rgb(0, 149, 255); */ /* Gray color on drag */
+  border-radius: 10px;
 }
 .info-user p {
   color: #271039;

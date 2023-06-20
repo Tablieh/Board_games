@@ -242,19 +242,34 @@
                         <button class="accordion"> <i class="fa-solid fa-equals"></i> Organize Events </button>
                         <div class="panel">
                         <p class="menu"> Events list & Present Members.</p>
-                        <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                        <p class="menu-info"> 
+                            {% if app.user.created |length > 0 %}
+                                <div class="events-list ">
+                                    <ol>
+                                        {% for event in app.user.created %}
+                                            {% set participantCount = event.participant.count() %}
+                                            {% if participantCount == 1 %}
+                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                            {% else %}
+                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            {% endif %}
+                        </p>
                         </div>
 
                         <button class="accordion"> <i class="fa-solid fa-equals"></i> Events Planning</button>
                         <div class="panel">
                             <p class="menu"> Food & Drinks.</p>
-                            <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                            <p class="menu-info events-list"> Plus d'info : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum pariatur ab dolore at, praesentium quas, iure ullam vero recusandae rerum laboriosam quasi quaerat deserunt commodi facere reprehenderit a eius laudantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum error dolore facilis eius nulla hic eligendi ipsum aliquam modi. Obcaecati eligendi eveniet beatae officiis facilis earum ipsa minus nesciunt in. Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
                         </div>
 
                         <button class="accordion"><i class="fa-solid fa-equals"></i> Travel</button>
                         <div class="panel">
                             <p class="menu"> Transport Method.</p>
-                            <p class="menu-info"> Plus d'info : Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
+                            <p class="menu-info events-list"> Plus d'info : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum pariatur ab dolore at, praesentium quas, iure ullam vero recusandae rerum laboriosam quasi quaerat deserunt commodi facere reprehenderit a eius laudantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum error dolore facilis eius nulla hic eligendi ipsum aliquam modi. Obcaecati eligendi eveniet beatae officiis facilis earum ipsa minus nesciunt in. Lorem ipsum dolor sit amet consectetur adipisicing elit! .</p>
                         </div>
                     </div>
                 </div>
