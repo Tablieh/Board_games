@@ -286,8 +286,10 @@
                 <h3 class="h3-demo" id="BeInTouch">Sign Up For Our Email Newsletter</h3>
                 <p class="p-demo">Get news and pre-sale access codes from The Events in your inbox!</p>
                 <div class="parallax-felx">
-                    <input placeholder="Type Your Email " type="text">
-                    <button type="submit" class="start">JOIN THE UNDERGROUND</button>
+                    <form action="{{ path('process_newsletter') }}" method="POST">
+                        <input name="email" placeholder="Type Your Email" type="text">
+                        <button type="submit" class="start">JOIN THE UNDERGROUND</button>
+                    </form>
                 </div>
                 
             </div>
