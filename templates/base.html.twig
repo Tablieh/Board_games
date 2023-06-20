@@ -59,8 +59,7 @@
 </nav>
 {% if app.user %}
                 <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
-                <div class="scroll-container">
-                    <div id="myInfo" class="animate scroll-content">
+                    <div id="myInfo" class="animate">
                         <div class="info-user">
                             <div class="centre-user">
                                 <h1>{{ app.user.getPseudo }}'s Profile</h1>
@@ -116,10 +115,6 @@
                             </div>
                         </div>
                     </div>
-                    {# <div class="scrollbar">
-                        <div class="thumb"></div>
-                    </div> #}
-                </div>
     {% endif %}
 
 
@@ -332,29 +327,6 @@ infoUser.addEventListener('click', () => {
         </script>
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
-        {# <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const scrollContainer = document.querySelector('.scroll-container');
-            const thumb = document.querySelector('.thumb');
-
-            thumb.addEventListener('mousedown', startDrag);
-            window.addEventListener('mouseup', stopDrag);
-
-            function startDrag(e) {
-            e.preventDefault();
-            window.addEventListener('mousemove', drag);
-            }
-
-            function stopDrag() {
-            window.removeEventListener('mousemove', drag);
-            }
-
-            function drag(e) {
-            const scrollPercentage = e.clientY / scrollContainer.offsetHeight;
-            scrollContainer.scrollTop = scrollPercentage * (scrollContainer.scrollHeight - scrollContainer.offsetHeight);
-            }
-        });
-        </script> #}
 
         {% endblock %}
         <!--<i class="fa-solid fa-arrow-up"></i>-->
