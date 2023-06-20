@@ -406,6 +406,10 @@ button.start {
 .parallax-felx > form input {
   padding: 3px;
 }
+.hide {
+  display: none;
+}
+
 .drow {
   margin-top: -40px;
   display: inline-block;

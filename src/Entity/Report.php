@@ -15,10 +15,10 @@ class Report
     private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
-    private ?bool $yes = null;
+    private ?bool $choix = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $no = null;
+   /*  #[ORM\Column(nullable: true)]
+    private ?bool $no = null; */
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -37,19 +37,19 @@ class Report
         return $this->id;
     }
 
-    public function isYes(): ?bool
+    public function isChoix(): ?bool
     {
-        return $this->yes;
+        return $this->choix;
     }
 
-    public function setYes(?bool $yes): self
+    public function setChoix(?bool $choix): self
     {
-        $this->yes = $yes;
+        $this->choix = $choix;
 
         return $this;
     }
 
-    public function isNo(): ?bool
+    /* public function isNo(): ?bool
     {
         return $this->no;
     }
@@ -59,7 +59,7 @@ class Report
         $this->no = $no;
 
         return $this;
-    }
+    } */
 
     public function getName(): ?string
     {

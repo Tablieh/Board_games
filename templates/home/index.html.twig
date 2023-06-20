@@ -300,33 +300,37 @@
         <p class="gray">HERE WE GO</p>
         <p class="black">Video Reporting issues</p>
         <p class="text1">We Are happy to fix your Problem.</p>
-        <div class="contact-flex">
-            <div class="form-contact">
-                {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
-                <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
-                <div class="form-group">
-                    <div class="form-contact-content">
-                        <button class="yes" onclick="changeColorButton(event)">{{ form_widget(ReportType.yes, {'attr': {'style': 'display:none', 'id': 'yes-button', 'type': 'button'}}) }}Yes</button>
-                        <button class="no" onclick="changeColorButton1(event)">{{ form_widget(ReportType.no, {'attr': {'style': 'display:none', 'id': 'no-button', 'type': 'button'}}) }}No</button>
-                        {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo}}) }}
-                        {{ form_widget(ReportType.email, {'attr': {'value': app.user.email}}) }}
-                    </div>
-                </div>
-                <h2 class="h2-invitation1">Do You know the issue ?</h2>
-                <div class="form-content1">
-                    {{ form_widget(ReportType.issueName) }}
-                    <input class="guest" type="button" value="+ Add issue" onclick="addIssue()">
-                </div>
-                <div id="issue-container">
-                    <div class="issue-block">
-                        <h2 class="h2-invitation1">Pls write your Issue here.</h2>
-                        {{ form_widget(ReportType.issueDescription) }}
-                    </div>
-                </div>
-                {{ form_widget(ReportType.submit) }}
-                {{ form_end(ReportType) }}
+<div class="contact-flex">
+    <div class="form-contact">
+        {{ form_start(ReportType, {'attr': {'id': 'contact-form'}}) }}
+        <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
+        <div class="form-group">
+            <div class="form-contact-content">
+                {# <label>
+                    <input type="radio" name="choix" value="1" onclick="changeColorButton(event)"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="choix" value="0" onclick="changeColorButton(event)"> No
+                </label> #}
+                {{ form_widget(ReportType.choix) }}
+                {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo}}) }}
+                {{ form_widget(ReportType.email, {'attr': {'value': app.user.email}}) }}
             </div>
-
+        </div>
+        <h2 class="h2-invitation1">Do You know the issue ?</h2>
+        <div class="form-content1">
+            {{ form_widget(ReportType.issueName) }}
+            <input class="guest" type="button" value="+ Add issue" onclick="addIssue()">
+        </div>
+        <div id="issue-container">
+            <div class="issue-block">
+                <h2 class="h2-invitation1">Pls write your Issue here.</h2>
+                {{ form_widget(ReportType.issueDescription) }}
+            </div>
+        </div>
+        {{ form_widget(ReportType.submit) }}
+        {{ form_end(ReportType) }}
+    </div>
             <div>
                 <video class="video-window" autoplay muted loop>
                     <source src="{{ asset('vid/report.mp4') }}" type="video/mp4" />
@@ -427,30 +431,44 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
-function changeColorButton()
-   {
-     event.preventDefault(); 
-  let no = document.querySelector('.no')
-  let yes = document.querySelector('.yes')
-  yes.style.border ="dashed #88f988 3px";
-    yes.style.background="#ddffdd";
-    yes.style.color="#88f988";
-    no.style.border ="dashed rgb(175, 175, 175) 3px";
-    no.style.color="rgb(3, 3, 3)";
-    no.style.background="none";
-}
-function changeColorButton1()
-   {
-     event.preventDefault(); 
-    let no = document.querySelector('.no')
-    let yes = document.querySelector('.yes')
-    no.style.border ="dashed #db3c3c 3px";
-    no.style.background="#ea8484";
-    no.style.color="#db3c3c";
-    yes.style.border ="dashed rgb(175, 175, 175) 3px";
-    yes.style.color="rgb(3, 3, 3)";
-    yes.style.background="none";
-}
+{# 
+function changeColorButton(event) {
+    event.preventDefault();
+    let choix = event.target.value;
+    
+    if (choix === "1") {
+        // Apply styling for "Yes" selection
+        let yesButton = document.querySelector('input[value="1"]');
+        yesButton.parentNode.style.border = "dashed #88f988 3px";
+        yesButton.parentNode.style.background = "#ddffdd";
+        yesButton.parentNode.style.color = "#88f988";
+        
+       let noButton = document.querySelector('input[value="0"]');
+        noButton.parentNode.style.border = "dashed #white 3px";
+        noButton.parentNode.style.background = "#white";
+        noButton.parentNode.style.color = "#black";
+
+    } else if (choix === "0") {
+        // Apply styling for "No" selection
+        let noButton = document.querySelector('input[value="0"]');
+        noButton.parentNode.style.border = "dashed #db3c3c 3px";
+        noButton.parentNode.style.background = "#ea8484";
+        noButton.parentNode.style.color = "#db3c3c";
+        
+        let yesButton = document.querySelector('input[value="1"]');
+        yesButton.parentNode.style.border = "dashed #white 3px";
+        yesButton.parentNode.style.background = "#white";
+        yesButton.parentNode.style.color = "#black";
+    }
+} #}
+
+
+
+
+
+
+
+
 
 function addIssue() {
   var issueContainer = document.getElementById('issue-container');
