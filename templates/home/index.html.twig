@@ -469,36 +469,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    {# function changeColorButton(event) {
-        event.preventDefault();
-        let choix = event.target.value;
-        
-        if (choix === "1") {
-            // Apply styling for "Yes" selection
-            let yesButton = document.querySelector('input[value="1"]');
-            yesButton.parentNode.style.border = "dashed #88f988 3px";
-            yesButton.parentNode.style.background = "#ddffdd";
-            yesButton.parentNode.style.color = "#88f988";
-            
-        let noButton = document.querySelector('input[value="0"]');
-            noButton.parentNode.style.border = "dashed #white 3px";
-            noButton.parentNode.style.background = "#white";
-            noButton.parentNode.style.color = "#black";
-
-        } else if (choix === "0") {
-            // Apply styling for "No" selection
-            let noButton = document.querySelector('input[value="0"]');
-            noButton.parentNode.style.border = "dashed #db3c3c 3px";
-            noButton.parentNode.style.background = "#ea8484";
-            noButton.parentNode.style.color = "#db3c3c";
-            
-            let yesButton = document.querySelector('input[value="1"]');
-            yesButton.parentNode.style.border = "dashed #white 3px";
-            yesButton.parentNode.style.background = "#white";
-            yesButton.parentNode.style.color = "#black";
-        }
-    } #}
-
 
     // une fonction qui il va ajouter une champ pour les ajouter une nouvelle champ de issu (( reporting champ ))
     function addIssue() {
