@@ -29,11 +29,11 @@ class ReportType extends AbstractType
                     'expanded' => true,
                     'multiple' => false,
                     'attr' => [
-                    'class' => 'choix',
-                    'onclick' => 'changeColorButton(this)'
-                ]
-                    
+                        'class' => 'choix',
+                        'onclick' => 'changeColorButton(event)', // Pass event object
+                    ]
                 ])
+
             /* ->add('no', CheckboxType::class, [
                 'required' => false,
                 'attr' => [

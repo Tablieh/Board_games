@@ -306,12 +306,6 @@
         <h2 class="h2-invitation">Will You be attending to any of the Events ?</h2>
         <div class="form-group">
             <div class="form-contact-content">
-                {# <label>
-                    <input type="radio" name="choix" value="1" onclick="changeColorButton(event)"> Yes
-                </label>
-                <label>
-                    <input type="radio" name="choix" value="0" onclick="changeColorButton(event)"> No
-                </label> #}
                 {{ form_widget(ReportType.choix) }}
                 {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo}}) }}
                 {{ form_widget(ReportType.email, {'attr': {'value': app.user.email}}) }}
@@ -440,8 +434,42 @@
     }
     }, 1000);
 
-    {# 
-    function changeColorButton(event) {
+
+
+
+///////////////////////////////////////////////change la color de click on reporting /////////////////////////////////////////////////////
+
+function changeColorButton(event) {
+  console.log('changeColorButton called');
+
+  let selectedValue = event.target.value;
+
+  let parentDiv = event.target.closest('.form-contact-content .choix');
+
+  let yesButton = parentDiv.querySelector('input[name="choix"][value="1"]');
+  let noButton = parentDiv.querySelector('input[name="choix"][value="0"]');
+
+  if (selectedValue === "1") {
+    // Apply styling for "Yes" selection
+    parentDiv.classList.add('selected-yes');
+    parentDiv.classList.remove('selected-no');
+  } else if (selectedValue === "0") {
+    // Apply styling for "No" selection
+    parentDiv.classList.add('selected-no');
+    parentDiv.classList.remove('selected-yes');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  let radioButtons = document.getElementsByName('choix');
+
+  radioButtons.forEach(function(button) {
+    button.addEventListener('click', changeColorButton);
+  });
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {# function changeColorButton(event) {
         event.preventDefault();
         let choix = event.target.value;
         
@@ -471,7 +499,7 @@
         }
     } #}
 
-    
+
     // une fonction qui il va ajouter une champ pour les ajouter une nouvelle champ de issu (( reporting champ ))
     function addIssue() {
     var issueContainer = document.getElementById('issue-container');

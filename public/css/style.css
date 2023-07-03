@@ -1988,6 +1988,24 @@ div#report_choix.choix {
   padding: 10px;
   margin-right: 20px;
 }
+.selected-yes {
+  border: dashed #88f988 3px;
+  background: #ddffdd;
+  color: #88f988;
+}
+
+.selected-no {
+  border: dashed #db3c3c 3px;
+  background: #ea8484;
+  color: #db3c3c;
+}
+
+.default {
+  border: dashed white 3px;
+  background: white;
+  color: black;
+}
+
 @media screen and (max-width: 700px) {
   #report_issueDescription {
     max-height: 50px;
