@@ -384,7 +384,11 @@
     </div>
 {% endblock %}
 {% block javascript %}
+
     <script>
+
+////////////////// code js pour la partie nav de page home... //////////////////
+
     // get the current page path
     var currentPath = window.location.pathname;
 
@@ -403,102 +407,105 @@
             window.location.href = '{{ path("Event_show", {"id": "EVENT_ID"}) }}'.replace('EVENT_ID', eventId);
         });
     });
+
+
+////////////////// code js pour la partie de count dawn... //////////////////
+
     // Set the date we're counting down to
-var countDownDate = new Date("Mar 01, 2024 12:37:25").getTime();
+    var countDownDate = new Date("Mar 01, 2024 12:37:25").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    // Update the count down every 1 second
+    var x = setInterval(function() {
 
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "  " + hours + "  "
-  + minutes + "  " + seconds;
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-{# 
-function changeColorButton(event) {
-    event.preventDefault();
-    let choix = event.target.value;
-    
-    if (choix === "1") {
-        // Apply styling for "Yes" selection
-        let yesButton = document.querySelector('input[value="1"]');
-        yesButton.parentNode.style.border = "dashed #88f988 3px";
-        yesButton.parentNode.style.background = "#ddffdd";
-        yesButton.parentNode.style.color = "#88f988";
+    // Get today's date and time
+    var now = new Date().getTime();
         
-       let noButton = document.querySelector('input[value="0"]');
-        noButton.parentNode.style.border = "dashed #white 3px";
-        noButton.parentNode.style.background = "#white";
-        noButton.parentNode.style.color = "#black";
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+        
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "  " + hours + "  "
+    + minutes + "  " + seconds;
+        
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+    }, 1000);
 
-    } else if (choix === "0") {
-        // Apply styling for "No" selection
+    {# 
+    function changeColorButton(event) {
+        event.preventDefault();
+        let choix = event.target.value;
+        
+        if (choix === "1") {
+            // Apply styling for "Yes" selection
+            let yesButton = document.querySelector('input[value="1"]');
+            yesButton.parentNode.style.border = "dashed #88f988 3px";
+            yesButton.parentNode.style.background = "#ddffdd";
+            yesButton.parentNode.style.color = "#88f988";
+            
         let noButton = document.querySelector('input[value="0"]');
-        noButton.parentNode.style.border = "dashed #db3c3c 3px";
-        noButton.parentNode.style.background = "#ea8484";
-        noButton.parentNode.style.color = "#db3c3c";
-        
-        let yesButton = document.querySelector('input[value="1"]');
-        yesButton.parentNode.style.border = "dashed #white 3px";
-        yesButton.parentNode.style.background = "#white";
-        yesButton.parentNode.style.color = "#black";
+            noButton.parentNode.style.border = "dashed #white 3px";
+            noButton.parentNode.style.background = "#white";
+            noButton.parentNode.style.color = "#black";
+
+        } else if (choix === "0") {
+            // Apply styling for "No" selection
+            let noButton = document.querySelector('input[value="0"]');
+            noButton.parentNode.style.border = "dashed #db3c3c 3px";
+            noButton.parentNode.style.background = "#ea8484";
+            noButton.parentNode.style.color = "#db3c3c";
+            
+            let yesButton = document.querySelector('input[value="1"]');
+            yesButton.parentNode.style.border = "dashed #white 3px";
+            yesButton.parentNode.style.background = "#white";
+            yesButton.parentNode.style.color = "#black";
+        }
+    } #}
+
+    
+    // une fonction qui il va ajouter une champ pour les ajouter une nouvelle champ de issu (( reporting champ ))
+    function addIssue() {
+    var issueContainer = document.getElementById('issue-container');
+    var issueBlocks = issueContainer.querySelectorAll('.issue-block');
+    
+    if (issueBlocks.length < 2) {
+        let contact = document.querySelector('.contact')
+        contact.style.height="110vh";
+        var issueBlock = document.querySelector('.issue-block');
+        var clone = issueBlock.cloneNode(true);
+        issueContainer.appendChild(clone);
     }
-} #}
-
-
-
-
-
-
-
-
-
-function addIssue() {
-  var issueContainer = document.getElementById('issue-container');
-  var issueBlocks = issueContainer.querySelectorAll('.issue-block');
-  
-  if (issueBlocks.length < 2) {
-    let contact = document.querySelector('.contact')
-    contact.style.height="110vh";
-    var issueBlock = document.querySelector('.issue-block');
-    var clone = issueBlock.cloneNode(true);
-    issueContainer.appendChild(clone);
-  }
-}
+    }
 </script>
+
+
 <script>
+    //pour la accordion cette boucle qui fait activer en clickent la style de les element clickée
     var acc = document.getElementsByClassName("accordion");
-var i;
+    var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
+    for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+        panel.style.display = "none";
+        } else {
+        panel.style.display = "block";
+        }
+    });
     }
-  });
-}
 </script>
+
 {% endblock %}
 
 

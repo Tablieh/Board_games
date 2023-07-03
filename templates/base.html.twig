@@ -176,6 +176,10 @@
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
             <script>
+
+////////////////////////////////////////// code js pour la partie de swiper... //////////////////
+
+                //script pour la swiper
                 var swiper = new Swiper(".mySwiper", {
                 slidesPerView: 1,
                 spaceBetween: 30,
@@ -189,6 +193,10 @@
                     prevEl: ".swiper-button-prev",
                 },
                 });
+
+
+/////////////////////////////////////7 code js pour la partie de /login... //////////////////
+
                 // get the current page path
                 var currentPath = window.location.pathname;
 
@@ -207,40 +215,43 @@
                 document.querySelector(".footer").style.marginTop = "140px";
                 document.querySelector(".content").style.marginTop = "50px";
                 }
+
+////////////////// code js pour la partie de la scroll par de html et ca condition... //////////////////
                 
                 window.onscroll = function() {scrollFunction()};
                 function scrollFunction() {
-                window.onscroll = function() {
+                    window.onscroll = function() {
                         
                         if ( currentPath !== "/addEvent" && document.body.scrollTop > 20 ||  currentPath !== "/addEvent" &&  document.documentElement.scrollTop > 20) {
-                            myButton.style.opacity = "1";
+                            myButtonProfile.style.opacity = "1";
                             
                         } else {
-                            myButton.style.opacity = "0";
+                            myButtonProfile.style.opacity = "0";
                         }
 
                         if (currentPath !== "/home") {
                             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-                            myButton.style.opacity = "1";
+                            myButtonProfile.style.opacity = "1";
                             
                             } else {
-                            myButton.style.opacity = "0";
+                            myButtonProfile.style.opacity = "0";
                             }
 
                             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-                            myBtn.style.opacity = "1";
+                            scrollToTop.style.opacity = "1";
                             } else {
-                            myBtn.style.opacity = "0";
+                            scrollToTop.style.opacity = "0";
                             }
                         }
                         
                     }
                 }
+///////////////////////////////// code js pour la partie de scroll to top .. //////////////////
 
+                // founction pour scroll to top button
                 function goup(x){
-
-                const myBtn = document.getElementById("myBtn");
-                myBtn.addEventListener("click", function () {
+                const scrollToTop = document.getElementById("myBtn");
+                scrollToTop.addEventListener("click", function () {
                 //window.scrollTo(0, 0);
                 window.scrollTo(
                     {
@@ -251,82 +262,96 @@
                 );
                 });
                 }
+
+
+/////////////////////////////////////////////// code js pour la partie USER... /////////////////////////////////////////
+
+
+                //js pour la partie USER Button pour afficher la partie USER
                 const infoUser = document.querySelector('.info-user');
-const myButton = document.querySelector('#Profile');
-const myInfo = document.querySelector('#myInfo');
+                const myButtonProfile = document.querySelector('#Profile');
+                const myInfo = document.querySelector('#myInfo');
 
-myButton.addEventListener('click', () => {
-  if (myInfo.style.display === 'none') {
-    myInfo.style.display = 'block';
-    myInfo.classList.add('animate', 'pop');
-    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
-  } else {
-    myInfo.style.display = 'none';
-    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
-  }
-});
+                myButtonProfile.addEventListener('click', () => {
+                if (myInfo.style.display === 'none') {
+                    myInfo.style.display = 'block';
+                    myInfo.classList.add('animate', 'pop');
+                    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
+                } else {
+                    myInfo.style.display = 'none';
+                    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
+                }
+                });
 
-infoUser.addEventListener('click', () => {
-  if (myInfo.style.display === 'block') {
-    myInfo.style.display = 'none';
-    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
-  } else {
-    myInfo.style.display = 'block';
-    myInfo.classList.add('animate', 'pop');
-    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
-  }
-});
+                infoUser.addEventListener('click', () => {
+                if (myInfo.style.display === 'block') {
+                    myInfo.style.display = 'none';
+                    document.documentElement.style.overflow = ''; // Restore the HTML scrollbar
+                } else {
+                    myInfo.style.display = 'block';
+                    myInfo.classList.add('animate', 'pop');
+                    document.documentElement.style.overflow = 'hidden'; // Hide the HTML scrollbar
+                }
+                });
 
                 
                 {# const lienCheck = document.querySelector('.lien-check'); #}
-                
-            if (currentPath === "/home") {
-                myButton.style.removeProperty('right'); 
-                myButton.classList.add("profileHome");
-                myButton.style.left = "10px ";
-                myButton.style.removeProperty('top');
-                myButton.style.top = "135px";
-                infoUser.style.zIndex= "2";
-                //infoUser.style.height= "110vh";
-                myButton.style.zIndex= "3";
-                //lienCheck.style.marginLeft= "660px";
+                // si notre page courrent cest bien /home on applice une condition
+                if (currentPath === "/home") {
+                    myButtonProfile.style.removeProperty('right'); 
+                    myButtonProfile.classList.add("profileHome");
+                    myButtonProfile.style.left = "10px ";
+                    myButtonProfile.style.removeProperty('top');
+                    myButtonProfile.style.top = "135px";
+                    infoUser.style.zIndex= "2";
+                    //infoUser.style.height= "110vh";
+                    myButtonProfile.style.zIndex= "3";
+                    //lienCheck.style.marginLeft= "660px";
+                    }
+                    else {
+                        myButtonProfile.style.right = "10px ";
+                    }
+
+///////////////////////////////////////////////// code js pour la partie mobile de USER... ///////////////////////////////////////////
+
+
+                //la modife de JS pour la partie mobile sur la partie USER
+                let mobile =(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+                if (currentPath != "/home" && mobile) {
+                    myButtonProfile.style.opacity="1";
+                    myButtonProfile.style.top="150px";
+                    myButtonProfile.style.left="10px";
+                    myButtonProfile.style.zIndex="3";
+                    myButtonProfile.style.removeProperty('right');
+                    myButtonProfile.classList.add("profileHome");
                 }
-                else {
-                    myButton.style.right = "10px ";
+                const checkbox = document.querySelector('.checkbox');
+                const body = document.querySelector('body');
+
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        body.classList.add('menu-open');
+                    } else {
+                        body.classList.remove('menu-open');
+                    }
+                });
+                const menu = document.querySelector('.menu-items');
+
+                menu.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                }, { passive: false });
+
+                if (currentPath != "/home"){
+                document.querySelector('#redirectimg').onclick = function () {
+                    window.location.href = "/home";
                 }
-            let mobile =(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-
-            if (currentPath != "/home" && mobile) {
-                myButton.style.opacity="1";
-                myButton.style.top="150px";
-                myButton.style.left="10px";
-                myButton.style.zIndex="3";
-                myButton.style.removeProperty('right');
-                myButton.classList.add("profileHome");
-            }
-            const checkbox = document.querySelector('.checkbox');
-            const body = document.querySelector('body');
-
-            checkbox.addEventListener('change', function() {
-                if (this.checked) {
-                body.classList.add('menu-open');
-                } else {
-                body.classList.remove('menu-open');
-                }
-            });
-            const menu = document.querySelector('.menu-items');
-
-            menu.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-            }, { passive: false });
-
-            if (currentPath != "/home"){
-            document.querySelector('#redirectimg').onclick = function () {
-                window.location.href = "/home";
-            }
             
         };
         </script>
+
+        <!--////////////////// code js pour la partie de script a inclue pour la utilisation de script OutSours  //////////////////-->
+
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
         <!-- Include the "SimpleBar" library script -->
