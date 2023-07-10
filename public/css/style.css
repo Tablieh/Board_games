@@ -1692,11 +1692,33 @@ p .notice {
   font-weight: 600;
 }
 .centre-mention {
+  border-radius: 15px;
+  padding: 26px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-family: "Open Sans";
   font-weight: 600;
-  width: 550px;
-  margin-left: 400px;
+  width: 800px;
+  margin-top: 20px;
+  margin-left: 450px;
   text-align: justify;
+}
+.centre-mention h1 {
+  font-family: "Open Sans";
+  font-weight: 600;
+  color: #7a0e84;
+}
+.mention-h {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 20px;
+  color: #28052b;
+}
+.mention-ul {
+  margin-left: 20px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 15px;
+  color: #49094f;
 }
 .fixed-position {
   position: fixed;
@@ -1812,7 +1834,7 @@ p .notice {
 .card {
   background: #f8f5f5;
   width: 170px;
-  border-radius: 45%;
+  border-radius: 80%;
   overflow: hidden;
   transition: 0.5s;
 }
@@ -2007,6 +2029,17 @@ div#report_choix.choix {
 }
 
 @media screen and (max-width: 700px) {
+  .centre-mention {
+    width: 300px;
+    margin-left: 10px;
+    margin-top: 100px;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 5;
+  }
+  .centre-mention h1 {
+    display: none;
+  }
   #report_issueDescription {
     max-height: 50px;
   }
