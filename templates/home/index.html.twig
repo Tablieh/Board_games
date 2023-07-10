@@ -320,6 +320,7 @@
             <div class="issue-block">
                 <h2 class="h2-invitation1">Pls write your Issue here.</h2>
                 {{ form_widget(ReportType.issueDescription) }}
+
             </div>
         </div>
         {{ form_widget(ReportType.submit) }}
@@ -476,8 +477,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var issueBlocks = issueContainer.querySelectorAll('.issue-block');
     
     if (issueBlocks.length < 2) {
-        let contact = document.querySelector('.contact')
-        contact.style.height="110vh";
+        //let contact = document.querySelector('.contact')
+        //contact.style.height="110vh";
         var issueBlock = document.querySelector('.issue-block');
         var clone = issueBlock.cloneNode(true);
         issueContainer.appendChild(clone);
