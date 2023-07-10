@@ -1615,20 +1615,7 @@ p .notice {
   font-size: 18px;
   color: #360fb8;
 }
-.simplebar-track.simplebar-vertical {
-  cursor: grab;
-}
-/* Custom scrollbar style */
-.simplebar-scrollbar:hover {
-  background-color: #811683;
-  border-radius: 10px;
-}
 
-.simplebar-dragging .simplebar-scrollbar:before {
-  margin-left: -30px;
-  background-color: #811683;
-  border-radius: 10px;
-}
 .info-user p {
   color: #271039;
   font-family: "Playfair Display", serif;
@@ -2054,6 +2041,12 @@ div#report_choix.choix > input {
 }
 
 @media screen and (max-width: 700px) {
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+  }
   #report_submit {
     margin-left: 0;
   }
@@ -2069,7 +2062,7 @@ div#report_choix.choix > input {
     margin-top: 10px;
   }
   .centre-mention {
-    width: 300px;
+    width: 350px;
     margin-left: 10px;
     margin-top: 100px;
     box-shadow: none;
@@ -2096,7 +2089,7 @@ div#report_choix.choix > input {
     margin-left: 10px;
   }
   .info-user {
-    height: 350vh;
+    height: 100vh;
     padding: 15px;
   }
   .map,

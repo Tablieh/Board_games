@@ -15,8 +15,6 @@
             <link rel="stylesheet" href="{{ asset("css/style.css") }}">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
 
-            <!-- Include the "SimpleBar" library -->
-            <link rel="stylesheet" href="https://unpkg.com/simplebar@6.0.0/dist/simplebar.min.css" />
         {% endblock %}
         
     </head>
@@ -63,7 +61,7 @@
                 <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
                     <div id="myInfo" class="animate">
                         <div class="info-user">
-                            <div class="centre-user " data-simplebar>
+                            <div class="centre-user ">
                                 <h1>{{ app.user.getPseudo }}'s Profile</h1>
                                 <h2>Events</h2>
                                 {% set joinedEvents = app.user.participant %}
@@ -354,15 +352,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
-        <!-- Include the "SimpleBar" library script -->
-        <script src="https://unpkg.com/simplebar@6.0.0/dist/simplebar.min.js"></script>
 
-        <!-- Initialize SimpleBar after the content has loaded -->
-        <script>
-        window.onload = function() {
-            new SimpleBar(document.querySelector('[data-simplebar]'));
-        };
-        </script>
 
         {% endblock %}
         <!--<i class="fa-solid fa-arrow-up"></i>-->
