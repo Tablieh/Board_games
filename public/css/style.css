@@ -120,9 +120,9 @@ img.logo:hover {
 .nav-container .checkbox {
   position: absolute;
   display: block;
-  height: 32px;
-  width: 32px;
-  top: 20px;
+  height: 62px;
+  width: 62px;
+  top: 10px;
   right: 20px;
   opacity: 0;
   cursor: pointer;
@@ -552,7 +552,7 @@ input#event_city.input-field {
   margin-left: 250px;
   margin-bottom: 30px;
 }
-i.fa-solid.fa-grip-lines {
+i.fa-solid.fa-cubes {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -659,7 +659,7 @@ i.fa-solid.fa-hand-peace a {
   color: white;
 }
 i.fa-solid.fa-hand-peace a:hover {
-  color: #c61fc6;
+  color: #ffe8e8;
 }
 i.fa-solid.fa-hand-peace a:hover {
   text-decoration: none;
@@ -679,7 +679,7 @@ i.fa-solid.fa-hand-peace a:hover {
 }
 .learn-more a:hover {
   text-decoration: none;
-  color: #c61fc6;
+  color: #ffe8e8;
 }
 .sl-1 > a.fa-solid.fa-pen-to-square.admin::before,
 .sl-1 > a.fa-solid.fa-trash-can.admin::before {
@@ -743,7 +743,14 @@ div.gray-text {
 .color-hand {
   color: #ffffff;
 }
+.InputContainer-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 .comment-button {
+  margin-left: 760px;
+  width: 120px;
   background-color: #811683;
   color: #ffffff;
   border-radius: 20px;
@@ -756,10 +763,10 @@ div.gray-text {
 .comment-input {
   padding: 6px;
   color: #565656;
-  min-width: 700px;
+  min-width: 880px;
   width: fit-content;
   resize: vertical;
-  max-height: 300px;
+  max-height: 150px;
 }
 .button {
   padding: 5px;
@@ -1066,7 +1073,7 @@ body {
   position: relative;
 }
 .swiper {
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin-bottom: 50px;
 }
@@ -1164,14 +1171,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 1;
+  filter: grayscale(40%);
 }
 .parallax {
   margin: 0px;
-  opacity: 0.6;
+
   min-height: 500px;
 }
 .demo {
-  opacity: 0.9;
+  opacity: 10;
   margin: 0;
   display: grid;
   flex-direction: column;
@@ -1254,11 +1263,12 @@ body {
 .FEA-a {
   width: 100%;
   text-align: center;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
+  /* font-family: "Open Sans"; */
   font-family: "Playfair Display", serif;
   border: solid 3px #555;
-  padding: 5px;
+  padding: 6px;
   color: #555;
 }
 #myBtn {
@@ -1396,11 +1406,15 @@ p .notice {
   font-size: 16px;
   font-weight: 300;
   color: #fff;
+  padding: 15px;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+
 .count {
   color: #f2f2f2;
-  /* font-family: "Great Vibes"; */
-  font-family: "Playfair Display", serif;
+  font-family: "Great Vibes";
+  /* font-family: "Playfair Display", serif; */
   text-align: center;
   font-size: 42px;
   margin-top: 0px;
@@ -1416,6 +1430,7 @@ p .notice {
   margin-top: 0px;
 }
 .font-event4 {
+  /* font-family: "Great Vibes"; */
   font-family: "Playfair Display", serif;
   font-size: 32px;
   font-weight: 300;
@@ -1427,11 +1442,11 @@ p .notice {
   gap: 10px;
   justify-content: center;
 }
-.form-contact-content {
+/* .form-contact-content {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-}
+} */
 .yes,
 .no {
   border: dashed rgb(175, 175, 175) 3px;
@@ -1505,7 +1520,7 @@ p .notice {
   border-radius: 5px;
   width: 580px;
   background-color: #fcfcfc;
-  padding: 20px 50px 40px;
+  padding: 45px 50px 40px;
   box-shadow: 1px 4px 10px 1px #aaa;
 }
 .text1 {
@@ -1593,9 +1608,12 @@ p .notice {
   font-size: 15px;
   font-weight: 600;
 }
+.events-list ol {
+  padding: 15px;
+}
 .events-list a {
   font-size: 18px;
-  color: #670b7e;
+  color: #360fb8;
 }
 .simplebar-track.simplebar-vertical {
   cursor: grab;
@@ -1967,7 +1985,7 @@ Form#event_type {
 #report_name,
 #report_email {
   border-radius: 5px;
-  border: rgb(126, 126, 126) solid 2px;
+  border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
   font-family: "Playfair Display", serif;
   font-size: medium;
@@ -1984,20 +2002,22 @@ Form#event_type {
 }
 #report_issueName {
   padding: 10px 4px;
-  border: rgb(126, 126, 126) solid 2px;
+  border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
   font-family: "Playfair Display", serif;
 }
 #report_submit {
+  margin-left: 420px;
   border-radius: 2px;
-  padding: 10px 4px;
-  border: rgb(126, 126, 126) solid 2px;
+  padding: 10px 16px;
+  border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
   font-family: "Playfair Display", serif;
 }
 #report_issueDescription {
+  width: 380px;
   padding: 10px 4px;
-  border: rgb(126, 126, 126) solid 2px;
+  border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
   font-family: "Playfair Display", serif;
   resize: vertical;
@@ -2009,6 +2029,11 @@ div#report_choix.choix {
   gap: 5px;
   padding: 10px;
   margin-right: 20px;
+  margin-bottom: 20px;
+  width: 180px;
+}
+div#report_choix.choix > input {
+  margin-left: 20px;
 }
 .selected-yes {
   border: dashed #88f988 3px;
@@ -2029,6 +2054,20 @@ div#report_choix.choix {
 }
 
 @media screen and (max-width: 700px) {
+  #report_submit {
+    margin-left: 0;
+  }
+  #report_issueDescription {
+    width: 200px;
+    max-height: 50px;
+  }
+  #report_name,
+  #report_email {
+    margin-bottom: 10px;
+  }
+  .video-window {
+    margin-top: 10px;
+  }
   .centre-mention {
     width: 300px;
     margin-left: 10px;
@@ -2040,9 +2079,7 @@ div#report_choix.choix {
   .centre-mention h1 {
     display: none;
   }
-  #report_issueDescription {
-    max-height: 50px;
-  }
+
   .flex,
   .info,
   .acc-p,
@@ -2118,6 +2155,7 @@ div#report_choix.choix {
   .swiper-wrapper {
     width: 80%;
   }
+
   .swiper-button-next:after,
   .swiper-rtl .swiper-button-prev:after {
     margin-top: -90px;
