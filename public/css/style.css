@@ -596,6 +596,9 @@ i.fa-solid.fa-cubes {
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
 
 .box-name {
   margin-right: 17px;
@@ -1069,9 +1072,7 @@ img.boxImg {
   color: #565656;
   border-bottom: solid 2px #565656;
 }
-body {
-  position: relative;
-}
+
 .swiper {
   width: 90%;
   height: 100%;
@@ -2039,12 +2040,11 @@ div#report_choix.choix > input {
   background: white;
   color: black;
 }
-
+body {
+  position: relative;
+}
 @media screen and (max-width: 700px) {
   html {
-    overflow-x: hidden;
-  }
-  body {
     overflow-x: hidden;
   }
   #report_submit {
@@ -2101,7 +2101,7 @@ div#report_choix.choix > input {
     flex-direction: column;
   }
   .img {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
   .desc {
@@ -2129,7 +2129,7 @@ div#report_choix.choix > input {
   }
   .navbar .menu-items {
     padding: 130px;
-    padding-bottom: 2970px;
+    padding-bottom: 999px;
     backdrop-filter: blur(15px);
     box-shadow: inset 0 0 2000px #2e2e2e;
     justify-content: center;
@@ -2219,6 +2219,12 @@ div#report_choix.choix > input {
   .button {
     width: 180px;
   }
+  body {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: 1fr auto;
+  }
   .footer {
     display: flex;
     flex-shrink: 0;
@@ -2235,11 +2241,7 @@ div#report_choix.choix > input {
     height: 30vh;
     text-align: unset;
   }
-  body {
-    display: flex;
-    flex-direction: column;
-    grid-template-rows: 1fr auto;
-  }
+
   .footer-mid {
     top: 150px;
   }
@@ -2343,7 +2345,7 @@ div#report_choix.choix > input {
   .reg-form,
   h1.h3.mb-3.font-weight-normal.h1-log,
   label.label {
-    margin-left: 20px;
+    margin-left: 5px;
   }
   .label {
     gap: 3px;
@@ -2368,6 +2370,9 @@ div#report_choix.choix > input {
   input#event_date_event.input-field,
   input#event_imageFile_file.input-field {
     width: 250px;
+  }
+  .reg-form2 > div {
+    gap: 5px;
   }
   .user-center {
     margin-left: 0;
@@ -2475,5 +2480,8 @@ div#report_choix.choix > input {
   .comment-input {
     margin-left: 5px;
     min-width: 280px;
+  }
+  .parallax-felx > form input {
+    padding: 8px;
   }
 }
