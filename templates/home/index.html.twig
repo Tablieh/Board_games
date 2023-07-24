@@ -15,7 +15,7 @@
                         <div class="logo1">
                         
                         </div>
-                        <div class="menu-items">
+                        <ol class="menu-items">
                             {% if app.user %}
                                 {# si on veux on peut faire que le admin peut aller au activiter pour ajouter le marque etc
                                 {% if is_granted("ROLE_ADMIN") %}
@@ -31,7 +31,7 @@
                                 <li><a href="{{ path('app_login') }}">Connexion</a></li>	
                                 <li><a href="{{path('app_register')}}">Inscription</a></li>
                             {% endif %}
-                        </div>
+                        </ol>
                     </div>
                 </div>
             </div>
