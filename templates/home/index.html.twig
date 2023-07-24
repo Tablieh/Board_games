@@ -101,11 +101,11 @@
         <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>
     {% if is_granted("ROLE_USER") %}
-    <p class="video-text">Games + Events </p>
-    <div class="video-text2">
-        <a href="{{path('app_join_events')}}">Join event</a>
-        <a href="{{path('Event_add')}}">Create event</a>
-    </div>
+        <p class="video-text">Games + Events </p>
+        <div class="video-text2">
+            <a href="{{path('app_join_events')}}">Join event</a>
+            <a href="{{path('Event_add')}}">Create event</a>
+        </div>
     {% endif %}
     {% if is_granted('ROLE_USER') == false %}
         <p class="video-not">PLS Connect To Use Our Site </p>

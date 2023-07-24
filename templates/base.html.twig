@@ -33,26 +33,26 @@
     </div>
     <div class="navbar-right">
       <div class="container nav-container">
-        <input class="checkbox" type="checkbox" name="" id="" />
-        <div class="hamburger-lines">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
-        </div>
-        <div class="logo1"></div>
-        <div class="menu-items">
-          {% if app.user %}
-          <li><a href="{{ path('app_home') }}">Acceuil</a></li>
-          <li><a href="{{ path('app_join_events') }}">Join event</a></li>
-          <li><a href="{{ path('Event_add') }}">Create event</a></li>
-          <li><a href="{{ path('app_board_game') }}">BoardGames</a></li>
-          <li><a href="{{ path('app_home') }}#BeInTouch">Contact</a></li>
-          <li><a href="{{ path('app_logout') }}">Logout</a></li>
-          {% else %}
-          <li><a href="{{ path('app_login') }}">Connexion</a></li>
-          <li><a href="{{ path('app_register') }}">Inscription</a></li>
-          {% endif %}
-        </div>
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <div class="logo1"></div>
+            <div class="menu-items">
+                {% if app.user %}
+                    <li><a href="{{ path('app_home') }}">Acceuil</a></li>
+                    <li><a href="{{ path('app_join_events') }}">Join event</a></li>
+                    <li><a href="{{ path('Event_add') }}">Create event</a></li>
+                    <li><a href="{{ path('app_board_game') }}">BoardGames</a></li>
+                    <li><a href="{{ path('app_home') }}#BeInTouch">Contact</a></li>
+                    <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                {% endif %}
+            </div>
       </div>
     </div>
   </div>
