@@ -286,7 +286,7 @@ footer p {
   font-weight: 600;
   position: absolute;
   top: 320px;
-  left: 790px;
+  left: 785px;
   color: #fff;
 }
 .video-text2 {
@@ -313,7 +313,7 @@ footer p {
   font-weight: 600;
   position: absolute;
   top: 395px;
-  left: 570px;
+  left: 590px;
   text-decoration: none;
 }
 .video-text4 {
@@ -1691,11 +1691,26 @@ p .notice {
 }
 .Comment-user,
 .Created-User,
-.Joined-User > ul {
+.Joined-User > ol {
   font-size: 15px;
   font-family: "Open Sans";
   color: rgb(0, 0, 0);
   font-weight: 600;
+  text-align: center;
+}
+.Joined-User li,
+.Created-User li,
+.events-list li,
+.centre-user li {
+  list-style-type: circle;
+}
+ol.myOl {
+  display: inline-block;
+  text-align: left;
+}
+.info-user ol {
+  margin: auto;
+  /* padding-left: 90px; */
 }
 .centre-mention {
   border-radius: 15px;
@@ -1770,11 +1785,13 @@ p .notice {
   font-weight: 600;
   color: rgb(0, 0, 0);
   padding-top: 30px;
-  margin-top: 35px;
+  /* margin-top: 35px;
   margin-right: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 25px; */
   width: 600px;
-  margin-left: 500px;
+  /* margin-left: 500px; */
+  margin: auto;
+  padding-top: 120px;
 }
 .p-out {
   padding-bottom: 10px;
@@ -1782,13 +1799,14 @@ p .notice {
   font-size: 18px;
   font-weight: 300;
   color: #555;
-  margin-top: 25px;
+  /* margin-top: 25px;
   margin-right: 25px;
-  margin-bottom: 45px;
+  margin-bottom: 45px; */
   text-align: center;
   width: 490px;
-  margin: 25px;
-  margin-left: 550px;
+  /* margin: 25px;
+  margin-left: 550px; */
+  margin: auto;
 }
 .flex {
   height: 75vh;

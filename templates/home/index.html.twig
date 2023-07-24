@@ -52,13 +52,13 @@
                             {% if app.user.created |length > 0 %}
                                 <div class="Created-User">
                                     <p>Created By USER :</p>
-                                    <ol>
+                                    <ol class="myOl">
                                         {% for event in app.user.created %}
                                             {% set participantCount = event.participant.count() %}
                                             {% if participantCount == 1 %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                             {% else %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
                                             {% endif %}
                                         {% endfor %}
                                     </ol>
@@ -68,16 +68,16 @@
                             {% if joinedEvents|length > 0 %}
                                 <div class="Joined-User">
                                     <p>Joined By USER :</p>
-                                    <ol>
+                                    <ol  class="myOl">
                                     {% for event in joinedEvents %}
                                         {% set participantCount = event.participant.count() %}
                                         {% if participantCount == 1 %}
-                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                         {% else %}
-                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </dl>
+                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </li>
                                         {% endif %}
                                     {% endfor %}
-                                    </dl>
+                                    </ol>
                                 </div>
                             {% endif %}
                     {% endif %}
@@ -86,9 +86,9 @@
                     {% if app.user.opinion is empty %}
                         <p>No comments found.</p>
                     {% else %}
-                        <ol>
+                        <ol  class="myOl">
                             {% for comment in app.user.opinion %}
-                                <dl class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </dl>
+                                <li class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </li>
                             {% endfor %}
                         </ol>
                     {% endif %}
@@ -101,7 +101,7 @@
         <source src="{{ asset('vid/Gaming3.mp4') }}" type="video/mp4" />
     </video>
     {% if is_granted("ROLE_USER") %}
-    <p class="video-text">Game + Events </p>
+    <p class="video-text">Games + Events </p>
     <div class="video-text2">
         <a href="{{path('app_join_events')}}">Join event</a>
         <a href="{{path('Event_add')}}">Create event</a>
@@ -245,13 +245,13 @@
                         <p class="menu-info"> 
                             {% if app.user.created |length > 0 %}
                                 <div class="events-list ">
-                                    <ol>
+                                    <ol  class="myOl">
                                         {% for event in app.user.created %}
                                             {% set participantCount = event.participant.count() %}
                                             {% if participantCount == 1 %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                             {% else %}
-                                                <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
                                             {% endif %}
                                         {% endfor %}
                                     </ol>
