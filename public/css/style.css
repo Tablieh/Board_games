@@ -742,7 +742,8 @@ div.gray-text {
 }
 .fa-solid.fa-map-pin.color-hand a:hover {
   text-decoration: none;
-  color: #c61fc6;
+  color: #ffe8e8;
+  cursor: cell;
 }
 .color-hand {
   color: #ffffff;
