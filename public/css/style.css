@@ -3,6 +3,8 @@
 }
 html {
   overflow-x: hidden;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/639127c31795d00e2b0cc4c5_Group%207%20(4).svg"),
+    auto !important; */
 }
 * {
   box-sizing: border-box;
@@ -58,7 +60,9 @@ img.logo {
   /* border-radius: 75px; */
 }
 img.logo:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
 }
 .navbar-nav {
   position: relative;
@@ -129,6 +133,8 @@ img.logo:hover {
   right: 20px;
   opacity: 0;
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
   z-index: 6;
 }
 .nav-container .hamburger-lines {
@@ -277,6 +283,16 @@ footer p {
 .p-footer {
   font-size: 12px;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10.4%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
 .video {
   position: relative;
   width: 100%;
@@ -291,7 +307,9 @@ footer p {
   top: 320px;
   left: 785px;
   color: #fff;
+  z-index: 2;
 }
+
 .video-text2 {
   font-family: "Open Sans";
   font-size: 17px;
@@ -300,12 +318,17 @@ footer p {
   top: 360px;
   left: 742px;
   text-decoration: none;
+  z-index: 2;
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/639127c31795d00e2b0cc4c5_Group%207%20(4).svg"),
+    auto !important;
 }
 .video-text2 > a {
   text-decoration: none;
   color: #fff;
   padding: 5px;
   border: 1px solid #fff;
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
 }
 .video-text3,
 .video-text4 {
@@ -318,6 +341,9 @@ footer p {
   top: 395px;
   left: 590px;
   text-decoration: none;
+  z-index: 2;
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/639127c31795d00e2b0cc4c5_Group%207%20(4).svg"),
+    auto !important;
 }
 .video-text4 {
   top: 415px;
@@ -383,6 +409,8 @@ footer p {
 }
 button.start {
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
   padding: 3px;
 }
 .parallax-felx > form input {
@@ -655,7 +683,7 @@ i.fa-solid.fa-hand-peace {
   border-radius: 10px;
 }
 i.fa-solid.fa-hand-peace a {
-  cursor: cell;
+  cursor: pointer;
   /* padding: 10px; */
   font-size: 17px;
   font-weight: 600;
@@ -693,6 +721,9 @@ i.fa-solid.fa-hand-peace a:hover {
   margin-left: 0;
   margin-right: 0;
   padding-right: 0;
+}
+.a-event {
+  cursor: pointer;
 }
 .box-left {
   margin-left: 10px;
@@ -734,6 +765,8 @@ div.gray-text {
   color: #811575;
 }
 .fa-solid.fa-map-pin.color-hand a {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
   color: #ffffff;
   text-decoration: none;
   font-family: "Yatra One", cursive;
@@ -741,6 +774,8 @@ div.gray-text {
   padding: 3px;
 }
 .fa-solid.fa-map-pin.color-hand a:hover {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
   text-decoration: none;
   color: #ffe8e8;
   cursor: cell;
@@ -764,6 +799,8 @@ div.gray-text {
   font-weight: 700;
   font-family: "Playfair Display", serif;
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
 }
 .comment-input {
   padding: 6px;
@@ -859,7 +896,9 @@ a.lien_show:hover {
   color: #fff;
   font-size: 12px;
   border-radius: 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
 }
 .user-input {
   display: flex;
@@ -1001,6 +1040,8 @@ p .button {
 }
 .swiper-slide:hover {
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
 }
 div.dateBox {
   width: 100px;
@@ -1287,6 +1328,8 @@ img.boxImg {
   color: #f2f2f2;
   outline: none;
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
 }
 #myBtn:active {
   background: rgb(141, 139, 139);
@@ -1445,11 +1488,6 @@ p .notice {
   gap: 10px;
   justify-content: center;
 }
-/* .form-contact-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-} */
 .yes,
 .no {
   border: dashed rgb(175, 175, 175) 3px;
@@ -1457,10 +1495,27 @@ p .notice {
   padding: 15px 100px;
   text-decoration: none;
   margin: 4px 2px;
-  cursor: pointer;
   font-family: "Open Sans";
   font-size: 14px;
   font-weight: 700;
+}
+#event_imageFile_file,
+.vich-image,
+input#file-upload-button {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
+}
+.select {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
+}
+.select > option {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
+}
+.optionGame {
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
 }
 .email,
 .name {
@@ -1482,6 +1537,8 @@ p .notice {
   border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
   font-family: "Open Sans";
 }
 .h2-invitation {
@@ -1491,12 +1548,17 @@ p .notice {
   font-family: "Open Sans";
   color: #323131;
 }
+#report_submit {
+  cursor: pointer;
+}
 .submit {
   border: solid rgb(0, 0, 0) 3px;
   text-decoration: none;
   background-color: rgb(0, 0, 0);
   color: #f2f2f2;
   cursor: pointer;
+  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important; */
   font-family: "Open Sans";
   padding: 4px 50px;
   margin-top: 30px;
@@ -1761,7 +1823,9 @@ ol.myOl {
 }
 .box:hover {
   transform: translateY(-10px);
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
 }
 .Joined-User > * {
   color: #000000;
@@ -1907,7 +1971,9 @@ ol.myOl {
 .accordion {
   background-color: white;
   color: #2f2e2e;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
+    auto !important;
   padding: 18px;
   width: 100%;
   border: none;
@@ -2510,5 +2576,8 @@ body {
   }
   .a-event {
     margin-left: 0px;
+  }
+  .overlay {
+    display: none;
   }
 }
