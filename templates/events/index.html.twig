@@ -4,8 +4,9 @@
 
 {% block body %}
     <div class="box_container">
-            <div class="grip">
-             <i class="fa-solid fa-cubes fa-xl" style="color: #6b3d67;"><p class="grip-p">   All Event</p></i>   
+            <div class="grip" style="display: flex; align-items: center;">
+                <i class="fa-solid fa-cubes fa-xl" style="color: #6b3d67; margin-right: 5px;"></i>
+                <span class="grip-p" style="font-size: 18px; font-weight: 700; color: #c01eaf; font-family: 'Playfair Display', serif;"> All Event</span>
             </div>
             <div class="box-container">
                     {% for event in events %}
@@ -29,15 +30,18 @@
                                     <p>{{ places_left }} places left</p>
                                 <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
                                 {% if is_granted("ROLE_ADMIN") %}
+                                <div class="a-event">
                                     <a class="fa-solid fa-pen-to-square admin fa-lg"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
                                     <a class="fa-solid fa-trash-can admin fa-lg" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                                </div>
+                                    
                                 {% endif %}
                             </div>
                             <div class="box-right">
                                 <div class="date-box">
                                     <p class="adress-p" >{{ event.adresse}}
                                     {{ event.cp}} {{ event.city}}</p>
-                                    <i class="fa-solid fa-hand-peace"><p> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></p></i>
+                                    <i class="fa-solid fa-hand-peace"> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></i>
                                     <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</a></p>
                                 </div>
                             </div>

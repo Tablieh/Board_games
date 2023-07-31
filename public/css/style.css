@@ -27,6 +27,9 @@ ul {
 header {
   position: relative;
 }
+.a-event {
+  margin-left: 10px;
+}
 .h2-hello {
   margin-top: 90px;
   font-family: var(--playfair);
@@ -556,13 +559,11 @@ i.fa-solid.fa-cubes {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  font-size: 18px;
+  font-weight: 700;
 }
 .grip-p {
   margin: 0;
-  color: #c01eaf;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "Playfair Display", serif;
 }
 .box-container {
   margin-left: 290px;
@@ -655,7 +656,7 @@ i.fa-solid.fa-hand-peace {
 }
 i.fa-solid.fa-hand-peace a {
   cursor: cell;
-  padding: 10px;
+  /* padding: 10px; */
   font-size: 17px;
   font-weight: 600;
   font-family: "Yatra One", cursive;
@@ -2262,6 +2263,7 @@ body {
 
   .footer-mid {
     top: 150px;
+    right: 48%;
   }
   .footer-right {
     right: 0.5%;
@@ -2501,5 +2503,11 @@ body {
   }
   .parallax-felx > form input {
     padding: 8px;
+  }
+  .grip {
+    margin-left: 10px;
+  }
+  .a-event {
+    margin-left: 0px;
   }
 }

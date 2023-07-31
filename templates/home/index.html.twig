@@ -6,7 +6,7 @@
             <div class="navbar navbar-blue nav-home">
                 <div class="navbar-right">
                     <div class="container nav-container">
-                        <input class="checkbox" type="checkbox" name="" id="" />
+                        <input class="checkbox" type="checkbox" name="check" id="check" />
                         <div class="hamburger-lines">
                             <span class="line line1"></span>
                             <span class="line line2"></span>
@@ -35,7 +35,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </nav>
     {% if app.user %}       
                 <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
@@ -172,64 +171,64 @@
             <div class="flex-box">
                 <h3 class="flex-h3">1499+</h3>
                 <p class="flex-p">Complete Events</p>
-                <figcaption class="card">
-                    <figure class="card-header">
+                <figure class="card">
+                    <figcaption class="card-header">
                         <img class="img" src="/img/member1.jpg" alt="Anna G. Wilhite">
                         <div class="sc">
                             <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                             <a href=""><i class="fa-brands fa-twitter"></i></a>
                             <a href=""><i class="fa-brands fa-skype"></i></a>
                         </div>
-                    </figure>
-                </figcaption>
+                    </figcaption>
+                </figure>
                 <h3 class="flex2-h3">Anna G. Wilhite</h3>
                 <p class="flex2-p">CEO/Founder</p>
             </div>
             <div class="flex-box">
                 <h3 class="flex-h3">1080k</h3>
                 <p class="flex-p">Satisfied Clients</p>
-                <figcaption class="card">
-                    <figure class="card-header">
+                <figure class="card">
+                    <figcaption class="card-header">
                         <img class="img" src="/img/member2.jpg" alt="William S. Baly">
                         <div class="sc">
                             <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                             <a href=""><i class="fa-brands fa-twitter"></i></a>
                             <a href=""><i class="fa-brands fa-skype"></i></a>
                         </div>
-                    </figure>
-                </figcaption>
+                    </figcaption>
+                </figure>
                 <h3 class="flex2-h3">William S. Baly</h3>
                 <p class="flex2-p">CTO/Co-Founder</p>
             </div>
             <div class="flex-box">
                 <h3 class="flex-h3">608</h3>
                 <p class="flex-p">Online Team Members</p>
-                <figcaption class="card">
-                    <figure class="card-header">
+                <figure class="card">
+                    <figcaption class="card-header">
                         <img class="img" src="/img/member3.jpg" alt="Maria B. Morales">
                         <div class="sc">
                             <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                             <a href=""><i class="fa-brands fa-twitter"></i></a>
                             <a href=""><i class="fa-brands fa-skype"></i></a>
                         </div>
-                    </figure>
-                </figcaption>
+                    </figcaption>
+                </figure>
                 <h3 class="flex2-h3">Maria B. Morales</h3>
                 <p class="flex2-p">Events Planner</p>
             </div>
             <div class="flex-box">
                 <h3 class="flex-h3">50</h3>
                 <p class="flex-p">Employee</p>
-                <figcaption class="card">
-                    <figure class="card-header">
+                <figure class="card">
+                    <figcaption class="card-header">
                         <img class="img" src="/img/member4.jpg" alt="Luke L. Johnston">
                         <div class="sc">
                             <a href=""><i class="fa-brands fa-facebook-f"></i></a>
                             <a href=""><i class="fa-brands fa-twitter"></i></a>
                             <a href=""><i class="fa-brands fa-skype"></i></a>
                         </div>
-                    </figure>
-                </figcaption>
+                    </figcaption>
+                </figure>
                 <h3 class="flex2-h3">Luke L. Johnston</h3>
                 <p class="flex2-p">Web Developer</p>
             </div>
@@ -242,7 +241,7 @@
                         <button class="accordion"> <i class="fa-solid fa-equals"></i> Organize Events </button>
                         <div class="panel">
                         <p class="menu"> Events list & Present Members.</p>
-                        <p class="menu-info"> 
+                        <div class="menu-info"> 
                             {% if app.user.created |length > 0 %}
                                 <div class="events-list ">
                                     <ol  class="myOl">
@@ -257,7 +256,7 @@
                                     </ol>
                                 </div>
                             {% endif %}
-                        </p>
+                        </div>
                         </div>
 
                         <button class="accordion"> <i class="fa-solid fa-equals"></i> Events Planning</button>
@@ -278,8 +277,8 @@
                 </div>
             </div>
             
-            </div>
         </div>
+        
     <div class="back" id="Contact">
         <div class="parallax">
             <div class="demo">

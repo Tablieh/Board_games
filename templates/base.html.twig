@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22></text></svg>">
+        <link rel="icon" href="{{ asset('img/logo2.png') }}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css"/>
-            <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
-            <link href='https://fonts.googleapis.com/css?family=Great Vibes' rel='stylesheet'>
-            <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+            <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset("css/style.css") }}">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -33,14 +33,14 @@
     </div>
     <div class="navbar-right">
       <div class="container nav-container">
-            <input class="checkbox" type="checkbox" name="" id="" />
+            <input class="checkbox" type="checkbox" name="check" id="check" />
             <div class="hamburger-lines">
                 <span class="line line1"></span>
                 <span class="line line2"></span>
                 <span class="line line3"></span>
             </div>
             <div class="logo1"></div>
-            <div class="menu-items">
+            <ol class="menu-items">
                 {% if app.user %}
                     <li><a href="{{ path('app_home') }}">Acceuil</a></li>
                     <li><a href="{{ path('app_join_events') }}">Join event</a></li>
@@ -52,7 +52,7 @@
                     <li><a href="{{ path('app_login') }}">Connexion</a></li>
                     <li><a href="{{ path('app_register') }}">Inscription</a></li>
                 {% endif %}
-            </div>
+            </ol>
       </div>
     </div>
   </div>
@@ -76,9 +76,9 @@
                                                     {% for event in app.user.created %}
                                                         {% set participantCount = event.participant.count() %}
                                                         {% if participantCount == 1 %}
-                                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                                         {% else %}
-                                                            <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</dl>
+                                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
                                                         {% endif %}
                                                     {% endfor %}
                                                 </ol>
@@ -92,12 +92,12 @@
                                                 {% for event in joinedEvents %}
                                                     {% set participantCount = event.participant.count() %}
                                                     {% if participantCount == 1 %}
-                                                        <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</dl>
+                                                        <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                                     {% else %}
-                                                        <dl><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </dl>
+                                                        <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </li>
                                                     {% endif %}
                                                 {% endfor %}
-                                                </dl>
+                                                </ol>
                                             </div>
                                         {% endif %}
                                 {% endif %}
@@ -106,9 +106,9 @@
                                 {% if app.user.opinion is empty %}
                                     <p>No comments found.</p>
                                 {% else %}
-                                    <ol>
+                                    <ol class="myOl">
                                         {% for comment in app.user.opinion %}
-                                            <dl class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </dl>
+                                            <li class="Comment-user myOl">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </li>
                                         {% endfor %}
                                     </ol>
                                 {% endif %}

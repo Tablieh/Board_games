@@ -37,7 +37,7 @@
                                 </div>
                                 <p class="Discripe">{{ gameInfos.games[0].description | raw }}</p>
                                 <p class="join-desc"> Event Maker Description words: </p>
-                                     <p class="desc-color">-{{ results.description}}</p>
+                                <p class="desc-color">-{{ results.description}}</p>
                                      
                             </div>
                         
@@ -62,7 +62,7 @@
                 <form class="form-comment" method="POST" action="{{ path('add_comment', {'id': results.id}) }}">
                     <input type="hidden" name="eventId" value="{{ results.getId() }}">
                     <div class="InputContainer-comment">
-                        <textarea row=7 class="comment-input" type="text" name="content"></textarea> 
+                        <textarea rows=7 class="comment-input"  name="content"></textarea> 
                         <button class="comment-button">Add Comment</button>
                     </div>
                 </form>
