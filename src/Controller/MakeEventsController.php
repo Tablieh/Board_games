@@ -215,6 +215,8 @@ class MakeEventsController extends AbstractController
             $this->addFlash('success', 'The comment was added successfully!');
             return $this->redirectToRoute('Event_show', ['id' => $event->getId()]);
         }
+
+        //dd(json_decode($resultat, true));
          
         return $this->render('events/showEvent.html.twig', [
             'results' => $event,

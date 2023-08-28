@@ -19,10 +19,10 @@
             <img class="img" id="game-img" src="{{ asset("/img/image.svg") }}" alt="">
             <div class="desc">
                 <h3 class="h3-desc" id="title"></h3>
-                <div class="infos">
+                 <div class="infos">
                     <p class="players" id="players"></p>
                     <p class="minutes" id="minutes"></p>
-                </div>
+                </div> 
                 <p class="text" id="text"></p>
             </div>
         </div>
@@ -49,11 +49,15 @@
             const p = document.querySelector('#text');
             const players = document.querySelector('#players');
             const minutes = document.querySelector('#minutes');
+
+
+
             select.addEventListener('change', (e) => {
                 e.preventDefault();
                 const gameId = select.selectedOptions[0].value;
+                
 
-
+               
                 //console.log(gameId)
 
 
@@ -61,8 +65,8 @@
                 fetch(urlGame, {
                     method: 'POST',
                     headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',                 
-                    'Accept': '*/*' 
+                        'Content-Type': 'application/x-www-form-urlencoded',                 
+                        'Accept': '*/*' 
                     },            
                     // paramètre de la route du controller (gameId)
                     body: new URLSearchParams({
@@ -74,16 +78,16 @@
 
                 //console.log(rep);
                 
-                img.src = rep["games"][0]['image_url'] ?rep["games"][0]['image_url'] : '../img/image.svg';
+                img.src = rep["boardgame"]['image'] ?rep["boardgame"]['image'] : '../img/image.svg';
 
 
-               console.log();
+               //console.log();
 
 
-                p.innerHTML = rep["games"][0]["description"];
-                title.innerHTML = rep["games"][0]["name"];
-                players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["games"][0]["min_players"]+" to "+ rep["games"][0]["max_players"]+" players";
-                minutes.innerHTML = "<i class='fa-regular fa-clock'></i> "+rep["games"][0]["playtime"]+" min";
+                p.innerHTML = rep["boardgame"]["description"];
+                title.innerHTML = rep["boardgame"]["name"];
+                players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["boardgame"]["minplayers"]+" to "+ rep["boardgame"]["maxplayers"]+" players";
+                minutes.innerHTML = "<i class='fa-regular fa-clock'></i> "+rep["boardgame"]["minplaytime"]+" min";
             })
         })
 
@@ -116,15 +120,22 @@
             .then(async (response) => {
                 const rep = await response.json();
                 // boucler sur les résultats de l'API 
-                for(r in rep["games"]){
+                //for(r in rep["games"]){
+                    //let option = document.createElement('option');
+                    //option.innerText = rep["games"][r]["name"] + " (" + rep["games"][r]["year_published"] + ")";
+                    //option.value = rep["games"][r]["id"];
+                    //select.append(option);
+                //}
+                for(r in rep["boardgame"]){
                     let option = document.createElement('option');
-                    option.innerText = rep["games"][r]["name"] + " (" + rep["games"][r]["year_published"] + ")";
-                    option.value = rep["games"][r]["id"];
+                    option.innerText = rep["boardgame"][r]["name"] + " (" + rep["boardgame"][r]["yearpublished"] + ")";
+
+                    
+                    option.value = rep["boardgame"][r]["@attributes"]["objectid"];
                     select.append(option);
                 }
 
-
-                //console.log(rep["games"])
+                console.log(rep["boardgame"])
 
 
             })

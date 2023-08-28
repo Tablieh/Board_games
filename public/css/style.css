@@ -3,8 +3,6 @@
 }
 html {
   overflow-x: hidden;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/639127c31795d00e2b0cc4c5_Group%207%20(4).svg"),
-    auto !important; */
 }
 * {
   box-sizing: border-box;
@@ -60,7 +58,6 @@ img.logo {
   /* border-radius: 75px; */
 }
 img.logo:hover {
-  /* cursor: pointer; */
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
     auto !important;
 }
@@ -133,8 +130,6 @@ img.logo:hover {
   right: 20px;
   opacity: 0;
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
   z-index: 6;
 }
 .nav-container .hamburger-lines {
@@ -409,8 +404,6 @@ footer p {
 }
 button.start {
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
   padding: 3px;
 }
 .parallax-felx > form input {
@@ -676,7 +669,7 @@ i.fa-solid.fa-hand-peace {
   display: flex;
   gap: 10px;
   height: 40px;
-  width: 175px;
+  width: 155px;
   color: white;
   border: 3px solid #811575;
   background-color: #811575;
@@ -765,8 +758,7 @@ div.gray-text {
   color: #811575;
 }
 .fa-solid.fa-map-pin.color-hand a {
-  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important;
+  cursor: pointer;
   color: #ffffff;
   text-decoration: none;
   font-family: "Yatra One", cursive;
@@ -774,11 +766,10 @@ div.gray-text {
   padding: 3px;
 }
 .fa-solid.fa-map-pin.color-hand a:hover {
-  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important;
+  cursor: pointer;
   text-decoration: none;
   color: #ffe8e8;
-  cursor: cell;
+  cursor: pointer;
 }
 .color-hand {
   color: #ffffff;
@@ -799,8 +790,6 @@ div.gray-text {
   font-weight: 700;
   font-family: "Playfair Display", serif;
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
 }
 .comment-input {
   padding: 6px;
@@ -896,7 +885,6 @@ a.lien_show:hover {
   color: #fff;
   font-size: 12px;
   border-radius: 10px;
-  /* cursor: pointer; */
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
     auto !important;
 }
@@ -1040,8 +1028,6 @@ p .button {
 }
 .swiper-slide:hover {
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
 }
 div.dateBox {
   width: 100px;
@@ -1169,6 +1155,7 @@ img.boxImg {
   justify-content: center;
   text-align: center;
   color: #fff;
+  height: 200px;
 }
 .first-adresse {
   font-size: 14px;
@@ -1328,8 +1315,6 @@ img.boxImg {
   color: #f2f2f2;
   outline: none;
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
 }
 #myBtn:active {
   background: rgb(141, 139, 139);
@@ -1502,8 +1487,7 @@ p .notice {
 #event_imageFile_file,
 .vich-image,
 input#file-upload-button {
-  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important;
+  cursor: pointer;
 }
 .select {
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
@@ -1557,8 +1541,6 @@ input#file-upload-button {
   background-color: rgb(0, 0, 0);
   color: #f2f2f2;
   cursor: pointer;
-  /* cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important; */
   font-family: "Open Sans";
   padding: 4px 50px;
   margin-top: 30px;
@@ -1766,7 +1748,7 @@ input#file-upload-button {
 .Created-User li,
 .events-list li,
 .centre-user li {
-  list-style-type: circle;
+  list-style-type: none;
 }
 ol.myOl {
   display: inline-block;
@@ -1823,9 +1805,7 @@ ol.myOl {
 }
 .box:hover {
   transform: translateY(-10px);
-  /* cursor: pointer; */
-  cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
-    auto !important;
+  cursor: pointer;
 }
 .Joined-User > * {
   color: #000000;
@@ -1971,7 +1951,6 @@ ol.myOl {
 .accordion {
   background-color: white;
   color: #2f2e2e;
-  /* cursor: pointer; */
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
     auto !important;
   padding: 18px;

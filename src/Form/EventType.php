@@ -43,10 +43,11 @@ class EventType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '5200k',
+                        'maxSize' => '9200k',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
+                            'image/jpg',
                             // add more valid MIME types here if needed
                         ],
                         'mimeTypesMessage' => 'Please upload a valid Images document',

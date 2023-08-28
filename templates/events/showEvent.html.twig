@@ -24,18 +24,27 @@
                     <div class="show-down">
                     <div class="display" id="games">
     	                <div class="game-info">
-                            <img class="img1" src="{{ gameInfos.games[0].image_url }}" alt="noImg">
+
+                            <img class="img1" src="{% if gameInfos.boardgame.image is defined %}{{ gameInfos.boardgame.image }}{% else %}'/img/no-image.webp'{% endif %}" alt="noImg" id="gameImage">
+
+                            <script>
+                                var img = document.getElementById('gameImage');
+                                img.onerror = function() {
+                                    img.src = '/img/no-image.webp';
+                                };
+                            </script>
+
                             <div class="desc">
-                                {{ gameInfos.games[0].name }}
+                                {{ gameInfos.boardgame.name|join }}
                                 <div class="infos gray-text">
-                                    {% if gameInfos.games[0].min_players is defined and gameInfos.games[0].max_players is defined %}
-                                        <i class='fa-solid fa-users-line'></i> From {{ gameInfos.games[0].min_players }} to {{ gameInfos.games[0].max_players }} players <br/>
+                                    {% if gameInfos.games[0].min_players is defined and gameInfos.boardgame.max_players is defined %}
+                                        <i class='fa-solid fa-users-line'></i> From {{ gameInfos.boardgame.min_players }} to {{ gameInfos.boardgame.max_players }} players <br/>
                                     {% endif %}
-                                    {% if gameInfos.games[0].playtime is defined %}
-                                        <i class='fa-regular fa-clock'></i> {{ gameInfos.games[0].playtime }} min
+                                    {% if gameInfos.boardgame.playtime is defined %}
+                                        <i class='fa-regular fa-clock'></i> {{ gameInfos.boardgame.playtime }} min
                                     {% endif %}
                                 </div>
-                                <p class="Discripe">{{ gameInfos.games[0].description | raw }}</p>
+                                <p class="Discripe">{% if gameInfos.boardgame.description is defined %} {{ gameInfos.boardgame.description | raw }}{% else %} <strong>No Text found In Api</strong>{% endif %}</p>
                                 <p class="join-desc"> Event Maker Description words: </p>
                                 <p class="desc-color">-{{ results.description}}</p>
                                      

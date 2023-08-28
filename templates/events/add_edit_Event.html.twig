@@ -108,11 +108,11 @@
                 let option = ""
                 const rep = await response.json();
                 // boucler sur les résultats de l'API 
-                for(r in rep["games"]){
+                for(r in rep["boardgame"]){
                     option = document.createElement('option');
                     option.classList.add("optionGame")
-                    option.innerText = rep["games"][r]["name"] + " (" + rep["games"][r]["year_published"] + ")";
-                    option.value = rep["games"][r]["id"];
+                    option.innerText = rep["boardgame"][r]["name"] + " (" + rep["boardgame"][r]["yearpublished"] + ")";
+                    option.value = rep["boardgame"][r]["@attributes"]["objectid"];
                     select.append(option);
                     
                 }
