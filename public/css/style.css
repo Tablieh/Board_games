@@ -610,7 +610,7 @@ i.fa-solid.fa-cubes {
   height: 200px;
   width: 500px;
 }
-.flex-sl {
+.box-dawn {
   display: flex;
   flex-wrap: wrap;
 }
@@ -639,7 +639,7 @@ i.fa-solid.fa-cubes {
   color: #565656;
   width: 150px;
 }
-.sl-1 > p {
+.box-dawnLeft > p {
   font-size: 17px;
   font-weight: 600;
   font-family: "Yatra One", cursive;
@@ -648,14 +648,14 @@ i.fa-solid.fa-cubes {
   padding-bottom: 0;
   padding-top: 0;
 }
-.sl-1 {
+.box-dawnLeft {
   width: 250px;
   display: flex;
   flex-wrap: wrap;
   padding: 55px;
   padding-left: 20px;
 }
-.box-right {
+.box-dawnRight {
   padding: 55px;
 }
 .box {
@@ -707,8 +707,8 @@ i.fa-solid.fa-hand-peace a:hover {
   text-decoration: none;
   color: #ffe8e8;
 }
-.sl-1 > a.fa-solid.fa-pen-to-square.admin::before,
-.sl-1 > a.fa-solid.fa-trash-can.admin::before {
+.box-dawnLeft > a.fa-solid.fa-pen-to-square.admin::before,
+.box-dawnLeft > a.fa-solid.fa-trash-can.admin::before {
   padding: 10px;
   padding-top: 35px;
   margin: 25px;
@@ -2425,7 +2425,7 @@ body {
   .box-left {
     margin-left: 20px;
   }
-  .sl-1 > p {
+  .box-dawnLeft > p {
     padding: 0;
   }
   input#event_name.input-field,
@@ -2478,14 +2478,14 @@ body {
       rgb(11, 11, 11) 95%
     );
   }
-  div.box-right {
+  div.box-dawnRight {
     margin: 0;
     padding: 0;
   }
-  .flex-sl {
+  .box-dawn {
     display: block;
   }
-  div.sl-1 {
+  div.box-dawnLeft {
     margin: 0;
     padding-right: 0px;
     padding-left: 0px;
@@ -2521,25 +2521,25 @@ body {
   .centre-a1 {
     margin-left: 0;
   }
-  .sl-1 > a.fa-solid.fa-pen-to-square.admin::before,
-  .sl-1 > a.fa-solid.fa-trash-can.admin::before,
+  .box-dawnLeft > a.fa-solid.fa-pen-to-square.admin::before,
+  .box-dawnLeft > a.fa-solid.fa-trash-can.admin::before,
   .box-name,
-  .sl-1 > p {
+  .box-dawnLeft > p {
     margin: 0;
     padding: 0;
   }
-  .flex-sl {
+  .box-dawn {
     margin-top: 30px;
   }
-  .sl-1 {
+  .box-dawnLeft {
     margin: 0;
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-  .flex-sl,
-  .sl-1 {
+  .box-dawn,
+  .box-dawnLeft {
     display: flex;
     flex-direction: column;
     gap: 30px;

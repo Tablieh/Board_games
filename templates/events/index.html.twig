@@ -20,8 +20,8 @@
                                 <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.imageName }}">
                             </div>
                         </div>
-                        <div class="flex-sl">
-                            <div class="sl-1">
+                        <div class="box-dawn">
+                            <div class="box-dawnLeft">
                                     <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
                                     {% set places_left = event.places - event.participant|length %}
                                     {% if places_left < 0 %}
@@ -37,7 +37,7 @@
                                     
                                 {% endif %}
                             </div>
-                            <div class="box-right">
+                            <div class="box-dawnRight">
                                 <div class="date-box">
                                     <p class="adress-p" >{{ event.adresse}}
                                     {{ event.cp}} {{ event.city}}</p>
