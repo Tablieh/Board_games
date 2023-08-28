@@ -30,12 +30,12 @@ header {
 .a-event {
   margin-left: 10px;
 }
-.h2-hello {
+.h2-WelcomePage {
   margin-top: 90px;
   font-family: var(--playfair);
   margin-left: 15px;
 }
-.centre-home {
+.BoardGame-div {
   margin-left: 250px;
 }
 img.logoHome {
@@ -421,7 +421,7 @@ button.start {
   vertical-align: middle;
   margin-left: 5px;
 }
-.centre-home h4,
+.BoardGame-div h4,
 .h4-form {
   font-family: "vibes";
   font-weight: 700;
@@ -2407,7 +2407,7 @@ body {
     height: 30%;
     margin-top: 2px;
   }
-  .centre-home,
+  .BoardGame-div,
   .reg-form,
   h1.h3.mb-3.font-weight-normal.h1-log,
   label.label {
