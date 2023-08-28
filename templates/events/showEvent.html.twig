@@ -4,14 +4,14 @@
 
 <a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
         <div class="box-centre">
-            <div class="boxi">
+            <div class="up-part">
                 <div class="dateBox">
                     <p>{{ results.dateEvent|date("M")}}</p>
                     <p>{{ results.dateEvent|date("d")}}</p>
                 </div>
                 <img class="boxImg" src="{{ asset('img/' ~ results.imageName) }}" alt="{{ results.imageName }}">
             </div>
-            <div class="show-mode">
+            <div class="dawn-part">
             <div class="left-right">
                         <p>{{ results.name }}</p>
                         <p>{{ results.dateEvent|date("l  H:i")  }} le {{ results.dateEvent|date("d/m/Y") }} </p>

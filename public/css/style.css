@@ -994,7 +994,7 @@ i.fa-solid.fa-list-check {
   padding-top: -30px;
   border-radius: 5px;
 }
-.boxi {
+.up-part {
   margin-top: 100px;
   margin-left: 140px;
   width: 900px;
@@ -1007,7 +1007,7 @@ i.fa-solid.fa-list-check {
   flex-direction: column;
   margin-left: 250px;
 }
-.show-mode {
+.dawn-part {
   margin-left: 150px;
 }
 .left-right {
@@ -2373,11 +2373,11 @@ body {
   }
   a.lien_show,
   .game-info,
-  .show-mode,
+  .dawn-part,
   div.comment {
     margin-left: 20px;
   }
-  .boxi,
+  .up-part,
   .Postal {
     font-size: medium;
     padding: 5px;
