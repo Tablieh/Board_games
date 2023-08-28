@@ -752,7 +752,7 @@ div.gray-text {
   font-family: "Patrick Hand", cursive;
   color: #565656;
 }
-.left-right > p {
+.midelle-part > p {
   font-family: "Patrick Hand", cursive;
   font-size: 19px;
   font-weight: 700;
@@ -1010,7 +1010,7 @@ i.fa-solid.fa-list-check {
 .dawn-part {
   margin-left: 150px;
 }
-.left-right {
+.midelle-part {
   width: 900px;
   padding: 10px;
   padding-left: 0;
@@ -2394,7 +2394,7 @@ body {
     margin-left: 0;
     width: 400px;
   }
-  .left-right {
+  .midelle-part {
     gap: 0;
   }
   .place-join a {
@@ -2502,7 +2502,7 @@ body {
     width: 200px;
     overflow: hidden;
   }
-  .left-right {
+  .midelle-part {
     flex-direction: column;
     gap: 5px;
   }
