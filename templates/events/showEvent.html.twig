@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+{# redriger en arrire sur la page join events  #}
 <a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
+    {# partie afficher des donnes de la bese de donnes de ma coté + les donnes de l'api #}
         <div class="box-centre">
             <div class="up-part">
                 <div class="dateBox">
@@ -24,7 +25,7 @@
                     <div class="show-down">
                     <div class="display" id="games">
     	                <div class="game-info">
-
+                            {# condition si l'image est definie on l'affiche sinon on affiche une image definie  #}
                             <img class="img1" src="{% if gameInfos.boardgame.image is defined %}{{ gameInfos.boardgame.image }}{% else %}'/img/no-image.webp'{% endif %}" alt="noImg" id="gameImage">
 
                             <script>
@@ -37,13 +38,16 @@
                             <div class="desc">
                                 {{ gameInfos.boardgame.name|join }}
                                 <div class="infos gray-text">
+                                {# condition si le minimum joeur est bien definie et la maximum aussie on affiche de --- à ---  #}
                                     {% if gameInfos.games[0].min_players is defined and gameInfos.boardgame.max_players is defined %}
                                         <i class='fa-solid fa-users-line'></i> From {{ gameInfos.boardgame.min_players }} to {{ gameInfos.boardgame.max_players }} players <br/>
                                     {% endif %}
+                                    {# condition si le jeu temps est bien definie on l'affiche  #}
                                     {% if gameInfos.boardgame.playtime is defined %}
                                         <i class='fa-regular fa-clock'></i> {{ gameInfos.boardgame.playtime }} min
                                     {% endif %}
                                 </div>
+                                {# condition si le Discripe est bien definie on l'affiche sinon on affiche no text found  #}
                                 <p class="Discripe">{% if gameInfos.boardgame.description is defined %} {{ gameInfos.boardgame.description | raw }}{% else %} <strong>No Text found In Api</strong>{% endif %}</p>
                                 <p class="join-desc"> Event Maker Description words: </p>
                                 <p class="desc-color">-{{ results.description}}</p>
@@ -51,6 +55,7 @@
                             </div>
                         
                         </div>
+                        {# partie map  #}
                         <div class="map">
                                 <p class="Location">Locaited In :</p>
                                 <div  id="mapid"></div>
@@ -58,13 +63,13 @@
                         
                     </div>
                      
-                    
+                    {# partie cordonnes postale  #}
                     <p class="Postal"> {{ results.adresse}} {{results.cp}} {{results.city}}</p>
                     <p class="Postal-line"> </p>
                 </div>
                 </div>
             </div>
-            
+            {# partie commontaire  #}
             <div class="comment">
             <div class="comment-form">
                 <p class="mar-comment">Comments:</p>
@@ -77,12 +82,14 @@
                 </form>
                 <div class="boucle">
                     <p class="Postal-line"> </p>
+                    {# boucle sur les commentaire et on prends le en sens enverse #}
                     {% set comments = results.getConcern() %}
                     {% for comment in comments|reverse %}
                         <div class="comment-item">
                             <p class="mar-comment font-comment">*-* : {{ comment.getContent() }}</p>
                             <div class="postedby">
                                 <p ><small class="mar-comment">Posted by {{ comment.getUser().getPseudo() }} on {{ comment.getCreationDate()|date('d/m/Y') }} At {{ comment.getCreationDate()|date("H:iA") }} </small> </p>
+                                 {# si nous somme admin on affiche la button de suprimmation de commentaire #}
                                 {% if is_granted("ROLE_ADMIN") %}
                                     <a class="fa-solid fa-trash-can fa-sm admin left-trash" href="{{ path('Comment_del', {'id':comment.id}) }}"> </a>
                                 {% endif %}
@@ -97,8 +104,10 @@
         
     
 {% endblock %}
+{# parti script #}
 {% block javascript %}
     {{ parent() }}
+    {# script de l'api de mapping leaflet #}
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
     // Initialize the map
@@ -106,7 +115,7 @@
     
     // Add the tile layer (replace the URL with your own tile provider)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; Adresse De Notre Event , Board Game site -> GeekDo'
     }).addTo(map);
     
     // Add a marker to the map

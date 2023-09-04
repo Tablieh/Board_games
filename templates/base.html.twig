@@ -20,6 +20,7 @@
     </head>
     
     <body>
+    {# partie nav #}
     <header>
     {% if app.request.attributes.get('_route') != 'app_home' %}
         <nav>
@@ -57,6 +58,9 @@
     </div>
   </div>
 </nav>
+{# ici on trouve une condition si on a utilisateur , 
+la partie profile de user qui est presenter par la click de button USER 
+va afficher suaf si on a conecté #}
 {% if app.user %}
                 <button id="Profile"><i class="fa-solid fa-user"></i> USER<i class="fa-solid fa-angle-right"></i></button>
                     <div id="myInfo" class="animate">
@@ -64,6 +68,8 @@
                             <div class="centre-user ">
                                 <h1>{{ app.user.getPseudo }}'s Profile</h1>
                                 <h2>Events</h2>
+                                {# ici on trouve une condition si la createur de event ou la participation de event sont vide , 
+                                    il va affiché no event found #}
                                 {% set joinedEvents = app.user.participant %}
                                 {% set createdEvents = app.user.created %}
                                 {% if createdEvents is empty and joinedEvents is empty %}
@@ -73,8 +79,11 @@
                                             <div class="Created-User">
                                                 <p>Created By USER :</p>
                                                 <ol>
+                                                {# boucle sur les utilisateur et count les users qui sont participer
+                                                 sur une event qui est cree par la user #}
                                                     {% for event in app.user.created %}
                                                         {% set participantCount = event.participant.count() %}
+                                                        {# condition sur le nemero si est plus que deux on mis avec S ((pluriel)) sinon 1 participant #}
                                                         {% if participantCount == 1 %}
                                                             <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                                         {% else %}
@@ -90,6 +99,7 @@
                                                 <p>Joined By USER :</p>
                                                 <ol>
                                                 {% for event in joinedEvents %}
+                                                {# boucle sur les utilisateur et count les users qui sont participer sur une event #}
                                                     {% set participantCount = event.participant.count() %}
                                                     {% if participantCount == 1 %}
                                                         <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
@@ -103,10 +113,12 @@
                                 {% endif %}
 
                                 <h2>Comments</h2>
+                                {# si il y n'a pas une commentaire on affiche no comments found #}
                                 {% if app.user.opinion is empty %}
                                     <p>No comments found.</p>
                                 {% else %}
                                     <ol class="myOl">
+                                    {# boucle sur les commentaire de la utilisqteur sur une event #}
                                         {% for comment in app.user.opinion %}
                                             <li class="Comment-user myOl">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </li>
                                         {% endfor %}
@@ -120,12 +132,14 @@
 
     {% endif %}
     </header>
+    {# message de success , la box qui contient ce message #}
     <div class="flash-messages">
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 <p class="notice"><i class="fa-solid fa-triangle-exclamation"></i>{{ message }}</p>
             </div>
         {% endfor %}
+        {# message de error , la box qui contient ce message #}
         {% for message in app.flashes('error') %}
             <div class="alert alert-error">
                 <p class="notice"><i class="fa-solid fa-triangle-exclamation"></i>{{ message }}</p>
@@ -138,6 +152,7 @@
             {% endblock %}
             {% block javascript %}{% endblock javascript %}
         </main>
+        {# partie footer de la page #}
         <footer class="footer">
             <div class="footer-part">
 
@@ -169,6 +184,7 @@
             
         </footer>
     </body>
+    {# partie scripte de la page #}
         {% block javascripts %}
             <script src="https://kit.fontawesome.com/7d334a9241.js" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>

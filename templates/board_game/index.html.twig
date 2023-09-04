@@ -3,10 +3,11 @@
 {% block title %}Hello Gamers!{% endblock %}
 
 {% block body %}
+{# condition si la role est utilisateur on affiche la liens de rederect sur l'events #}
 {% if is_granted("ROLE_USER") %}
         <a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
 {% endif %}
-
+{# partie search une jeu #}
     <div class="BoardGame-div">
         <h2 class="h2-WelcomePage">Welcome to BoardGame-events</h2>
         <h4>Please Saarch a game</h4>
@@ -14,7 +15,7 @@
             <input type="text" class="search" name="search" id="search" placeholder="search...">
             <select name="games" id="games" class="select"></select>
         </div>
-
+{# partie resultat de la search d'une jeu #}
         <div class="game-info">
             <img class="img" id="game-img" src="{{ asset("/img/image.svg") }}" alt="">
             <div class="desc">
@@ -29,6 +30,7 @@
     </div>
 {% endblock %}
 
+{# partie script #}
 {% block javascript %}
     <script>
         {# console.log(document.querySelector('#search'))
@@ -50,7 +52,7 @@
             const minutes = document.querySelector('#minutes');
 
 
-
+        // une pare de selection qui change au niveau click de selection des jeus et souvgarder le identifient de ce jeu choisi 
             select.addEventListener('change', (e) => {
                 e.preventDefault();
                 const gameId = select.selectedOptions[0].value;
@@ -59,7 +61,14 @@
                
                 //console.log(gameId)
 
+                /* urlgame : url game variable qui stock la url qui on va faire la request sur la server 
+                    fetch:  la fetch function est utliser pour faire un requet HTTP pour la spefiction de la URL (urlGame).
+                    2 headers :
+                        1er 'application/x-www-form-urlencoded : Cet en-tête précise que le contenu de la requête 
+                            que se présente sous la format pour envoyer des données dans les requêtes HTTP POST
 
+                        2em * / * : indique que le client (navigateur) est prêt à accepter les réponses dans n'importe quel format
+                */ 
                 const urlGame = '/game';
                 fetch(urlGame, {
                     method: 'POST',
@@ -72,17 +81,21 @@
                         'gameId' : gameId
                     }) 
             })
+            // d'apres recevoir une reponse de la coté serveur ce reponse est expecter d'etre en format json data.
             .then(async (response) => {
                 const rep = await response.json();
 
                 //console.log(rep);
-                
+
+                // les information de ce reponse il va affiche une image depuis l'api sinon on a mis une svg en place.
                 img.src = rep["boardgame"]['image'] ?rep["boardgame"]['image'] : '../img/image.svg';
 
 
                //console.log();
 
-
+                /* 
+                    les information doit contient la discription et la nom et la numero minimum paritcipant de ce jeu et la maximum aussi
+                */
                 p.innerHTML = rep["boardgame"]["description"];
                 title.innerHTML = rep["boardgame"]["name"];
                 players.innerHTML =  "<i class='fa-solid fa-users-line'></i> From "+rep["boardgame"]["minplayers"]+" to "+ rep["boardgame"]["maxplayers"]+" players";
@@ -95,14 +108,21 @@
             // vider la liste déroulante
             select.innerText = null;
             e.preventDefault();
-            //valeur sqisie dans l'input
+            //valeur saisie dans l'input
             const searchValue = search.value;
 
 
             //console.log(searchValue);
 
+            /* urlgame : url game variable qui stock la url qui on va faire la request sur la server 
+                    fetch:  la fetch function est utliser pour faire un requet HTTP pour la spefiction de la URL (urlGame).
+                    2 headers :
+                        1er 'application/x-www-form-urlencoded : Cet en-tête précise que le contenu de la requête 
+                            que se présente sous la format pour envoyer des données dans les requêtes HTTP POST
 
-            // URL à fetch (HomeController)
+                        2em * / * : indique que le client (navigateur) est prêt à accepter les réponses dans n'importe quel format
+                // URL à fetch (HomeController)
+            */ 
             const url = '/games';
                 fetch(url, { 
                     method: 'POST',
@@ -115,9 +135,11 @@
                         'searchValue' : searchValue
                     }) 
                 })
-            // création des options du select 
+
+            // d'apres recevoir une reponse de la coté serveur ce reponse est expecter d'etre en format json data.
             .then(async (response) => {
                 const rep = await response.json();
+                
                 // boucler sur les résultats de l'API 
                 //for(r in rep["games"]){
                     //let option = document.createElement('option');
@@ -125,6 +147,8 @@
                     //option.value = rep["games"][r]["id"];
                     //select.append(option);
                 //}
+
+                // création des options du select 
                 for(r in rep["boardgame"]){
                     let option = document.createElement('option');
                     option.innerText = rep["boardgame"][r]["name"] + " (" + rep["boardgame"][r]["yearpublished"] + ")";

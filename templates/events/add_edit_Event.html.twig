@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{# redriger en arrire sur la page join events  #}
 <a class="lien" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
     <div class="form" >
-        
+        {# si edit on affiche la formulaire de edit sinon on affich la formeulaire de saisie  #}
         {% if editMode %}
             <p class="add">Board Game Event Register From{# <span class="drow"></span> #}</p>
         {% else %}
            <p class="add">Board Game Event Register From{# <span class="drow"></span> #}</p>
         {% endif %}
+                {# partie la recharche d'une jeu  #}
                 <div class="form-container form-content cover">
                     
                     <div class="form-group">
@@ -16,7 +18,7 @@
                         <input type="text" class="search" name="search" id="search" placeholder="search...">
                         <select name="games" id="games" class="select"></select>
                     </div>
-                    
+                    {# partie addition des donnes de la bese de donnes de ma coté #}
                     <div class="form-add">
                         {{ form_start(EventType, {'attr': {'id': 'event_type'}}) }}
                     
@@ -53,6 +55,7 @@
             const search = document.querySelector('#search');
             const select = document.querySelector('#games');
 
+            // une pare de selection qui change au niveau click de selection des jeus et souvgarder le identifient de ce jeu choisi 
             select.addEventListener('change', (e) => {
                 e.preventDefault();
                 const gameId = select.selectedOptions[0].value;
@@ -60,7 +63,15 @@
 
                 //console.log(gameId)
 
+                /* urlgame : url game variable qui stock la url qui on va faire la request sur la server 
+                    fetch:  la fetch function est utliser pour faire un requet HTTP pour la spefiction de la URL (urlGame).
+                    2 headers :
+                        1er 'application/x-www-form-urlencoded : Cet en-tête précise que le contenu de la requête 
+                            que se présente sous la format pour envoyer des données dans les requêtes HTTP POST
 
+                        2em * / * : indique que le client (navigateur) est prêt à accepter les réponses dans n'importe quel format
+                    // URL à fetch (HomeController)
+                */
                 const urlGame = '/game';
                 fetch(urlGame, {
                     method: 'POST',
@@ -73,6 +84,7 @@
                         'gameId' : gameId
                     }) 
             })
+            // d'apres recevoir une reponse de la coté serveur ce reponse est expecter d'etre en format json data
             .then(async (response) => {
                 const rep = await response.json();
             })
@@ -83,14 +95,22 @@
             // vider la liste déroulante
             select.innerText = null;
             e.preventDefault();
-            //valeur sqisie dans l'input
+            //valeur saisie dans l'input
             const searchValue = search.value;
 
 
             //console.log(searchValue);
 
 
-            // URL à fetch (HomeController)
+            /* urlgame : url game variable qui stock la url qui on va faire la request sur la server 
+                    fetch:  la fetch function est utliser pour faire un requet HTTP pour la spefiction de la URL (urlGame).
+                    2 headers :
+                        1er 'application/x-www-form-urlencoded : Cet en-tête précise que le contenu de la requête 
+                            que se présente sous la format pour envoyer des données dans les requêtes HTTP POST
+
+                        2em * / * : indique que le client (navigateur) est prêt à accepter les réponses dans n'importe quel format
+                // URL à fetch (HomeController)
+            */
             const url = '/games';
                 fetch(url, { 
                     method: 'POST',
@@ -103,12 +123,14 @@
                         'searchValue' : searchValue
                     }) 
                 })
-            // création des options du select 
+
+            // d'apres recevoir une reponse de la coté serveur ce reponse est expecter d'etre en format json data
             .then(async (response) => {
                 let option = ""
                 const rep = await response.json();
                 // boucler sur les résultats de l'API 
                 for(r in rep["boardgame"]){
+                    // création des options du select s
                     option = document.createElement('option');
                     option.classList.add("optionGame")
                     option.innerText = rep["boardgame"][r]["name"] + " (" + rep["boardgame"][r]["yearpublished"] + ")";

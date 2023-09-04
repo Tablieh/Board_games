@@ -3,13 +3,16 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
+    {# partie qui content les events #}
     <div class="box_container">
             <div class="grip" style="display: flex; align-items: center;">
                 <i class="fa-solid fa-cubes fa-xl" style="color: #6b3d67; margin-right: 5px;"></i>
                 <span class="grip-p" style="font-size: 18px; font-weight: 700; color: #c01eaf; font-family: 'Playfair Display', serif;"> All Event</span>
             </div>
             <div class="box-container">
+            {# boucle sur les events #}
                     {% for event in events %}
+                    {# partie qui content les donens de ce event #}
                     <div class="box" data-link="{{ path("Event_show",{'id':event.id}) }}">
                         <div class="box-up">
                             <div class="box-left">
@@ -23,12 +26,14 @@
                         <div class="box-dawn">
                             <div class="box-dawnLeft">
                                     <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
+                                    {# condition counter la place restant pour joindre l'event #}
                                     {% set places_left = event.places - event.participant|length %}
                                     {% if places_left < 0 %}
                                     {% set places_left = 0 %}
                                     {% endif %}
                                     <p>{{ places_left }} places left</p>
                                 <p class="time">{{ event.dateEvent|date("l  H:i")}} le {{ event.dateEvent|date("d/m/Y") }}</p>
+                                {# condition si la utilisateur est admin on affiche la edittion de event et la suprimme #}
                                 {% if is_granted("ROLE_ADMIN") %}
                                 <div class="a-event">
                                     <a class="fa-solid fa-pen-to-square admin fa-lg"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
@@ -41,6 +46,7 @@
                                 <div class="date-box">
                                     <p class="adress-p" >{{ event.adresse}}
                                     {{ event.cp}} {{ event.city}}</p>
+                                    {# Button participer sur l'event #}
                                     <i class="fa-solid fa-hand-peace"> <a href="{{ path('add_participant', {'id': event.id, 'userId': app.user.id}) }}">Book a Place</a></i>
                                     <p class="learn-more"><a href="{{ path("Event_show",{'id':event.id}) }}"> Learn More</a></p>
                                 </div>
@@ -50,6 +56,7 @@
                     {% endfor %}
             </div>
     </div>
+    {# partie pagination #}
         <div class="pag">
             {{ knp_pagination_render(events)}}
         </div>
@@ -57,7 +64,7 @@
 {% endblock %}
 {% block javascript %}
     <script>
-    // get the current page path
+// get the current page path
 var currentPath = window.location.pathname;
 
 // check if it's the login page
