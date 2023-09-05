@@ -392,7 +392,8 @@ footer p {
   font-weight: 600;
   position: absolute;
   top: 310px;
-  left: 700px;
+  left: 720px;
+  /* margin: auto; */
   color: #fff;
 }
 .video-not1 {
@@ -401,7 +402,7 @@ footer p {
   font-weight: 600;
   position: absolute;
   top: 360px;
-  left: 752px;
+  left: 772px;
   color: #fff;
 }
 .video-notA {
