@@ -60,7 +60,9 @@
         <div class="pag">
             {{ knp_pagination_render(events)}}
         </div>
-
+        <div class="load" id="load">
+            <span class="span-load">Loading</span>
+        </div>
 {% endblock %}
 {% block javascript %}
     <script>
@@ -85,5 +87,42 @@ var currentPath = window.location.pathname;
             window.location.href = link;
         });
         });
+    </script>
+    <script>
+        var currentPath = window.location.pathname;
+        const box = document.querySelectorAll('.box');
+        const load = document.querySelector('.load');
+        
+        if (currentPath === "/events") {
+
+            // Loop through each box card
+            box.forEach(box => {
+
+                //console.log(box);
+                box.addEventListener('click', () => {
+                    //document.body.style.background = "linear-gradient( 90deg, rgb(18, 18, 18) 12%, rgb(66, 66, 66) 31%, rgba(153, 41, 138, 0.742) 58%, rgba(43, 27, 44, 0.79) 80%, rgb(11, 11, 11) 95% )";
+                    document.body.style.background = "white";
+                    window.scrollTo(
+                        {
+                        top: -100
+                        }
+                    );
+                    document.body.style.overflow = "auto";
+                    document.body.style.overscrollBehavior = "none";
+                    document.body.style.overflowY = "none";
+                    load.style.display="block";
+                    //box.style.display="none";
+
+                    const box1 = document.querySelector('.box-container');
+                        //box1.style.display="none";
+                        while (box1.firstChild) {
+                            box1.removeChild(box1.firstChild);
+                        }
+                        box1.style.padding = "400px";
+
+                })
+            })
+
+        } 
     </script>
 {% endblock javascript %}
