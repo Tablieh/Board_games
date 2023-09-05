@@ -89,12 +89,13 @@ var currentPath = window.location.pathname;
         });
     </script>
     <script>
+
+/*----------------------------------------- Script Loading With Time Limit ------------------------------------------------ */
+
         var currentPath = window.location.pathname;
         const box = document.querySelectorAll('.box');
         const load = document.querySelector('.load');
-        
         if (currentPath === "/events") {
-
             // Loop through each box card
             box.forEach(box => {
 
@@ -119,9 +120,60 @@ var currentPath = window.location.pathname;
                             box1.removeChild(box1.firstChild);
                         }
                         box1.style.padding = "400px";
+                    /*     
+                        setTimeout(() => {
+                        load.style.display="none";
 
+                            //peut etre modifiée aprés car click botton sur la book palce
+                            
+                            var auto_refresh = setInterval(
+                            function ()
+                            {
+                            location.reload();
+                            }, 1000);
+                        }, 350);
+                    */
                 })
+                
             })
+
+
+
+/*------------------------------ Script Move To Top All The Boxes With Adjust visiblity------------------------------------------------ */
+
+            const timeLimitMilliseconds = 80; // Set your desired time limit in milliseconds
+            const resetTimeMilliseconds = 170; // Set the time to reset the transformation
+
+            const boxes = document.querySelectorAll('.box'); // Replace 'your-box-class' with the actual class name of your boxes
+
+            // Function to apply the transformation
+            function applyTransformation(box) {
+            box.style.transform = "translateY(-22px)";
+            box.style.opacity = "0.2";
+            box.style.opacity = "0.3";
+            box.style.opacity = "0.5";
+            }
+
+            // Function to reset the transformation
+            function resetTransformation(box) {
+            //box.style.transform = "translateY(0)";
+
+            // remove the translateY(-22px)
+            box.style.transform = "";
+            box.style.opacity = "1";
+            }
+
+            // Apply the transformation to the boxes
+            boxes.forEach(box => {
+            applyTransformation(box);
+            });
+
+            // Set a timeout to reset the transformation after the time limit
+            setTimeout(() => {
+            boxes.forEach(box => {
+                resetTransformation(box);
+            });
+            }, timeLimitMilliseconds + resetTimeMilliseconds);
 
         } 
     </script>
