@@ -60,9 +60,9 @@
         <div class="pag">
             {{ knp_pagination_render(events)}}
         </div>
-        <div class="load" id="load">
+        {# <div class="load" id="load">
             <span class="span-load">Loading</span>
-        </div>
+        </div> #}
 {% endblock %}
 {% block javascript %}
     <script>
@@ -90,18 +90,17 @@ var currentPath = window.location.pathname;
     </script>
     <script>
 
-/*----------------------------------------- Script Loading With Time Limit ------------------------------------------------ */
-
+/*----------------------------------------- Script Loading page on event click a faire  ------------------------------------------------ */
+/*
         var currentPath = window.location.pathname;
         const box = document.querySelectorAll('.box');
         const load = document.querySelector('.load');
         if (currentPath === "/events") {
-            // Loop through each box card
+            // boucle sur des box card
             box.forEach(box => {
 
                 //console.log(box);
                 box.addEventListener('click', () => {
-                    //document.body.style.background = "linear-gradient( 90deg, rgb(18, 18, 18) 12%, rgb(66, 66, 66) 31%, rgba(153, 41, 138, 0.742) 58%, rgba(43, 27, 44, 0.79) 80%, rgb(11, 11, 11) 95% )";
                     document.body.style.background = "white";
                     window.scrollTo(
                         {
@@ -120,27 +119,26 @@ var currentPath = window.location.pathname;
                             box1.removeChild(box1.firstChild);
                         }
                         box1.style.padding = "400px";
-                    /*     
-                        setTimeout(() => {
-                        load.style.display="none";
 
-                            //peut etre modifiée aprés car click botton sur la book palce
-                            
-                            var auto_refresh = setInterval(
-                            function ()
-                            {
-                            location.reload();
-                            }, 1000);
-                        }, 350);
-                    */
-                })
+                    setTimeout(() => {
+                        // Function to hide loading div
+                            function hideLoading() {
+                                load.style.display = "none"; // Hide the loading div
+                                // Add additional code to reset background color and other styles as needed
+                            }
+                            // Listen for the popstate event to handle back navigation
+                            window.addEventListener('popstate', () => {
+                                hideLoading(); // Hide loading div when navigating back
+                            });
+                        })
+                    }, 350);
                 
             })
-
-
-
+*/
+                
 /*------------------------------ Script Move To Top All The Boxes With Adjust visiblity------------------------------------------------ */
-
+            var currentPath = window.location.pathname;
+        if (currentPath === "/events") {
             const timeLimitMilliseconds = 80; // Set your desired time limit in milliseconds
             const resetTimeMilliseconds = 170; // Set the time to reset the transformation
 

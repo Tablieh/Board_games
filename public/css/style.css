@@ -10,47 +10,7 @@ html {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-div.load {
-  display: none;
-  /* padding: 1000px; */
-  background-color: black;
-  z-index: 0.99999;
-  position: absolute;
-  left: 50%;
-  top: 32%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  /* color: rgba(153, 41, 138, 0.742); */
-}
-div.load span {
-  font-size: 80px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  line-height: 1;
-  mix-blend-mode: difference;
-}
-div.load::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 150px;
-  height: 100%;
-  background-color: white;
-  transform: skewX(20deg);
-  animation: move 4s linear infinite;
-}
 
-@keyframes move {
-  0%,
-  100% {
-    left: 0;
-  }
-
-  50% {
-    left: calc(100% - 150px);
-  }
-}
 address,
 dl,
 fieldset,
@@ -2151,6 +2111,48 @@ div#report_choix.choix > input {
 body {
   position: relative;
 }
+/* div.load {
+  display: none;
+  background-color: black;
+  z-index: 0.99999;
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+}
+div.load span {
+  font-size: 80px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  line-height: 1;
+  mix-blend-mode: difference;
+}
+div.load::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  background-color: white;
+  transform: skewX(20deg);
+  animation: move 4s linear infinite;
+}
+@keyframes move {
+  0%,
+  100% {
+    left: 0;
+  }
+
+  50% {
+    left: calc(100% - 150px);
+  }
+} */
+/* 
+.paused {
+  animation-play-state: paused;
+} */
 @media screen and (max-width: 700px) {
   html {
     overflow-x: hidden;
