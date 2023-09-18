@@ -2147,7 +2147,7 @@ div.load::before {
 .paused {
   animation-play-state: paused;
 } */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1350px) {
   html {
     overflow-x: hidden;
   }
@@ -2269,7 +2269,7 @@ div.load::before {
     font-weight: bolder;
     width: fit-content;
     margin-left: 0;
-    gap: 2;
+    gap: 7px;
   }
   .adresse-box1 p {
     width: auto;
