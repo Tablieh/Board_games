@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="description" content="Author: Tablieh Walid,
+            Illustrator: Event games, Category: Alternance Project, Price: $0,
+            Length: 10 pages">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="{{ asset('img/logo2.png') }}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -34,7 +37,7 @@
     </div>
     <div class="navbar-right">
       <div class="container nav-container">
-            <input class="checkbox" type="checkbox" name="check" id="check" />
+            <input class="checkbox" type="checkbox" name="check" aria-label="checkbox" id="check" />
             <div class="hamburger-lines">
                 <span class="line line1"></span>
                 <span class="line line2"></span>
@@ -371,6 +374,6 @@ va afficher suaf si on a conecté #}
 
         {% endblock %}
         <!--<i class="fa-solid fa-arrow-up"></i>-->
-    <button onclick="goup(this)" id="myBtn" ><i class="fa-solid fa-arrow-up"></i></button>
+    <button onclick="goup(this)" id="myBtn" aria-label="myBtn"><i class="fa-solid fa-arrow-up"></i></button>
     </body>
 </html>

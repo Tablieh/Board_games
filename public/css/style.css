@@ -52,7 +52,7 @@ img.logoHome {
   margin-top: 10px;
   opacity: 0.6;
   width: 145px;
-  height: 75px;
+  /* height: 75px; */
   padding-left: 20px;
   /* border-radius: 75px; */
 }

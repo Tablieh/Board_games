@@ -43,7 +43,7 @@ class ReportType extends AbstractType
                 'label' => 'No',
             ]) */
             ->add('name', TextType::class, [
-                'label' => 'Your name',
+                'label' => 'report Name',
                 'required' => true,
                 'constraints' => [
                     new NotBlank([
@@ -56,7 +56,7 @@ class ReportType extends AbstractType
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'report Email',
                 'required' => true,
                 'constraints' => [
                     new NotBlank([
@@ -68,7 +68,7 @@ class ReportType extends AbstractType
                 ],
             ])
             ->add('issueName', TextType::class, [
-                'label' => 'The issues Name',
+                'label' => 'report IssueName',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -78,7 +78,7 @@ class ReportType extends AbstractType
                 ],
             ])
             ->add('issueDescription', TextareaType::class, [
-                'label' => 'Describe the issue',
+                'label' => 'report IssueDescription',
                 'required' => false,
                 'constraints' => [
                     new NotBlank([

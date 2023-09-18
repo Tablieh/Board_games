@@ -7,7 +7,7 @@
             <div class="navbar navbar-blue nav-home">
                 <div class="navbar-right">
                     <div class="container nav-container">
-                        <input class="checkbox" type="checkbox" name="check" id="check" />
+                        <input class="checkbox" type="checkbox" name="check" aria-label="checkbox" id="check" />
                         <div class="hamburger-lines">
                             <span class="line line1"></span>
                             <span class="line line2"></span>
@@ -206,9 +206,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member1.jpg" alt="Anna G. Wilhite">
                         <div class="sc">
-                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -223,9 +223,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member2.jpg" alt="William S. Baly">
                         <div class="sc">
-                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -239,9 +239,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member3.jpg" alt="Maria B. Morales">
                         <div class="sc">
-                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -255,9 +255,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member4.jpg" alt="Luke L. Johnston">
                         <div class="sc">
-                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -344,19 +344,19 @@
         <div class="form-group">
             <div class="form-contact-content">
                 {{ form_widget(ReportType.choix) }}
-                {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo}}) }}
-                {{ form_widget(ReportType.email, {'attr': {'value': app.user.email}}) }}
+                {{ form_widget(ReportType.name, {'attr': {'value': app.user.getPseudo},'label': 'report Name'}) }}
+                {{ form_widget(ReportType.email, {'attr': {'value': app.user.email},'label': 'report Email'}) }}
             </div>
         </div>
         <h2 class="h2-invitation1">Do You know the issue ?</h2>
         <div class="form-content1">
-            {{ form_widget(ReportType.issueName) }}
+            {{ form_widget(ReportType.issueName , {'attr': {'label': 'report IssueName' }}) }}
             <input class="guest" type="button" value="+ Add issue" onclick="addIssue()">
         </div>
         <div id="issue-container">
             <div class="issue-block">
                 <h2 class="h2-invitation1">Pls write your Issue here.</h2>
-                {{ form_widget(ReportType.issueDescription) }}
+                {{ form_widget(ReportType.issueDescription, {'attr': {'label': 'report IssueDescription' }}) }}
 
             </div>
         </div>
