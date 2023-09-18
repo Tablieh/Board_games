@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
 .root {
   --playfair: "Playfair Display", serif;
 }
@@ -616,15 +623,6 @@ i.fa-solid.fa-cubes {
   display: flex;
   flex-wrap: wrap;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Playfair:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
-
 .box-name {
   margin-right: 17px;
   font-size: 20px;
