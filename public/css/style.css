@@ -462,7 +462,7 @@ button.start {
   background-position: center;
 }
 .form-container {
-  width: 60%;
+  width: 70%;
   margin: 30px auto;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -520,19 +520,22 @@ input#event_imageFile_file.input-field {
 }
 form#event_type > * {
   padding: 5px;
-  margin: 25px;
+  margin: 45px;
 }
 .discription-border {
+  width: 50%;
   background-color: rgba(122, 122, 184, 0.7);
 }
 input#event_date_event.input-field,
 input#event_imageFile_file.input-field {
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
 }
 input#event_places.input-field {
   margin: 5px;
   margin-top: 0px;
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
   max-height: 30px;
   min-height: 28px;
 }
@@ -541,7 +544,8 @@ input#event_name.input-field {
   margin-top: 0px;
   max-height: 30px;
   min-height: 28px;
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
 }
 textarea#event_description.input-field {
   margin: 5px;
@@ -549,32 +553,38 @@ textarea#event_description.input-field {
   max-height: 72px;
   min-height: 28px;
   height: 174px;
-  width: 760px;
-  max-width: 760px;
+  /* width: 760px;
+  max-width: 760px; */
+  width: 70%;
+  max-width: 70%;
 }
 input#event_adresse.input-field {
   margin: 5px;
   margin-top: 0px;
   max-height: 49px;
   min-height: 28px;
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
 }
 input#event_cp.input-field {
   margin: 5px;
   margin-top: 0px;
   max-height: 36px;
   min-height: 36px;
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
 }
 input#event_city.input-field {
   margin: 5px;
   margin-top: 0px;
-  width: 760px;
+  /* width: 760px; */
+  width: 70%;
   max-height: 36px;
   min-height: 36px;
 }
 .search {
   width: 350px;
+  /* width: 70%; */
   margin-left: 20px;
   margin-bottom: 10px;
 }
@@ -2147,7 +2157,7 @@ div.load::before {
 .paused {
   animation-play-state: paused;
 } */
-@media only screen and (max-width: 700px) {
+@media screen and (max-width: 700px) {
   html {
     overflow-x: hidden;
   }
@@ -2279,29 +2289,35 @@ div.load::before {
     padding-bottom: 50px;
   }
   .back {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
     background-attachment: unset;
     object-fit: cover;
   }
   .demo {
     width: 280px;
-    margin-left: 55px;
+    /* margin-left: 55px; */
+    margin: auto;
   }
   .contact {
     height: 190vh;
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
   }
   .contact-flex {
     flex-direction: column-reverse;
     gap: 2px;
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
   }
   .form-contact,
   .video-window {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
   }
   .event {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
     height: 80vh;
   }
   .font-event4 {
@@ -2360,7 +2376,8 @@ div.load::before {
     bottom: 10px;
   }
   #myInfo {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
   }
   .centre-user {
     margin-left: 0;
@@ -2430,7 +2447,8 @@ div.load::before {
   }
   .box-centre {
     margin-left: 0;
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
   }
   .midelle-part {
     gap: 0;
@@ -2466,7 +2484,7 @@ div.load::before {
   .box-dawnLeft > p {
     padding: 0;
   }
-  input#event_name.input-field,
+  /*  input#event_name.input-field,
   input#event_places.input-field,
   textarea#event_description.input-field,
   input#event_adresse.input-field,
@@ -2475,6 +2493,16 @@ div.load::before {
   input#event_date_event.input-field,
   input#event_imageFile_file.input-field {
     width: 250px;
+  } */
+  input#event_name.input-field,
+  input#event_places.input-field,
+  textarea#event_description.input-field,
+  input#event_adresse.input-field,
+  input#event_cp.input-field,
+  input#event_city.input-field,
+  input#event_date_event.input-field,
+  input#event_imageFile_file.input-field {
+    width: 90%;
   }
   .reg-form2 > div {
     gap: 5px;
@@ -2599,7 +2627,7 @@ div.load::before {
     display: none;
   }
 }
-@media only screen and (min-width: 800px) and (max-width: 1200px) {
+@media only screen and (min-width: 701px) and (max-width: 1200px) {
   html {
     overflow-x: hidden;
 
@@ -2772,5 +2800,21 @@ div.load::before {
   .grip,
   .box-container {
     margin-left: 150px;
+  }
+  .event {
+    display: none;
+  }
+  input#event_name.input-field,
+  input#event_places.input-field,
+  textarea#event_description.input-field,
+  input#event_adresse.input-field,
+  input#event_cp.input-field,
+  input#event_city.input-field,
+  input#event_date_event.input-field,
+  input#event_imageFile_file.input-field {
+    width: 50%;
+  }
+  .form-container {
+    width: 100%;
   }
 }
