@@ -2719,7 +2719,7 @@ div.load::before {
   .Discripe {
     width: fit-content;
   }
-  .show-down {
+  .event-content {
     margin-left: 20px;
     display: flex;
     flex-wrap: nowrap;
@@ -2746,7 +2746,7 @@ div.load::before {
     justify-content: unset;
     gap: 100px;
   }
-  .show-up {
+  .event-container {
     margin-bottom: 30px;
   }
   .comment-input {

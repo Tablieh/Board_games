@@ -335,11 +335,11 @@ va afficher suaf si on a conecté #}
                 let mobile =(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
                 if (currentPath != "/home" && mobile) {
-                    myButtonProfile.style.opacity="1";
-                    myButtonProfile.style.top="150px";
-                    myButtonProfile.style.left="10px";
-                    myButtonProfile.style.zIndex="3";
-                    myButtonProfile.style.removeProperty('right');
+                    myButtonProfile.style.opacity="1"; // fait l'apparance en niv normal
+                    myButtonProfile.style.top="150px"; , // mettre la button user user en haut au niv de 1050px
+                    myButtonProfile.style.left="10px"; //mettre la button user à gauche
+                    myButtonProfile.style.zIndex="3"; // adjute le z-index en niv 3em
+                    myButtonProfile.style.removeProperty('right'); //suprimem la mettre de button user de la gauche
                     myButtonProfile.classList.add("profileHome");
                 }
                 const checkbox = document.querySelector('.checkbox');
