@@ -2720,9 +2720,9 @@ div.load::before {
     width: fit-content;
   }
   .show-down {
+    margin-left: 20px;
     display: flex;
     flex-wrap: nowrap;
-    gap: 10px;
   }
   .game-info {
     display: block;
@@ -2768,5 +2768,9 @@ div.load::before {
   a.lien_show {
     top: 200px;
     left: -20%;
+  }
+  .grip,
+  .box-container {
+    margin-left: 150px;
   }
 }
