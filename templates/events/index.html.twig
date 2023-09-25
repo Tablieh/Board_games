@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}Upcoming Events - Boread Games{% endblock %}
+
 
 {% block body %}
     {# partie qui content les events #}
@@ -12,6 +13,24 @@
             <div class="box-container">
             {# boucle sur les events #}
                     {% for event in events %}
+                        <!-- Schema.org markup for the current event -->
+                        <script type="application/ld+json">
+                        {
+                        "@context": "http://schema.org",
+                        "@type": "Event",
+                        "name": "{{ event.name }}",
+                        "description": "{{ event.description }}",
+                        "startDate": "{{ event.dateEvent|date("Y-m-d\TH:i:sP") }}",
+                        "endDate": "{{ event.dateEvent|date("Y-m-d\TH:i:sP") }}",
+                        "location": {
+                            "@type": "Place",
+                            "name": "{{ event.adresse }}",
+                            "address": "{{ event.adresse }}, {{ event.city }}, {{ event.cp }}"
+                        },
+                        "image": "{{ asset('img/' ~ event.imageName) }}",
+                        "url": "{{ path('Event_show', {'id': event.id}) }}"
+                        }
+                        </script>
                     {# partie qui content les donens de ce event #}
                     <div class="box" data-link="{{ path("Event_show",{'id':event.id}) }}">
                         <div class="box-up">
@@ -20,12 +39,14 @@
                                     <p>{{ event.dateEvent|date("M")}}</p>
                                     <p>{{ event.dateEvent|date("d")}}</p>
                                 </div>
-                                <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.imageName }}">
+                                {# <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.imageName }}"> #}
+                                <img class="box-img" src="{{ asset('img/' ~ event.imageName) }}" alt="{{ event.name }} Event Image">
+
                             </div>
                         </div>
                         <div class="box-dawn">
                             <div class="box-dawnLeft">
-                                    <p><a class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
+                                    <p><a hreflang="fr" rel="canonical" class="box-name" href="{{ path("Event_show",{'id':event.id}) }}"> {{event.name }} </a></p>
                                     {# condition counter la place restant pour joindre l'event #}
                                     {% set places_left = event.places - event.participant|length %}
                                     {% if places_left < 0 %}
@@ -36,8 +57,8 @@
                                 {# condition si la utilisateur est admin on affiche la edittion de event et la suprimme #}
                                 {% if is_granted("ROLE_ADMIN") %}
                                 <div class="a-event">
-                                    <a class="fa-solid fa-pen-to-square admin fa-lg"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
-                                    <a class="fa-solid fa-trash-can admin fa-lg" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
+                                    <a hreflang="fr" class="fa-solid fa-pen-to-square admin fa-lg"  href="{{ path('Event_edit', {'id':event.id}) }}"> </a>
+                                    <a hreflang="fr" class="fa-solid fa-trash-can admin fa-lg" href="{{ path('Event_del', {'id':event.id}) }}"> </a>
                                 </div>
                                     
                                 {% endif %}
@@ -175,4 +196,5 @@ var currentPath = window.location.pathname;
 
         } 
     </script>
+    
 {% endblock javascript %}

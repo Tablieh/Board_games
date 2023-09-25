@@ -676,7 +676,7 @@ i.fa-solid.fa-cubes {
 i.fa-solid.fa-hand-peace {
   padding: 7px;
   display: flex;
-  gap: 10px;
+  gap: 7px;
   height: 40px;
   width: 155px;
   color: white;
@@ -2157,7 +2157,7 @@ div.load::before {
 .paused {
   animation-play-state: paused;
 } */
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 0px) and (max-width: 700px) {
   html {
     overflow-x: hidden;
   }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Home - Boread Games{% endblock %}
 {% block body %}
         <nav>
         {# parti menu de navbar #}
@@ -64,9 +64,9 @@
                                        {# condition sur le nemero si est plus que deux on mis avec S ((pluriel)) sinon 1 participant #}
                                             {% set participantCount = event.participant.count() %}
                                             {% if participantCount == 1 %}
-                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
+                                                <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                             {% else %}
-                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
+                                                <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
                                             {% endif %}
                                         {% endfor %}
                                     </ol>
@@ -81,9 +81,9 @@
                                     {% for event in joinedEvents %}
                                         {% set participantCount = event.participant.count() %}
                                         {% if participantCount == 1 %}
-                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
+                                            <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                         {% else %}
-                                            <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </li>
+                                            <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants </li>
                                         {% endif %}
                                     {% endfor %}
                                     </ol>
@@ -99,7 +99,7 @@
                         <ol  class="myOl">
                         {# boucle sur les commentaire de la utilisqteur sur une event #}
                             {% for comment in app.user.opinion %}
-                                <li class="Comment-user">{{ comment.content }} - <a href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </li>
+                                <li class="Comment-user">{{ comment.content }} - <a hreflang="fr" href="{{ path("Event_show",{'id':comment.event.id}) }}">{{ comment.event.name }}</a> </li>
                             {% endfor %}
                         </ol>
                     {% endif %}
@@ -117,15 +117,15 @@
     {% if is_granted("ROLE_USER") %}
         <p class="video-text">Games + Events </p>
         <div class="video-text2">
-            <a href="{{path('app_join_events')}}">Join event</a>
-            <a href="{{path('Event_add')}}">Create event</a>
+            <a hreflang="fr" href="{{path('app_join_events')}}">Join event</a>
+            <a hreflang="fr" href="{{path('Event_add')}}">Create event</a>
         </div>
     {% endif %}
     {# sinon on affiche on msg de error qui dit : PLS Connect To Use Our Site #}
     {% if is_granted('ROLE_USER') == false %}
         <p class="video-not">PLS Connect To Use Our Site </p>
         <div class="video-not1">
-            <a class="video-notA" href="{{ path('app_login') }}">Connexion</a>
+            <a hreflang="fr" class="video-notA" href="{{ path('app_login') }}">Connexion</a>
         </div>
     {% endif %}
     {# condition si la user est bien angestre comme user on affiche la reste de la page #}
@@ -206,9 +206,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member1.jpg" alt="Anna G. Wilhite">
                         <div class="sc">
-                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
+                            <a hreflang="fr" aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a hreflang="fr" aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a hreflang="fr" aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -223,9 +223,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member2.jpg" alt="William S. Baly">
                         <div class="sc">
-                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
+                            <a hreflang="fr" aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a hreflang="fr" aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a hreflang="fr" aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -239,9 +239,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member3.jpg" alt="Maria B. Morales">
                         <div class="sc">
-                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
+                            <a hreflang="fr" aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a hreflang="fr" aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a hreflang="fr" aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -255,9 +255,9 @@
                     <figcaption class="card-header">
                         <img class="img" src="/img/member4.jpg" alt="Luke L. Johnston">
                         <div class="sc">
-                            <a aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                            <a aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
+                            <a hreflang="fr" aria-label="facebook" href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a hreflang="fr" aria-label="twitter" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                            <a hreflang="fr" aria-label="skype" href="https://www.skype.com/"><i class="fa-brands fa-skype"></i></a>
                         </div>
                     </figcaption>
                 </figure>
@@ -286,9 +286,9 @@
                                         sinon on affiche 1 participant  #}
                                             {% set participantCount = event.participant.count() %}
                                             {% if participantCount == 1 %}
-                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
+                                                <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : 1 participant</li>
                                             {% else %}
-                                                <li><a href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
+                                                <li><a hreflang="fr" href="{{ path("Event_show",{'id':event.id}) }}">{{ event.name }}</a> : {{ participantCount }} participants</li>
                                             {% endif %}
                                         {% endfor %}
                                     </ol>
