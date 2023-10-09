@@ -260,10 +260,13 @@ va afficher suaf si on a conecté #}
                             } else {
                             myButtonProfile.style.opacity = "0";
                             }
+                            // en scrollent jusqu'a 40px : il premet de afficher la button scrollToTop
                             const scrollToTop = document.getElementById("myBtn");
                             if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+                            // faire la button visible 
                             scrollToTop.style.opacity = "1";
                             } else {
+                            // faire la button invisible 
                             scrollToTop.style.opacity = "0";
                             }
                         }

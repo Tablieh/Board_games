@@ -84,7 +84,15 @@
                         'gameId' : gameId
                     }) 
             })
+            
             // d'apres recevoir une reponse de la coté serveur ce reponse est expecter d'etre en format json data
+
+            // fonction await qui permet dire attends avant de la syncro de la page
+            // donne moi une reponse de la format json data et le instalise avec la variable rep ((reponse))
+
+            // JSON (JavaScript Object Notation) est un format de données lisible par l'homme et la machine.
+            // Il organise les données en paires clé-valeur, facilitant le stockage et l'échange d'informations structurées.
+            
             .then(async (response) => {
                 const rep = await response.json();
             })

@@ -2157,6 +2157,7 @@ div.load::before {
 .paused {
   animation-play-state: paused;
 } */
+/* media preak point de 0px à 700px pour l'appreail */
 @media screen and (min-width: 0px) and (max-width: 700px) {
   html {
     overflow-x: hidden;
@@ -2627,6 +2628,7 @@ div.load::before {
     display: none;
   }
 }
+/* media preak point de 701px à 1200px pour l'ipade */
 @media only screen and (min-width: 701px) and (max-width: 1200px) {
   html {
     overflow-x: hidden;
