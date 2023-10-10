@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Yatra+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
 .root {
   --playfair: "Playfair Display", serif;
+  --opensans: "Open Sans";
+  --yatra: "Yatra One", cursive;
 }
 html {
   overflow-x: hidden;
@@ -15,7 +16,11 @@ html {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.mar-comment {
+  font-family: var(--yatra);
+  font-size: 13px;
+  font-weight: bolder;
+}
 address,
 dl,
 fieldset,
@@ -38,7 +43,7 @@ header {
 }
 .h2-WelcomePage {
   margin-top: 90px;
-  font-family: var(--playfair);
+  font-family: var(--yatra);
   margin-left: 15px;
 }
 .BoardGame-div {
@@ -236,6 +241,7 @@ main {
   width: 400px;
 }
 .desc {
+  font-family: var(--yatra);
   height: 400px;
   margin-top: 20px;
   overflow: auto;
@@ -290,7 +296,8 @@ footer p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10.4%;
+  /* height: 10.4%; */
+  height: 9.7%;
   background-color: black;
   opacity: 0.5;
   z-index: 1;
@@ -302,33 +309,39 @@ footer p {
   object-fit: cover;
 }
 .video-text {
-  font-family: "Open Sans";
-  font-size: 17px;
+  font-family: var(--playfair);
+  font-size: 22px;
   font-weight: 600;
   position: absolute;
   top: 320px;
-  left: 785px;
+  left: 845px;
   color: #fff;
   z-index: 2;
 }
 
 .video-text2 {
-  font-family: "Open Sans";
-  font-size: 17px;
+  font-family: var(--playfair);
+  font-size: 22px;
   font-weight: 600;
   position: absolute;
   top: 360px;
-  left: 742px;
+  left: 802px;
   text-decoration: none;
   z-index: 2;
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/639127c31795d00e2b0cc4c5_Group%207%20(4).svg"),
     auto !important;
 }
 .video-text2 > a {
+  font-family: var(--playfair);
   text-decoration: none;
   color: #fff;
   padding: 5px;
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
+  width: 120px;
+  border: 3px solid #811575;
+  background-color: #811575;
+  opacity: 0.7;
+  border-radius: 15px;
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
     auto !important;
 }
@@ -336,11 +349,11 @@ footer p {
 .video-text4 {
   align-items: center;
   color: #fff;
-  font-family: "Open Sans";
-  font-size: 17px;
+  font-family: var(--playfair);
+  font-size: 22px;
   font-weight: 600;
   position: absolute;
-  top: 395px;
+  top: 405px;
   left: 590px;
   text-decoration: none;
   z-index: 2;
@@ -348,12 +361,12 @@ footer p {
     auto !important;
 }
 .video-text4 {
-  top: 415px;
-  left: 660px;
+  top: 425px;
+  left: 730px;
 }
 .video-not {
-  font-family: "Open Sans";
-  font-size: 17px;
+  font-family: var(--playfair);
+  font-size: 22px;
   font-weight: 600;
   position: absolute;
   top: 310px;
@@ -362,8 +375,8 @@ footer p {
   color: #fff;
 }
 .video-not1 {
-  font-family: "Open Sans";
-  font-size: 17px;
+  font-family: var(--playfair);
+  font-size: 22px;
   font-weight: 600;
   position: absolute;
   top: 360px;
@@ -382,7 +395,7 @@ footer p {
 .check-p {
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -391,7 +404,7 @@ footer p {
   padding: 15px;
   padding-bottom: 3px;
   padding-left: 0;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-weight: 600;
   color: #565656;
   font-size: 20px;
@@ -407,7 +420,7 @@ footer p {
   text-align: center;
   margin: 0 auto;
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-weight: 700;
 }
 button.start {
@@ -429,13 +442,20 @@ button.start {
   vertical-align: middle;
   margin-left: 5px;
 }
+
 .BoardGame-div h4,
 .h4-form {
-  font-family: "vibes";
+  font-family: var(--yatra);
   font-weight: 700;
   margin-left: 20px;
   width: fit-content;
   width: -moz-fit-content;
+}
+.BoardGame-div h2 {
+  margin-left: 30px;
+}
+.BoardGame-div h4 {
+  margin-left: 40px;
 }
 .form-container,
 .form-content {
@@ -498,6 +518,7 @@ button.start {
   text-transform: capitalize;
 }
 .form-add label {
+  margin-left: 110px;
   padding: 5px;
   font-size: 20px;
   color: var(--color-white);
@@ -511,9 +532,7 @@ button.start {
 input#event_imageFile_file.input-field {
   color: var(--color-white);
 }
-.select {
-  margin-left: 20px;
-}
+
 .form-container .form-add {
   padding: 15px;
   margin-left: 15px;
@@ -522,55 +541,61 @@ form#event_type > * {
   padding: 5px;
   margin: 45px;
 }
-.discription-border {
-  width: 50%;
-  background-color: rgba(122, 122, 184, 0.7);
-}
-input#event_date_event.input-field,
-input#event_imageFile_file.input-field {
+
+input#event_date_event.input-field {
   /* width: 760px; */
   width: 70%;
+  max-height: 35px;
+  min-height: 35px;
 }
 input#event_places.input-field {
   margin: 5px;
   margin-top: 0px;
   /* width: 760px; */
   width: 70%;
-  max-height: 30px;
-  min-height: 28px;
+  max-height: 35px;
+  min-height: 35px;
 }
 input#event_name.input-field {
   margin: 5px;
   margin-top: 0px;
-  max-height: 30px;
-  min-height: 28px;
+  max-height: 35px;
+  min-height: 35px;
   /* width: 760px; */
   width: 70%;
+}
+.discription-border {
+  /* width: 50%; */
+  width: 75%;
+  /* background-color: rgba(122, 122, 184, 0.7); */
 }
 textarea#event_description.input-field {
   margin: 5px;
   margin-top: 0px;
-  max-height: 72px;
-  min-height: 28px;
-  height: 174px;
+  max-height: 150px;
+  height: 100px;
   /* width: 760px;
   max-width: 760px; */
-  width: 70%;
-  max-width: 70%;
+  margin-left: 113px;
+  width: 83%;
+  max-width: 83%;
+  /* width: 70%;
+  max-width: 70%; */
 }
+
 input#event_adresse.input-field {
   margin: 5px;
   margin-top: 0px;
-  max-height: 49px;
-  min-height: 28px;
+  max-height: 35px;
+  min-height: 35px;
   /* width: 760px; */
   width: 70%;
 }
 input#event_cp.input-field {
   margin: 5px;
   margin-top: 0px;
-  max-height: 36px;
-  min-height: 36px;
+  max-height: 35px;
+  min-height: 35px;
   /* width: 760px; */
   width: 70%;
 }
@@ -579,14 +604,49 @@ input#event_city.input-field {
   margin-top: 0px;
   /* width: 760px; */
   width: 70%;
-  max-height: 36px;
-  min-height: 36px;
+  max-height: 35px;
+  min-height: 35px;
 }
 .search {
-  width: 350px;
+  /*  width: 350px; */
   /* width: 70%; */
-  margin-left: 20px;
+  width: 218%;
+  height: 35px;
+  margin-left: -135px;
   margin-bottom: 10px;
+}
+.select {
+  /* margin-left: 20px; */
+  margin-left: -135px;
+  height: 35px;
+  width: 218%;
+}
+/*---------------------------------------buttons upload-------------------------------------------*/
+input#event_imageFile_file.input-field {
+  width: 70%;
+  max-height: 35px;
+  min-height: 35px;
+}
+::-webkit-file-upload-button {
+  border: 3px solid #811575;
+  background-color: #811575;
+  border-radius: 10px;
+  color: white;
+  font-size: large;
+  font-weight: 400;
+  font-family: var(--playfair);
+  cursor: pointer;
+}
+::-webkit-file-upload-button:hover {
+  background-color: #8b177d;
+}
+/*---------------------------------------fin buttons upload-------------------------------------------*/
+.form-games .select,
+.form-games .search {
+  width: auto;
+  height: auto;
+  margin-left: 35px;
+  padding: 10px;
 }
 .grip {
   padding: 10px;
@@ -635,22 +695,25 @@ i.fa-solid.fa-cubes {
   margin-right: 17px;
   font-size: 20px;
   font-weight: 600;
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
+  /* font-family: var(--playfair); */
   color: #b729ba;
 }
 .adress-p {
   text-align: justify;
   margin-left: 20px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
+  /* font-family: var(--playfair); */
   color: #565656;
   width: 150px;
 }
 .box-dawnLeft > p {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
+  /* font-family: var(--playfair); */
   color: #323232;
   padding: 10px;
   padding-bottom: 0;
@@ -687,9 +750,10 @@ i.fa-solid.fa-hand-peace {
 i.fa-solid.fa-hand-peace a {
   cursor: pointer;
   /* padding: 10px; */
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
+  /* font-family: var(--playfair); */
   color: white;
 }
 i.fa-solid.fa-hand-peace a:hover {
@@ -708,7 +772,8 @@ i.fa-solid.fa-hand-peace a:hover {
   margin-left: 20px;
 }
 .learn-more a {
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
+  /* font-family: var(--playfair); */
   color: white;
 }
 .learn-more a:hover {
@@ -750,19 +815,22 @@ i.fa-solid.fa-hand-peace a:hover {
   color: #811683;
 }
 div.gray-text {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
 }
 .desc {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 500;
-  font-family: "Patrick Hand", cursive;
-  color: #565656;
+  /* font-family: "Patrick Hand", cursive; */
+  font-family: var(--yatra);
+  /* color: #565656; */
+  color: #811575;
 }
 .midelle-part > p {
-  font-family: "Patrick Hand", cursive;
-  font-size: 19px;
+  /* font-family: "Patrick Hand", cursive; */
+  font-family: var(--yatra);
+  font-size: 18px;
   font-weight: 700;
   color: #811575;
 }
@@ -770,7 +838,7 @@ div.gray-text {
   cursor: pointer;
   color: #ffffff;
   text-decoration: none;
-  font-family: "Yatra One", cursive;
+  font-family: var(--yatra);
   font-size: 17px;
   padding: 3px;
 }
@@ -797,7 +865,7 @@ div.gray-text {
   border: #ffffff solid 3px;
   padding: 10px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   cursor: pointer;
 }
 .comment-input {
@@ -822,17 +890,21 @@ div.gray-text {
 .btn-event {
   margin-top: 20px;
   margin-left: 660px;
-  background-color: #b729ba;
+  background-color: #811575;
   border-radius: 12px;
 }
+.btn-event:hover {
+  background-color: #8b177d;
+}
 a.lien {
-  margin-top: 20px;
+  /*  margin-top: 20px; */
+  margin-top: 30px;
   position: absolute;
   top: 100px;
   margin-left: 150px;
   color: #b729ba;
-  font-size: medium;
-  font-family: "open sans";
+  font-size: 18px;
+  font-family: var(--opensans);
   font-weight: 700;
 }
 a.lien:hover {
@@ -840,7 +912,8 @@ a.lien:hover {
   text-decoration: none;
 }
 a.lien_show {
-  margin-top: 24px;
+  /* margin-top: 24px; */
+  margin-top: 34px;
   position: absolute;
   top: 100px;
   margin-left: 190px;
@@ -848,11 +921,11 @@ a.lien_show {
   font-size: medium;
   font-size: 16px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
 }
 h1.h3.mb-3.font-weight-normal.h1-log {
   font-size: 26px;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-weight: 700;
   margin: 10 auto;
   margin-left: -15px;
@@ -874,7 +947,7 @@ a.lien_show:hover {
   margin-left: 160px;
   font-size: 16px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   color: rgb(18, 18, 18);
 }
 .btn {
@@ -922,13 +995,13 @@ a.lien_show:hover {
 .border-email {
   font-size: 16px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   border: rgb(18, 18, 18) solid 1px;
 }
 input#inputPassword.input {
   font-size: 16px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   color: rgb(18, 18, 18);
 }
 .lock {
@@ -942,7 +1015,7 @@ h1.h1-reg {
   padding: 15px;
   font-size: x-large;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   color: rgb(18, 18, 18);
   margin-left: -15px;
 }
@@ -967,7 +1040,7 @@ h1.h1-reg {
 }
 .reg-form li {
   font-size: 20px;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #e31010;
 }
 .terms > * {
@@ -996,7 +1069,7 @@ i.fa-solid.fa-list-check {
 .btn-reg {
   font-size: large;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   margin: 0 auto;
   padding: 5px 40px;
   padding-top: -30px;
@@ -1024,7 +1097,7 @@ i.fa-solid.fa-list-check {
   padding-left: 0;
   font-size: 20px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   display: flex;
   flex-wrap: wrap;
   /* gap: 115px; */
@@ -1033,7 +1106,7 @@ i.fa-solid.fa-list-check {
 p .button {
   font-size: 20px;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
 }
 .swiper-slide:hover {
   cursor: pointer;
@@ -1068,12 +1141,14 @@ img.boxImg {
 .join-desc {
   font-size: 20px;
   font-weight: 700;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #148eb7;
 }
 .desc-color {
   margin-left: 10px;
-  font-size: 13px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--yatra);
   color: #414040;
 }
 .place-join i {
@@ -1081,18 +1156,18 @@ img.boxImg {
 }
 .place-join a {
   padding: 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #811575;
   text-decoration: underline;
 }
 .Discripe {
-  color: #5d5d5d;
+  color: #414040;
   width: 550px;
   font-size: 18px;
   font-weight: 400;
-  font-family: "vibes";
+  font-family: var(--yatra);
 }
 .Postal {
   padding: 10px;
@@ -1100,7 +1175,7 @@ img.boxImg {
   width: 550px;
   font-size: 18px;
   font-weight: 700;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #565656;
 }
 .Postal-line {
@@ -1157,6 +1232,11 @@ img.boxImg {
   height: 200px;
   object-fit: cover;
 }
+.adress-p1 {
+  font-family: var(--playfair);
+  text-transform: uppercase;
+  font-size: 16px;
+}
 .date-box1 {
   background-color: #110a2b;
   display: flex;
@@ -1165,22 +1245,33 @@ img.boxImg {
   text-align: center;
   color: #fff;
   height: 200px;
+  font-family: var(--playfair);
+  text-transform: uppercase;
+  font-size: 18px;
 }
 .first-adresse {
-  font-size: 14px;
-  font-weight: 700;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--playfair);
+  text-transform: uppercase;
   color: #1d1d1d;
+}
+.first-adresse > p {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--playfair);
+  text-transform: uppercase;
 }
 .adresse-box1 {
   margin-left: 30px;
   display: flex;
-  gap: 20px;
+  gap: 17px;
   flex-direction: column;
   text-align: justify;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--playfair);
+  text-transform: uppercase;
   color: #565656;
   width: 150px;
 }
@@ -1236,7 +1327,7 @@ img.boxImg {
   padding-top: 30px;
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(225, 225, 225);
@@ -1246,8 +1337,8 @@ img.boxImg {
   color: rgb(240, 240, 240);
   margin: 10px;
   text-align: center;
-  font-family: "Open Sans";
-  font-size: 14px;
+  font-family: var(--opensans);
+  font-size: 18px;
   margin-top: 10px;
   font-weight: 500;
 }
@@ -1262,7 +1353,7 @@ img.boxImg {
 .FEA-titre {
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -1272,20 +1363,20 @@ img.boxImg {
   padding-top: 20px;
 }
 .FEA-p {
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-size: 18px;
   font-weight: 300;
   margin-top: 20px;
   text-align: center;
 }
 .FEA-p1 {
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-size: 18px;
   font-weight: 300;
   text-align: center;
 }
 .FEA-p2 {
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-size: 18px;
   font-weight: 300;
   text-align: center;
@@ -1305,8 +1396,7 @@ img.boxImg {
   text-align: center;
   font-size: 16px;
   font-weight: 700;
-  /* font-family: "Open Sans"; */
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   border: solid 3px #555;
   padding: 6px;
   color: #555;
@@ -1342,7 +1432,7 @@ div.comment {
   margin-left: 20px;
   font-size: 20px;
   font-weight: 500;
-  font-family: "vibes";
+  font-family: var(--yatra);
 }
 .form-comment {
   margin-bottom: 20px;
@@ -1358,7 +1448,7 @@ p .notice {
   left: 65%;
   right: 0;
   font-size: 20px;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #2ac847;
 }
 .alert-error {
@@ -1369,7 +1459,7 @@ p .notice {
   left: 65%;
   right: 0;
   font-size: 20px;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #e31010;
 }
 .error-msg {
@@ -1380,7 +1470,7 @@ p .notice {
   left: 65%;
   right: 5%;
   font-size: 20px;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #e31010;
 }
 .error-msg1 {
@@ -1391,7 +1481,7 @@ p .notice {
   left: 65%;
   right: 5%;
   font-size: 20px;
-  font-family: "vibes";
+  font-family: var(--yatra);
   color: #e31010;
 }
 .left-trash {
@@ -1408,7 +1498,7 @@ p .notice {
 .pag {
   font-size: 18px;
   font-weight: 700;
-  font-family: "vibes";
+  font-family: var(--yatra);
   margin-top: 30px;
   text-decoration: none;
   display: flex;
@@ -1425,34 +1515,35 @@ p .notice {
   object-fit: cover;
 }
 .font-event {
-  padding-top: 50px;
+  padding-top: 70px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
 }
 .font-event1 {
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
 }
 .font-event2 {
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 16px;
+  font-family: var(--playfair);
+  font-size: 18px;
   font-weight: 300;
   color: #fff;
-  padding: 15px;
+  /* padding: 15px; */
+  padding-bottom: 15px;
 }
 
 .count {
   color: #f2f2f2;
-  font-family: "Great Vibes";
-  /* font-family: "Playfair Display", serif; */
+  font-family: var(--playfair);
+  /* font-family: var(--playfair); */
   text-align: center;
   font-size: 42px;
   margin-top: 0px;
@@ -1466,16 +1557,18 @@ p .notice {
   text-align: center;
   font-size: 19px;
   margin-top: 0px;
+  margin-left: 15px;
 }
 .font-event4 {
-  /* font-family: "Great Vibes"; */
-  font-family: "Playfair Display", serif;
+  /* font-family: "Yatra One", cursive; */
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 300;
   color: #fff;
+  text-transform: uppercase;
 }
 .days-content {
-  margin-left: 150px;
+  margin-left: 85px;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -1487,7 +1580,7 @@ p .notice {
   padding: 15px 100px;
   text-decoration: none;
   margin: 4px 2px;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-size: 14px;
   font-weight: 700;
 }
@@ -1530,13 +1623,13 @@ input#file-upload-button {
   cursor: pointer;
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
     auto !important;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
 }
 .h2-invitation {
   margin-bottom: 15px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   color: #323131;
 }
 #report_submit {
@@ -1548,7 +1641,7 @@ input#file-upload-button {
   background-color: rgb(0, 0, 0);
   color: #f2f2f2;
   cursor: pointer;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   padding: 4px 50px;
   margin-top: 30px;
   margin-left: 150px;
@@ -1580,24 +1673,24 @@ input#file-upload-button {
 .text1 {
   width: 100%;
   text-align: center;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-weight: 500;
-  font-size: 13px;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 15px;
 }
 .gray {
   padding-top: 20px;
   color: #a19e9e;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   margin-top: 0px;
 }
 .black {
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -1658,7 +1751,7 @@ input#file-upload-button {
   height: 100px;
   overflow: scroll;
   color: #454146;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 15px;
   font-weight: 600;
 }
@@ -1672,7 +1765,7 @@ input#file-upload-button {
 
 .info-user p {
   color: #271039;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -1685,13 +1778,13 @@ input#file-upload-button {
 }
 .info-user h1 {
   color: #271039;
-  font-family: "Open Sans";
-  font-size: 20px;
+  font-family: var(--opensans);
+  font-size: 18px;
   font-weight: 600;
 }
 .info-user h2 {
   color: #391030;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 30px;
   font-weight: 600;
 }
@@ -1746,7 +1839,7 @@ input#file-upload-button {
 .Created-User,
 .Joined-User > ol {
   font-size: 15px;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   color: rgb(0, 0, 0);
   font-weight: 600;
   text-align: center;
@@ -1769,7 +1862,7 @@ ol.myOl {
   border-radius: 15px;
   padding: 26px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-weight: 600;
   width: 800px;
   margin-top: 20px;
@@ -1777,19 +1870,19 @@ ol.myOl {
   text-align: justify;
 }
 .centre-mention h1 {
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-weight: 600;
   color: #7a0e84;
 }
 .mention-h {
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-weight: 700;
   font-size: 20px;
   color: #28052b;
 }
 .mention-ul {
   margin-left: 20px;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-weight: 700;
   font-size: 15px;
   color: #49094f;
@@ -1833,7 +1926,7 @@ ol.myOl {
 }
 .h3-out {
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -1841,14 +1934,14 @@ ol.myOl {
   /* margin-top: 35px;
   margin-right: 25px;
   margin-bottom: 25px; */
-  width: 600px;
+  width: 630px;
   /* margin-left: 500px; */
   margin: auto;
   padding-top: 120px;
 }
 .p-out {
   padding-bottom: 10px;
-  font-family: "Open Sans";
+  font-family: var(--opensans);
   font-size: 18px;
   font-weight: 300;
   color: #555;
@@ -1877,30 +1970,38 @@ ol.myOl {
   margin-bottom: 90px;
 }
 .flex-h3 {
+  font-weight: 600;
+  font-family: var(--playfair);
   color: rgb(2, 2, 2);
   margin-left: 60px;
   font-size: x-large;
 }
 .flex-p {
+  font-weight: 600;
+  font-family: var(--playfair);
   color: #555;
   margin-left: 50px;
   margin-bottom: 25px;
-  font-size: 13px;
+  font-size: 18px;
 }
 .flex2-h3 {
+  font-weight: 700;
+  font-family: var(--playfair);
   color: rgb(2, 2, 2);
   margin-left: 30px;
-  font-size: large;
+  font-size: 18px;
   margin-bottom: 6px;
 }
 .flex2-p {
+  font-weight: 400;
+  font-family: var(--playfair);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   color: #555;
   margin-left: 30px;
   margin-bottom: 35px;
-  font-size: 14px;
+  font-size: 18px;
 }
 .img {
   margin: 2%;
@@ -1956,6 +2057,8 @@ ol.myOl {
   color: rgb(8, 8, 8);
 }
 .accordion {
+  font-weight: 600;
+  font-family: var(--playfair);
   background-color: white;
   color: #2f2e2e;
   cursor: url("https://uploads-ssl.webflow.com/62af52cf612c974768d3d8c9/6391280847a38f3cf5faf282_Group%202%20(7).svg"),
@@ -2032,7 +2135,7 @@ ol.myOl {
 .tout-acc > .acc-p {
   padding-top: 5px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: 32px;
   font-weight: 600;
   color: rgb(0, 0, 0);
@@ -2047,13 +2150,13 @@ Form#event_type {
   border-radius: 5px;
   border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: medium;
   font-weight: 700;
   padding: 10px 4px;
 }
 .h2-invitation1 {
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   font-size: medium;
   font-weight: 700;
   color: rgb(86, 86, 86);
@@ -2064,7 +2167,7 @@ Form#event_type {
   padding: 10px 4px;
   border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
 }
 #report_submit {
   margin-left: 420px;
@@ -2072,14 +2175,14 @@ Form#event_type {
   padding: 10px 16px;
   border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
 }
 #report_issueDescription {
   width: 380px;
   padding: 10px 4px;
   border: rgb(214 204 204) solid 2px;
   color: rgb(86, 86, 86);
-  font-family: "Playfair Display", serif;
+  font-family: var(--playfair);
   resize: vertical;
   max-height: 100px;
 }
@@ -2362,11 +2465,17 @@ div.load::before {
     height: 30vh;
     text-align: unset;
   }
-
+  .footer-left {
+    width: 120px;
+  }
   .footer-mid {
+    top: 165px;
+    left: 28%;
+  }
+  /* .footer-mid {
     top: 150px;
     right: 48%;
-  }
+  } */
   .footer-right {
     right: 0.5%;
   }
@@ -2401,6 +2510,19 @@ div.load::before {
   .search,
   .select {
     width: 280px;
+    margin-left: 0;
+  }
+  .form-add label {
+    margin-left: 5px;
+  }
+  input#file-upload-button {
+    margin-left: 10px;
+  }
+  input#event_imageFile_file.input-field {
+    width: fit-content;
+  }
+  textarea#event_description.input-field {
+    margin-left: -10px;
   }
   .btn-event {
     margin-left: 120px;
@@ -2409,11 +2531,9 @@ div.load::before {
   .form-container:after {
     left: 85%;
   }
+
   .add {
     display: none;
-  }
-  input#event_imageFile_file.input-field {
-    width: 88%;
   }
   .box-container {
     margin-left: 10px;
@@ -2501,8 +2621,7 @@ div.load::before {
   input#event_adresse.input-field,
   input#event_cp.input-field,
   input#event_city.input-field,
-  input#event_date_event.input-field,
-  input#event_imageFile_file.input-field {
+  input#event_date_event.input-field {
     width: 90%;
   }
   .reg-form2 > div {
@@ -2627,9 +2746,52 @@ div.load::before {
   .overlay {
     display: none;
   }
+  .comment-button {
+    margin-left: 0;
+  }
+  a.lien_show,
+  a.lien {
+    margin-top: 15px;
+  }
+  .form-games .select,
+  .form-games .search {
+    margin: 20px;
+    width: 50%;
+  }
+  .font-event {
+    padding-top: 35px;
+  }
+  .font-event4 {
+    font-size: 22px;
+  }
 }
 /* media preak point de 701px à 1200px pour l'ipade */
 @media only screen and (min-width: 701px) and (max-width: 1200px) {
+  .BoardGame-div h4,
+  .h4-form {
+    margin-left: 35px;
+  }
+  .img {
+    margin: 25px;
+  }
+  .form-games .select,
+  .form-games .search {
+    margin-top: 10px;
+  }
+  .info {
+    height: 40vh;
+  }
+  .event-content {
+    margin-left: 20px;
+    /* display: flex;
+    flex-wrap: nowrap; */
+  }
+  .display {
+    width: 500px;
+  }
+  .comment-input {
+    margin-top: 20px;
+  }
   html {
     overflow-x: hidden;
 
@@ -2749,19 +2911,15 @@ div.load::before {
   .Discripe {
     width: fit-content;
   }
-  .event-content {
-    margin-left: 20px;
-    display: flex;
-    flex-wrap: nowrap;
-  }
+
   .game-info {
     display: block;
     width: fit-content;
   }
-  .display {
+  /*  .display {
     display: flex;
     flex-direction: row;
-  }
+  } */
   .map {
     flex: 2;
   }
@@ -2796,8 +2954,9 @@ div.load::before {
     margin-left: 15px;
   }
   a.lien_show {
-    top: 200px;
-    left: -20%;
+    top: 6%;
+    left: 2.5%;
+    margin-left: 0;
   }
   .grip,
   .box-container {
@@ -2806,7 +2965,7 @@ div.load::before {
   .event {
     display: none;
   }
-  input#event_name.input-field,
+  /* input#event_name.input-field,
   input#event_places.input-field,
   textarea#event_description.input-field,
   input#event_adresse.input-field,
@@ -2815,7 +2974,7 @@ div.load::before {
   input#event_date_event.input-field,
   input#event_imageFile_file.input-field {
     width: 50%;
-  }
+  } */
   .form-container {
     width: 100%;
   }

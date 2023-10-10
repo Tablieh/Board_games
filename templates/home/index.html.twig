@@ -115,7 +115,7 @@
     <div class="overlay"></div>
     {# condition si la user est bien angestre comme user on affiche ce deux partie de join et create event #}
     {% if is_granted("ROLE_USER") %}
-        <p class="video-text">Games + Events </p>
+       {# <p class="video-text">Games + Events</p> #}
         <div class="video-text2">
             <a hreflang="fr" href="{{path('app_join_events')}}">Join event</a>
             <a hreflang="fr" href="{{path('Event_add')}}">Create event</a>
@@ -394,7 +394,7 @@
                             <p>-Seconds</p>
                         </div>
                 </div>
-                <p class="font-event4">  ...until we get to the next event</p>
+                <p class="font-event4">  ...until the last event</p>
             </div>
              {# <p class="font-event3">
                 Thank you so much for visiting our website!
