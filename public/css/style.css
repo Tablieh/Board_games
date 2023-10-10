@@ -737,7 +737,7 @@ i.fa-solid.fa-cubes {
   border-radius: 10px;
 }
 i.fa-solid.fa-hand-peace {
-  padding: 7px;
+  padding: 9px;
   display: flex;
   gap: 7px;
   height: 40px;
@@ -750,7 +750,7 @@ i.fa-solid.fa-hand-peace {
 i.fa-solid.fa-hand-peace a {
   cursor: pointer;
   /* padding: 10px; */
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   font-family: var(--yatra);
   /* font-family: var(--playfair); */
@@ -765,7 +765,7 @@ i.fa-solid.fa-hand-peace a:hover {
 .learn-more {
   width: 120px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   border: 3px solid #811575;
   background-color: #811575;
   border-radius: 10px;
