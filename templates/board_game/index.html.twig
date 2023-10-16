@@ -5,7 +5,7 @@
 {% block body %}
 {# condition si la role est utilisateur on affiche la liens de rederect sur l'events #}
 {% if is_granted("ROLE_USER") %}
-        <a class="lien_show" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
+        <a class="lien_show1" href="{{ path('app_join_events') }}" ><i class="fa-solid fa-angle-left"></i>- Previous Page </a>
 {% endif %}
 {# partie search une jeu #}
     <div class="BoardGame-div">

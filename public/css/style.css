@@ -923,6 +923,16 @@ a.lien_show {
   font-weight: 700;
   font-family: var(--playfair);
 }
+a.lien_show1 {
+  position: absolute;
+  top: 130px;
+  margin-left: 30px;
+  color: #b729ba;
+  font-size: medium;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--playfair);
+}
 h1.h3.mb-3.font-weight-normal.h1-log {
   font-size: 26px;
   font-family: var(--playfair);
@@ -934,6 +944,10 @@ h1.h3.mb-3.font-weight-normal.h1-log {
   color: rgba(18, 18, 18);
 }
 a.lien_show:hover {
+  color: #eaa3eb;
+  text-decoration: none;
+}
+a.lien_show1:hover {
   color: #eaa3eb;
   text-decoration: none;
 }
@@ -2553,6 +2567,10 @@ div.load::before {
   div.comment {
     margin-left: 20px;
   }
+  a.lien_show1 {
+    margin-left: 30px;
+    margin-top: -40px;
+  }
   .up-part,
   .Postal {
     font-size: medium;
@@ -2977,5 +2995,20 @@ div.load::before {
   } */
   .form-container {
     width: 100%;
+  }
+  .centre-mention {
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 50px;
+  }
+  a.lien {
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+  .lien_show1 {
+    margin-top: 50px;
+  }
+  .BoardGame-div {
+    margin-left: 50px;
   }
 }
