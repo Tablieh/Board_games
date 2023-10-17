@@ -2782,9 +2782,18 @@ div.load::before {
   .font-event4 {
     font-size: 22px;
   }
+  .form-group {
+    margin-left: 10px;
+  }
+  .BoardGame-div h4 {
+    margin-left: 30px;
+  }
 }
 /* media preak point de 701px à 1200px pour l'ipade */
 @media only screen and (min-width: 701px) and (max-width: 1200px) {
+  .desc {
+    margin-left: 30px;
+  }
   .BoardGame-div h4,
   .h4-form {
     margin-left: 35px;
@@ -2801,14 +2810,12 @@ div.load::before {
   }
   .event-content {
     margin-left: 20px;
-    /* display: flex;
-    flex-wrap: nowrap; */
   }
   .display {
     width: 500px;
   }
-  .comment-input {
-    margin-top: 20px;
+  div .boucle > .comment-item {
+    margin-left: 30px;
   }
   html {
     overflow-x: hidden;
@@ -2950,7 +2957,10 @@ div.load::before {
   }
   .midelle-part {
     justify-content: unset;
-    gap: 100px;
+    gap: 80px;
+  }
+  .img1 {
+    display: none;
   }
   .event-container {
     margin-bottom: 30px;
