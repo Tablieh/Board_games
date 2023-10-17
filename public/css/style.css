@@ -2788,6 +2788,9 @@ div.load::before {
   .BoardGame-div h4 {
     margin-left: 30px;
   }
+  .navbar .menu-items {
+    background: black;
+  }
 }
 /* media preak point de 701px à 1200px pour l'ipade */
 @media only screen and (min-width: 701px) and (max-width: 1200px) {
