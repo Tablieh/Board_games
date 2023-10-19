@@ -16,6 +16,14 @@ html {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  color: #b729ba;
+}
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  color: #b729ba;
+}
 .mar-comment {
   font-family: var(--yatra);
   font-size: 13px;
@@ -1405,6 +1413,17 @@ img.boxImg {
   text-align: center;
   margin: 0 auto;
 }
+.FEA-a:hover {
+  color: #b729ba;
+  text-decoration: none;
+}
+footer a {
+  color: #b729ba;
+}
+footer a:hover {
+  text-decoration: none;
+  color: #ca77cb;
+}
 .FEA-a {
   width: 100%;
   text-align: center;
@@ -2068,7 +2087,8 @@ ol.myOl {
   border-radius: 50%;
   padding: 8px;
   background-color: #ffffff;
-  color: rgb(8, 8, 8);
+  /* color: rgb(8, 8, 8); */
+  color: #b729ba;
 }
 .accordion {
   font-weight: 600;
@@ -2872,7 +2892,7 @@ div.load::before {
     margin-right: 10px;
   }
   .navbar .nav-container a {
-    color: #ac00af;
+    /* color: #ac00af; */
     font-weight: bolder;
     font-size: 30px;
   }
@@ -3007,7 +3027,10 @@ div.load::before {
     width: 50%;
   } */
   .form-container {
-    width: 100%;
+    width: 95%;
+  }
+  .btn-event {
+    margin-left: 580px;
   }
   .centre-mention {
     margin-top: 50px;
